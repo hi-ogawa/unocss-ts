@@ -1,10 +1,5 @@
 lockfileVersion: 5.4
 
-patchedDependencies:
-  '@unocss/cli@0.49.1':
-    hash: iy5qpzxg5brpiaa4seni3kkexu
-    path: patches/@unocss__cli@0.49.1.patch
-
 importers:
 
   .:
@@ -13,9 +8,8 @@ importers:
       '@tsconfig/strictest': ^1.0.2
       '@typescript-eslint/eslint-plugin': ^5.48.2
       '@typescript-eslint/parser': ^5.48.2
-      '@unocss/autocomplete': ^0.49.1
-      '@unocss/cli': ^0.49.1
       '@unocss/config': ^0.49.1
+      '@unocss/core': ^0.49.1
       eslint: ^8.32.0
       eslint-plugin-import: ^2.27.5
       npm-run-all: ^4.1.5
@@ -29,9 +23,8 @@ importers:
       '@tsconfig/strictest': 1.0.2
       '@typescript-eslint/eslint-plugin': 5.49.0_iu322prlnwsygkcra5kbpy22si
       '@typescript-eslint/parser': 5.49.0_7uibuqfxkfaozanbtbziikiqje
-      '@unocss/autocomplete': 0.49.1
-      '@unocss/cli': 0.49.1_iy5qpzxg5brpiaa4seni3kkexu
       '@unocss/config': 0.49.1
+      '@unocss/core': 0.49.1
       eslint: 8.32.0
       eslint-plugin-import: 2.27.5_6savw6y3b7jng6f64kgkyoij64
       npm-run-all: 4.1.5
@@ -1065,12 +1058,6 @@ packages:
       - vite
     dev: true
 
-  /@unocss/autocomplete/0.49.1:
-    resolution: {integrity: sha512-QiWz5VXhxENQmN3HivxPxCxJkc4t7BHk6lpCK0//vZDQLvN0wN8eq6INuyT4+HH649feQdjLKPcZzx774EqHRg==}
-    dependencies:
-      lru-cache: 7.14.1
-    dev: true
-
   /@unocss/cli/0.48.5:
     resolution: {integrity: sha512-xFz5iPc9t3sDDZyPq/1Sy83tpMUFSSPm7FUCVucaJ9LmROFii5yy1L+aILecUMRVfx3VN5TpJ1eqNB3Yqx63Yg==}
     engines: {node: '>=14'}
@@ -1093,7 +1080,7 @@ packages:
       - rollup
     dev: true
 
-  /@unocss/cli/0.49.1_iy5qpzxg5brpiaa4seni3kkexu:
+  /@unocss/cli/0.49.1:
     resolution: {integrity: sha512-fsGLCx4PpqL4mnFlP3MFd7xpp6K9k7O4zFxr9C1oBl2REcJcx1vc9AzyMKUuDuayl7beHDesRTjX5QOdE+bLAg==}
     engines: {node: '>=14'}
     hasBin: true
@@ -1114,7 +1101,6 @@ packages:
     transitivePeerDependencies:
       - rollup
     dev: true
-    patched: true
 
   /@unocss/config/0.48.5:
     resolution: {integrity: sha512-b1HThifrJLUTYDxeaoL02blk/IMCtbode5pv57mVpBY7v29XICkcfe2PW27BQHIsEmI6LdFICjAB0Xn9kwrRyQ==}
@@ -2921,11 +2907,6 @@ packages:
       yallist: 4.0.0
     dev: true
 
-  /lru-cache/7.14.1:
-    resolution: {integrity: sha512-ysxwsnTKdAx96aTRdhDOCQfDgbHnt8SK0KY8SEjO0wHinhWOFTESbjVCMPbU1uGXg/ch4lifqx0wfjOawU2+WA==}
-    engines: {node: '>=12'}
-    dev: true
-
   /magic-string/0.27.0:
     resolution: {integrity: sha512-8UnnX2PeRAPZuN12svgR9j7M1uWMovg/CEnIwIG0LFkXSJJe4PdfUGiTGl8V9bsBHFUtfVINcSyYxd7q+kx9fA==}
     engines: {node: '>=12'}
@@ -4355,7 +4336,7 @@ packages:
         optional: true
     dependencies:
       '@unocss/astro': 0.49.1
-      '@unocss/cli': 0.49.1_iy5qpzxg5brpiaa4seni3kkexu
+      '@unocss/cli': 0.49.1
       '@unocss/core': 0.49.1
       '@unocss/preset-attributify': 0.49.1
       '@unocss/preset-icons': 0.49.1

@@ -1,8 +1,5 @@
-// npx tsx src/experiment.mts | tee src/generated.ts
-
-// patched to expose internal @unocss/shared-integration
-// https://github.com/unocss/unocss/blob/2e74b31625bbe3b9c8351570749aa2d3f799d919/packages/shared-integration/src/context.ts
-import { createContext } from "@unocss/cli";
+import { loadConfig } from "@unocss/config";
+import { createGenerator } from "@unocss/core";
 
 // escape hatch to allow arbitrary class string
 const HACK_RULE = "_";
@@ -18,6 +15,11 @@ const AUTOCOMPLETE_BUILTIN = {
 } satisfies Record<string, string[]>;
 
 async function generateApi() {
+  // initialize uno context
+  const config = await loadConfig();
+  const uno = createGenerator(config.config);
+  const ctx = { uno };
+
   //
   // emit main typescript api
   //
@@ -50,9 +52,6 @@ export type Api = ApiProperty & ApiMethod & ApiHack & string;
 // auto-generated based on unocss config
 //
 `);
-
-  const ctx = await createContext();
-  await ctx.ready;
 
   //
   // theme (e.g. colors, breakpoint) used for dynamic rule definition
