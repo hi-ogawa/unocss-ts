@@ -1,3 +1,4 @@
+import { tinyassert } from "@hiogawa/utils";
 import { loadConfig } from "@unocss/config";
 import { createGenerator } from "@unocss/core";
 
@@ -106,14 +107,14 @@ export type Api = ApiProperty & ApiMethod & ApiHack & string;
   console.log(toStringUnionType("RuleStatic", rulesStaticApi));
 
   //
-  // TODO: dynamic rule (e.g. ml-2)
+  // dynamic rule (e.g. ml-2)
   //
   const rulesDynamic: string[] = [];
   for (const rule of ctx.uno.config.rulesDynamic) {
     const meta = rule[3];
     const autocompletes = [meta?.autocomplete ?? []].flat();
     for (const autocomplete of autocompletes) {
-      rulesDynamic.push(resolveAutocompleteV2(autocomplete));
+      rulesDynamic.push(resolveAutocomplete(autocomplete));
     }
   }
   const rulesDynamicApi = rulesDynamic.map((rule) => rule.replaceAll("-", "_"));
@@ -140,8 +141,7 @@ export type Api = ApiProperty & ApiMethod & ApiHack & string;
       if (autocomplete.startsWith(".")) {
         autocomplete = autocomplete.slice(1);
       }
-      // variants.push(...resolveAutocomplete(autocomplete, ctx.uno.config.theme));
-      variants.push(resolveAutocompleteV2(autocomplete));
+      variants.push(resolveAutocomplete(autocomplete));
     }
   }
   const variantsApi = variants.map((rule) => rule.replaceAll("-", "_"));
@@ -172,16 +172,14 @@ ${values.map((s) => `  | \`${s}\``).join("\n") || "  | never"};
 //
 // based on https://github.com/unocss/unocss/blob/2e74b31625bbe3b9c8351570749aa2d3f799d919/packages/autocomplete/src/parse.ts#L31
 //
-function resolveAutocompleteV2(template: string): string {
+function resolveAutocomplete(template: string): string {
   let result = "";
   mapRegex(
     template,
     /<(\w+)>/g,
     (builtin) => {
       builtin = builtin.slice(1, -1);
-      if (!(builtin in AUTOCOMPLETE_BUILTIN)) {
-        throw new Error(`invalid autocomplete: ${template}`);
-      }
+      tinyassert(builtin in AUTOCOMPLETE_BUILTIN);
       const type = `Autocomplete_${builtin}`;
       result += "${" + type + "}";
     },
@@ -235,11 +233,12 @@ function mapRegex(
 ) {
   let lastIndex = 0;
   for (const m of input.matchAll(regex)) {
-    if (lastIndex < m.index!) {
+    tinyassert(typeof m.index === "number");
+    if (lastIndex < m.index) {
       onNonMatch(input.slice(lastIndex, m.index));
     }
     onMatch(m[0]);
-    lastIndex = m.index! + m[0].length;
+    lastIndex = m.index + m[0].length;
   }
   if (lastIndex < input.length) {
     onNonMatch(input.slice(lastIndex));
@@ -267,4 +266,8 @@ export function createApiImpl() {
   );
 }
 
-generateApi();
+function main() {
+  generateApi();
+}
+
+main();
