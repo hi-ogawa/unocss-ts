@@ -12,6 +12,14 @@ export default defineConfig({
       "current-page": 'current="page"',
     },
   },
+  shortcuts: {
+    btn: `
+      cursor-pointer
+      transition
+      disabled:(cursor-not-allowed opacity-50)
+      not-disabled:hover:bg-gray-100
+    `,
+  },
   presets: [
     presetUno(),
     presetIcons({

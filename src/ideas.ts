@@ -3,6 +3,7 @@
 // - requires transform before unocss scanning the source
 
 // ## todo
+// - hard to handle "prefix" config?
 // - allow the usage e.g. when defining shortcuts
 // - typescript cannot autocomplete `border_${number}`
 //   - pre-generate with configured range of numbers? (integers, small fractions, ...)
@@ -88,9 +89,10 @@ type ApiImpl = {
   V: (raw: string) => (api: string) => string;
 };
 
+// TODO: how to chain? (maybe Proxy?)
 const apiImpl: Partial<ApiImpl> = {
-  // RuleSimple
-  border_0: "border_0",
+  // Rule
+  border_0: "border-0",
   // ...and more
 
   // Variant
