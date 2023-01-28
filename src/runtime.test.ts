@@ -37,6 +37,13 @@ describe("runtime", () => {
     );
   });
 
+  it("user-defined", () => {
+    const tw = createApi() as Api;
+    expect(tw.text_primary.bg_white.toString()).toMatchInlineSnapshot(
+      '"text-primary bg-white"'
+    );
+  });
+
   it("custom rule", () => {
     const tw = createApi() as Api;
     expect(

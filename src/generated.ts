@@ -907,7 +907,8 @@ type Theme_colors =
   | `blueGray_700`
   | `blueGray_800`
   | `blueGray_900`
-  | `blueGray_DEFAULT`;
+  | `blueGray_DEFAULT`
+  | `primary`;
 
 type Theme_fontFamily =
   | `sans`
@@ -2235,3 +2236,4 @@ type Variant =
 
 type Shortcut =
   | `btn`;
+

@@ -8,6 +8,9 @@ import {
 
 export default defineConfig({
   theme: {
+    colors: {
+      primary: "blue",
+    },
     aria: {
       "current-page": 'current="page"',
     },
