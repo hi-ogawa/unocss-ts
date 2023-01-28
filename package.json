@@ -1,0 +1,32 @@
+{
+  "scripts": {
+    "dev": "run-p dev:*",
+    "dev:tsc": "pnpm tsc --watch --preserveWatchOutput",
+    "tsc": "tsc -b",
+    "lint": "run-s lint:*",
+    "lint-check": "run-s lint-check:*",
+    "lint:prettier": "prettier --write --cache .",
+    "lint-check:prettier": "prettier --check --cache .",
+    "lint:eslint": "pnpm lint-check:eslint --fix",
+    "lint-check:eslint": "eslint . --cache --cache-location node_modules/.cache/.eslintcache --ext .js,.jsx,.ts,.tsx"
+  },
+  "devDependencies": {
+    "@tsconfig/strictest": "^1.0.2",
+    "@typescript-eslint/eslint-plugin": "^5.48.2",
+    "@typescript-eslint/parser": "^5.48.2",
+    "@unocss/cli": "^0.49.1",
+    "@unocss/config": "^0.49.1",
+    "eslint": "^8.32.0",
+    "eslint-plugin-import": "^2.27.5",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.8.3",
+    "tsx": "^3.12.2",
+    "typescript": "^4.9.4",
+    "unocss": "^0.49.1"
+  },
+  "pnpm": {
+    "patchedDependencies": {
+      "@unocss/cli@0.49.1": "patches/@unocss__cli@0.49.1.patch"
+    }
+  }
+}

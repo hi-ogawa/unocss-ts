@@ -1,0 +1,36 @@
+diff --git a/dist/index.d.ts b/dist/index.d.ts
+index 94d53347006a3b7f636b3d573e202fe23fd67fcf..346e9954374d188f511737f7f504e84c3ac36f45 100644
+--- a/dist/index.d.ts
++++ b/dist/index.d.ts
+@@ -15,3 +15,7 @@ declare function resolveOptions(options: CliOptions): Promise<ResolvedCliOptions
+ declare function build(_options: CliOptions): Promise<void>;
+ 
+ export { build, resolveOptions };
++
++import type { UnocssPluginContext, UserConfig } from '@unocss/core'
++declare function createContext(...args: unknown[]): Promise<UnocssPluginContext<UserConfig<any>>>;
++export { createContext };
+diff --git a/dist/index.mjs b/dist/index.mjs
+index 437b52d093cc66f73bc3402e0ddc69484bf962ba..32d47810f29893f9a7b11696d80b0986b37204a9 100644
+--- a/dist/index.mjs
++++ b/dist/index.mjs
+@@ -6,6 +6,7 @@ import 'colorette';
+ import 'perfect-debounce';
+ import '@unocss/core';
+ export { b as build, r as resolveOptions } from './shared/cli.ee87a58e.mjs';
++export { createContext } from './shared/cli.ee87a58e.mjs';
+ import '@rollup/pluginutils';
+ import '@unocss/config';
+ import 'magic-string';
+diff --git a/dist/shared/cli.ee87a58e.mjs b/dist/shared/cli.ee87a58e.mjs
+index ee36a74aeb6df862eb4852d4bd23a4ed4dd46dec..83e078bcb9e21d38e68d81a41df46cdc1c07828c 100644
+--- a/dist/shared/cli.ee87a58e.mjs
++++ b/dist/shared/cli.ee87a58e.mjs
+@@ -20,6 +20,7 @@ const CSS_PLACEHOLDER = "@unocss-placeholder";
+ const defaultExclude = [cssIdRE];
+ const defaultInclude = [/\.(vue|svelte|[jt]sx|mdx?|astro|elm|php|phtml|html)($|\?)/];
+ 
++export { createContext };
+ function createContext(configOrPath, defaults = {}, extraConfigSources = [], resolveConfigResult = () => {
+ }) {
+   let root = process.cwd();
