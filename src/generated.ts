@@ -20,7 +20,7 @@ type ApiMethod = {
 // escape hatch to allow arbitrary values which are not supported by auto-generation
 type ApiCustom = {
   _: (raw: string) => Api; // for rule
-  _V: (raw: string, inner: Api) => Api; // for variant
+  _v: (raw: string, inner: Api) => Api; // for variant
 };
 
 // "string" is to allow assigning to "className" prop
@@ -2235,4 +2235,3 @@ type Variant =
 
 type Shortcut =
   | `btn`;
-

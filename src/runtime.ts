@@ -2,7 +2,7 @@ import { tinyassert } from "@hiogawa/utils";
 
 // escape hatch to allow arbitrary value
 export const CUSTOM_RULE = "_";
-export const CUSTOM_VARIANT = "_V";
+export const CUSTOM_VARIANT = "_v";
 
 // based on https://github.com/Mokshit06/typewind/blob/1526e6c086ca6607f0060ce8ede66474585efde4/packages/typewind/src/evaluate.ts
 export function createApi() {

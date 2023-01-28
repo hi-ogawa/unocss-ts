@@ -47,7 +47,7 @@ describe("runtime", () => {
   it("custom variant", () => {
     const tw = createApi() as Api;
     expect(
-      tw.bg_white._V("aria-selected", tw.bg_gray_100.text_blue_600).toString()
+      tw.bg_white._v("aria-selected", tw.bg_gray_100.text_blue_600).toString()
     ).toMatchInlineSnapshot(
       '"bg-white aria-selected(bg-gray-100 text-blue-600)"'
     );
