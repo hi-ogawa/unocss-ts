@@ -4,4 +4,5 @@ adapting the idea of [typewind](https://github.com/Mokshit06/typewind) to [unocs
 
 ```sh
 npx tsx src/generate-api.ts | tee src/generated.ts
+pnpm test
 ```

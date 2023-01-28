@@ -1,5 +1,5 @@
 //
-// main typescript API
+// typescript API
 //
 
 type Property = RuleStatic | RuleDynamic | Shortcut;
@@ -13,14 +13,14 @@ type ApiMethod = {
   [key in Method]: (inner: Api) => Api;
 };
 
-// escape hatch to allow arbitrary string
-type ApiHack = {
+// escape hatch to allow arbitrary values which are not supported by auto-generation
+type ApiCustom = {
   _: (raw: string) => Api; // for rule
-  _V: (raw: string) => (inner: Api) => Api; // for variant
+  _V: (raw: string, inner: Api) => Api; // for variant
 };
 
 // "string" is to allow assigning to "className" prop
-export type Api = ApiProperty & ApiMethod & ApiHack & string;
+export type Api = ApiProperty & ApiMethod & ApiCustom & string;
 
 //
 // auto-generated based on unocss config

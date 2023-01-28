@@ -1,19 +1,7 @@
 import { tinyassert } from "@hiogawa/utils";
 import { loadConfig } from "@unocss/config";
 import { createGenerator } from "@unocss/core";
-
-// escape hatch to allow arbitrary class string
-const HACK_RULE = "_";
-const HACK_VARIANT = "_V";
-
-// hard-coded autocomplete shorthands https://github.com/unocss/unocss/blob/2e74b31625bbe3b9c8351570749aa2d3f799d919/packages/autocomplete/src/parse.ts#L3-L7
-const AUTOCOMPLETE_BUILTIN = {
-  // adding "${number}" will cause some inconveniences e.g.
-  //   Property 'm_1' comes from an index signature, so it must be accessed with ['m_1']
-  num: [0, 1, 2, 3, 4, 5, 6, 8, 10, 12, 24, 36].map(String),
-  percent: Array.from({ length: 11 }, (_, i) => i * 10).map(String),
-  directions: ["x", "y", "t", "b", "l", "r", "s", "e"],
-} satisfies Record<string, string[]>;
+import { CUSTOM_RULE, CUSTOM_VARIANT } from "./runtime";
 
 async function generateApi() {
   // initialize uno context
@@ -26,7 +14,7 @@ async function generateApi() {
   //
   console.log(`\
 //
-// main typescript API
+// typescript API
 //
 
 type Property = RuleStatic | RuleDynamic | Shortcut;
@@ -40,14 +28,14 @@ type ApiMethod = {
   [key in Method]: (inner: Api) => Api;
 };
 
-// escape hatch to allow arbitrary string
-type ApiHack = {
-  ${HACK_RULE}: (raw: string) => Api; // for rule
-  ${HACK_VARIANT}: (raw: string) => (inner: Api) => Api; // for variant
+// escape hatch to allow arbitrary values which are not supported by auto-generation
+type ApiCustom = {
+  ${CUSTOM_RULE}: (raw: string) => Api; // for rule
+  ${CUSTOM_VARIANT}: (raw: string, inner: Api) => Api; // for variant
 };
 
 // "string" is to allow assigning to "className" prop
-export type Api = ApiProperty & ApiMethod & ApiHack & string;
+export type Api = ApiProperty & ApiMethod & ApiCustom & string;
 
 //
 // auto-generated based on unocss config
@@ -162,6 +150,19 @@ export type Api = ApiProperty & ApiMethod & ApiHack & string;
   console.log(toStringUnionType("Shortcut", shortcutsApi));
 }
 
+//
+// misc
+//
+
+// hard-coded autocomplete shorthands https://github.com/unocss/unocss/blob/2e74b31625bbe3b9c8351570749aa2d3f799d919/packages/autocomplete/src/parse.ts#L3-L7
+const AUTOCOMPLETE_BUILTIN = {
+  // adding "${number}" will cause some inconveniences e.g.
+  //   Property 'm_1' comes from an index signature, so it must be accessed with ['m_1']
+  num: [0, 1, 2, 3, 4, 5, 6, 8, 10, 12, 24, 36].map(String),
+  percent: Array.from({ length: 11 }, (_, i) => i * 10).map(String),
+  directions: ["x", "y", "t", "b", "l", "r", "s", "e"],
+} satisfies Record<string, string[]>;
+
 function toStringUnionType(name: string, values: string[]): string {
   return `\
 type ${name} =
@@ -172,6 +173,8 @@ ${values.map((s) => `  | \`${s}\``).join("\n") || "  | never"};
 //
 // based on https://github.com/unocss/unocss/blob/2e74b31625bbe3b9c8351570749aa2d3f799d919/packages/autocomplete/src/parse.ts#L31
 //
+
+// (w|h)-$width => `${ "w" | "h" }-${Theme_width}`
 function resolveAutocomplete(template: string): string {
   let result = "";
   mapRegex(
@@ -245,26 +248,9 @@ function mapRegex(
   }
 }
 
-// TODO
-export function createApiImpl() {
-  // based on https://github.com/Mokshit06/typewind/blob/1526e6c086ca6607f0060ce8ede66474585efde4/packages/typewind/src/evaluate.ts
-  return new Proxy(
-    {},
-    {
-      get(self: any, p: string) {
-        if (p === "toString") {
-        }
-        if (p === HACK_RULE) {
-          arguments;
-        }
-        if (p === HACK_VARIANT) {
-          arguments;
-        }
-        return self;
-      },
-    }
-  );
-}
+//
+// main
+//
 
 function main() {
   generateApi();

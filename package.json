@@ -3,6 +3,7 @@
     "dev": "run-p dev:*",
     "dev:tsc": "pnpm tsc --watch --preserveWatchOutput",
     "tsc": "tsc -b",
+    "test": "vitest",
     "lint": "run-s lint:*",
     "lint-check": "run-s lint-check:*",
     "lint:prettier": "prettier --write --cache .",
@@ -22,7 +23,8 @@
     "prettier": "^2.8.3",
     "tsx": "^3.12.2",
     "typescript": "^4.9.4",
-    "unocss": "^0.49.1"
+    "unocss": "^0.49.1",
+    "vitest": "^0.28.3"
   },
   "dependencies": {
     "@hiogawa/utils": "^1.0.0"

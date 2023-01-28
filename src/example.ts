@@ -10,3 +10,6 @@ tw.animate_spin.sm(tw.hidden);
 
 // user-defined shortcut
 tw.btn.disabled(tw.text_red_600.bg_red_50);
+
+// custom
+tw._("bg-[#123]")._V("aria-selected", tw.bg_gray_100);
