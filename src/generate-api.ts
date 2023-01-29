@@ -5,8 +5,6 @@ import { Minimatch } from "minimatch";
 import { mapRegex } from "./regex-utils";
 import { API_DEFINITION } from "./runtime";
 
-// TODO: unit test
-
 export interface GenerateApiOptions {
   cwd?: string;
   configPath?: string;

@@ -1,3 +1,5 @@
+// used for unit test (e.g. generate-api.test.ts)
+
 import { defineConfig, presetUno } from "unocss";
 
 export default defineConfig({
