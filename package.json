@@ -1,11 +1,19 @@
 {
   "name": "@hiogawa/unocss-typescript-dsl",
   "version": "1.0.0-pre.0",
-  "type": "commonjs",
+  "type": "module",
   "main": "./dist/index.js",
-  "types": "./dist/index.d.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
   "files": [
-    "./dist/*"
+    "dist"
   ],
   "scripts": {
     "dev": "run-p dev:*",
@@ -22,7 +30,7 @@
     "release": "pnpm publish --no-git-checks --access public"
   },
   "devDependencies": {
-    "@hiogawa/utils": "^1.0.0",
+    "@hiogawa/utils": "^1.0.2",
     "@tsconfig/strictest": "^1.0.2",
     "@types/node": "^16.18.11",
     "@typescript-eslint/eslint-plugin": "^5.49.0",
