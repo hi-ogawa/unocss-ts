@@ -8,6 +8,7 @@ notable differences are:
 - the runtime itself is not tied to uno config and thus DSL can be used anywhere (e.g. when defining `shortcuts`).
 
 see `packages/example` for the usage.
+an example of auto-generated typescript api is found at [`packages/example/src/styles/tw-api.ts`](packages/example/src/styles/tw-api.ts).
 
 ```sh
 # development
