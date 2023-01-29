@@ -1,0 +1,21 @@
+name: ci
+on:
+  push:
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 7
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: pnpm
+      - run: pnpm i --frozen-lockfile
+      - run: pnpm lint-check
+      # TODO: unused definitions in `generated.ts`
+      # - run: pnpm tsc
+      - run: npx tsx src/generate-api.ts | tee src/generated.ts
+      - run: pnpm test
