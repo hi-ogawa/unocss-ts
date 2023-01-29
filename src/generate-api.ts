@@ -1,12 +1,8 @@
 import { tinyassert } from "@hiogawa/utils";
 import { loadConfig } from "@unocss/config";
 import { createGenerator } from "@unocss/core";
-import {
-  API_DEFINITION,
-  PROP_CUSTOM_RULE,
-  PROP_CUSTOM_VARIANT,
-  PROP_TO_STRING,
-} from "./runtime";
+import { mapRegex } from "./regex-utils";
+import { API_DEFINITION } from "./runtime";
 
 async function generateApi() {
   // initialize uno context
@@ -167,8 +163,10 @@ function resolveAutocomplete(template: string): string {
   mapRegex(
     template,
     /<(\w+)>/g,
-    (builtin) => {
-      builtin = builtin.slice(1, -1);
+    (match) => {
+      const builtin = match[1];
+      // builtin = builtin.slice(1, -1);
+      tinyassert(builtin);
       tinyassert(builtin in AUTOCOMPLETE_BUILTIN);
       const type = `Autocomplete_${builtin}`;
       result += "${" + type + "}";
@@ -177,8 +175,10 @@ function resolveAutocomplete(template: string): string {
       mapRegex(
         other,
         /\((.*?)\)/g,
-        (group) => {
-          group = group.slice(1, -1);
+        (match) => {
+          const group = match[1];
+          tinyassert(group);
+          // group = group.slice(1, -1);
           const type = group
             .split("|")
             .map((e) => `"${e}"`)
@@ -189,8 +189,10 @@ function resolveAutocomplete(template: string): string {
           mapRegex(
             other,
             /\$([\w\.\|]+)/g,
-            (theme) => {
-              theme = theme.slice(1);
+            (match) => {
+              let theme = match[1];
+              tinyassert(theme);
+              // theme = theme.slice(1);
               // handle a few known exceptional cases
               // (w|h)-$width|height|maxWidth|maxHeight|minWidth|minHeight|inlineSize|blockSize|maxInlineSize|maxBlockSize|minInlineSize|minBlockSize
               if (theme.includes("|")) {
@@ -212,27 +214,6 @@ function resolveAutocomplete(template: string): string {
     }
   );
   return result;
-}
-
-// based on https://github.com/unocss/unocss/blob/2e74b31625bbe3b9c8351570749aa2d3f799d919/packages/autocomplete/src/parse.ts#L11
-function mapRegex(
-  input: string,
-  regex: RegExp,
-  onMatch: (part: string) => void,
-  onNonMatch: (part: string) => void
-) {
-  let lastIndex = 0;
-  for (const m of input.matchAll(regex)) {
-    tinyassert(typeof m.index === "number");
-    if (lastIndex < m.index) {
-      onNonMatch(input.slice(lastIndex, m.index));
-    }
-    onMatch(m[0]);
-    lastIndex = m.index + m[0].length;
-  }
-  if (lastIndex < input.length) {
-    onNonMatch(input.slice(lastIndex));
-  }
 }
 
 //

@@ -1,8 +1,9 @@
 import { tinyassert } from "@hiogawa/utils";
 
+// TODO: configurable
+export const API_NAME = "tw";
 export const PROP_CUSTOM_RULE = "_";
 export const PROP_CUSTOM_VARIANT = "_v";
-
 export const PROP_TO_STRING = "$";
 
 //
