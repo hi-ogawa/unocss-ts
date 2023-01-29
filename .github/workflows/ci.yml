@@ -17,4 +17,5 @@ jobs:
       - run: pnpm lint-check
       - run: npx tsx src/generate-api.ts | tee src/generated.ts
       - run: pnpm tsc
+      - run: pnpm build
       - run: pnpm test

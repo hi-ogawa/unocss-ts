@@ -1,9 +1,16 @@
 {
   "name": "@hiogawa/unocss-typescript-dsl",
   "version": "1.0.0-pre.0",
+  "type": "commonjs",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.js",
+  "files": [
+    "./dist/*"
+  ],
   "scripts": {
     "dev": "run-p dev:*",
     "dev:tsc": "pnpm tsc --watch --preserveWatchOutput",
+    "build": "tsup",
     "tsc": "tsc -b",
     "test": "vitest",
     "lint": "run-s lint:*",
@@ -11,20 +18,23 @@
     "lint:prettier": "prettier --write --cache .",
     "lint-check:prettier": "prettier --check --cache .",
     "lint:eslint": "pnpm lint-check:eslint --fix",
-    "lint-check:eslint": "eslint . --cache --cache-location node_modules/.cache/.eslintcache --ext .js,.jsx,.ts,.tsx"
+    "lint-check:eslint": "eslint . --cache --cache-location node_modules/.cache/.eslintcache --ext .js,.jsx,.ts,.tsx",
+    "release": "pnpm publish --no-git-checks --access public"
   },
   "devDependencies": {
     "@hiogawa/utils": "^1.0.0",
     "@tsconfig/strictest": "^1.0.2",
-    "@typescript-eslint/eslint-plugin": "^5.48.2",
-    "@typescript-eslint/parser": "^5.48.2",
+    "@types/node": "^16.18.11",
+    "@typescript-eslint/eslint-plugin": "^5.49.0",
+    "@typescript-eslint/parser": "^5.49.0",
     "@unocss/config": "^0.49.1",
     "@unocss/core": "^0.49.1",
-    "eslint": "^8.32.0",
+    "eslint": "^8.33.0",
     "eslint-plugin-import": "^2.27.5",
     "magic-string": "^0.27.0",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.8.3",
+    "tsup": "^6.5.0",
     "tsx": "^3.12.2",
     "typescript": "^4.9.4",
     "unocss": "^0.49.1",
@@ -34,5 +44,8 @@
     "@unocss/config": "*",
     "@unocss/core": "*",
     "magic-string": "*"
+  },
+  "volta": {
+    "node": "16.19.0"
   }
 }

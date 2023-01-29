@@ -1,5 +1,6 @@
 {
-  "extends": "@tsconfig/strictest",
+  // tsup cannot handle "@tsconfig/strictest"?
+  "extends": "./node_modules/@tsconfig/strictest/tsconfig.json",
   "include": ["src"],
   "compilerOptions": {
     "noEmit": true,
