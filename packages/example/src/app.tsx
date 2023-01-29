@@ -18,7 +18,8 @@ export function App() {
           }
         >
           <h2 className={tw.text_lg.$}>Some header</h2>
-          <div className={tw.text_red_500.$}>Some text...</div>
+          <div className={tw.text_red_500.$}>Some red text...</div>
+          <div className={tw.text_blue_500.$}>Some blue text...</div>
           <button className={tw.btn.p_1.$}>Some button</button>
         </div>
       </main>
