@@ -20,7 +20,7 @@ describe("runtime", () => {
     expect(
       tw.animate_spin.sm(tw.hidden).md(tw.inline.text_red_500).$
     ).toMatchInlineSnapshot(
-      '"animate-spin sm(hidden) md(inline text-red-500)"'
+      '"animate-spin sm:(hidden) md:(inline text-red-500)"'
     );
 
     expect(
@@ -28,7 +28,7 @@ describe("runtime", () => {
         .sm(tw.hidden)
         .md(tw.inline.text_red_500.disabled(tw.text_gray_500)).$
     ).toMatchInlineSnapshot(
-      '"animate-spin sm(hidden) md(inline text-red-500 disabled(text-gray-500))"'
+      '"animate-spin sm:(hidden) md:(inline text-red-500 disabled:(text-gray-500))"'
     );
   });
 
@@ -51,7 +51,7 @@ describe("runtime", () => {
     expect(
       tw.bg_white._v("aria-selected", tw.bg_gray_100.text_blue_600).$
     ).toMatchInlineSnapshot(
-      '"bg-white aria-selected(bg-gray-100 text-blue-600)"'
+      '"bg-white aria-selected:(bg-gray-100 text-blue-600)"'
     );
   });
 });
