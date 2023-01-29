@@ -22,6 +22,8 @@
     "build": "tsup",
     "tsc": "tsc -b . ./packages/example",
     "test": "vitest",
+    "example:generate": "pnpm -C packages/example generate",
+    "example:dev": "pnpm -C packages/example dev",
     "lint": "run-s lint:*",
     "lint-check": "run-s lint-check:*",
     "lint:prettier": "prettier --write --cache .",
