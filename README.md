@@ -2,6 +2,11 @@
 
 adapting the idea of [typewind](https://github.com/Mokshit06/typewind) to [unocss](https://github.com/unocss/unocss).
 
+notable differences are:
+
+- no babel dependency since the modified DSL is simple enough to allow regex-based transform
+- the runtime itself is not tied to uno config and thus DSL can be anywhere (e.g. to define `shortcuts`)
+
 see `packages/example` for the usage.
 
 ```sh
