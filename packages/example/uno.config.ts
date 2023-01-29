@@ -6,28 +6,31 @@ import {
   transformerDirectives,
   transformerVariantGroup,
 } from "unocss";
+import { tw } from "./src/styles/tw";
 
 export default defineConfig({
   theme: {
     colors: {
       primary: "blue",
     },
-    // TODO: not supported
+    // not supported
     aria: {
       "current-page": 'current="page"',
     },
   },
   shortcuts: {
-    btn: `
-      cursor-pointer
+    // ability to use dsl directly in shortcuts (or anywhere)
+    btn: tw.cursor_pointer._(`
       transition
+      text-white
+      bg-blue-500
       disabled:(cursor-not-allowed opacity-50)
-      not-disabled:hover:bg-gray-100
-    `,
+      not-disabled:hover:bg-blue-600
+    `).$,
   },
   presets: [
     presetUno(),
-    // TODO: not supported
+    // not supported
     presetIcons({
       extraProperties: {
         display: "inline-block",
