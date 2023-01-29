@@ -18,4 +18,5 @@ jobs:
       - run: pnpm build
       - run: pnpm test
       - run: pnpm example:generate
+      - run: pnpm example:build
       - run: pnpm tsc
