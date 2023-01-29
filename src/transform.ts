@@ -7,6 +7,7 @@ import { API_NAME, PROP_TO_STRING, createApi } from "./runtime";
 export function transformerTypescriptDsl(): SourceCodeTransformer {
   return {
     name: "transformer-typescript-dsl",
+    enforce: "pre", // must come before `transformerVariantGroup`
     transform: (code, _id, _ctx) => {
       transformMagicString(code);
     },

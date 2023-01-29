@@ -1,1 +1,21 @@
-{}
+{
+  "scripts": {
+    "dev": "vite --no-clearScreen",
+    "build": "vite build",
+    "unocss-typescript-dsl": "false"
+  },
+  "dependencies": {
+    "@hiogawa/unocss-typescript-dsl": "workspace:*",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@iconify-json/ri": "^1.1.4",
+    "@types/react": "^18.0.27",
+    "@types/react-dom": "^18.0.10",
+    "@unocss/reset": "^0.49.1",
+    "@vitejs/plugin-react": "^3.0.1",
+    "unocss": "^0.49.1",
+    "vite": "^4.0.4"
+  }
+}
