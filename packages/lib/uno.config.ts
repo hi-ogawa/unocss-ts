@@ -1,4 +1,4 @@
-// used for unit test (e.g. generate-api.test.ts)
+// required for unit test (e.g. generate-api.test.ts)
 
 import { defineConfig, presetUno } from "unocss";
 

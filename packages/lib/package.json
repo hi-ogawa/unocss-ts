@@ -1,1 +1,43 @@
-{}
+{
+  "name": "@hiogawa/unocss-typescript-dsl",
+  "version": "1.0.0-pre.1",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "bin": "./dist/cli.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "test": "vitest",
+    "release": "pnpm publish --no-git-checks --access public"
+  },
+  "devDependencies": {
+    "@hiogawa/utils": "^1.0.2",
+    "@types/node": "^16.18.11",
+    "@typescript-eslint/eslint-plugin": "^5.49.0",
+    "@typescript-eslint/parser": "^5.49.0",
+    "@unocss/config": "^0.49.1",
+    "@unocss/core": "^0.49.1",
+    "magic-string": "^0.27.0",
+    "unocss": "^0.49.1"
+  },
+  "peerDependencies": {
+    "@unocss/config": "*",
+    "@unocss/core": "*",
+    "magic-string": "*"
+  },
+  "dependencies": {
+    "cac": "^6.7.14",
+    "minimatch": "^6.1.6"
+  }
+}

@@ -1,27 +1,10 @@
 {
-  "name": "@hiogawa/unocss-typescript-dsl",
-  "version": "1.0.0-pre.0",
-  "type": "module",
-  "main": "./dist/index.js",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
-  "exports": {
-    ".": {
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs",
-      "types": "./dist/index.d.ts"
-    }
-  },
-  "bin": "./dist/cli.js",
-  "files": [
-    "dist"
-  ],
   "scripts": {
     "dev": "run-p dev:*",
     "dev:tsc": "pnpm tsc --watch --preserveWatchOutput",
-    "build": "tsup",
     "tsc": "tsc -b . ./packages/example",
-    "test": "vitest",
+    "build": "pnpm -C packages/lib build",
+    "test": "pnpm -C packages/lib test",
     "example:generate": "pnpm -C packages/example generate",
     "example:dev": "pnpm -C packages/example dev",
     "lint": "run-s lint:*",
@@ -33,34 +16,19 @@
     "release": "pnpm publish --no-git-checks --access public"
   },
   "devDependencies": {
-    "@hiogawa/utils": "^1.0.2",
     "@tsconfig/strictest": "^1.0.2",
-    "@types/node": "^16.18.11",
     "@typescript-eslint/eslint-plugin": "^5.49.0",
     "@typescript-eslint/parser": "^5.49.0",
-    "@unocss/config": "^0.49.1",
-    "@unocss/core": "^0.49.1",
     "eslint": "^8.33.0",
     "eslint-plugin-import": "^2.27.5",
-    "magic-string": "^0.27.0",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.8.3",
     "tsup": "^6.5.0",
     "tsx": "^3.12.2",
     "typescript": "^4.9.4",
-    "unocss": "^0.49.1",
     "vitest": "^0.28.3"
-  },
-  "peerDependencies": {
-    "@unocss/config": "*",
-    "@unocss/core": "*",
-    "magic-string": "*"
   },
   "volta": {
     "node": "16.19.0"
-  },
-  "dependencies": {
-    "cac": "^6.7.14",
-    "minimatch": "^6.1.6"
   }
 }
