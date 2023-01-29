@@ -7,6 +7,5 @@ see `packages/example` for the usage.
 ```sh
 # development
 pnpm i
-npx tsx src/cli.ts --out-file src/generated.ts --filter-colors '@(gray|blue|red)-*'
 pnpm test
 ```
