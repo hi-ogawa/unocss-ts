@@ -90,7 +90,7 @@ function createApiIntenal() {
             tinyassert(typeof raw === "string");
             // @ts-expect-error requires any
             inner = inner[PROP_TO_STRING];
-            result.push(`${raw}(${inner})`);
+            result.push(`${raw}:(${inner})`);
             return proxy;
           };
         }
@@ -103,7 +103,7 @@ function createApiIntenal() {
           (inner: unknown) => {
             // @ts-expect-error requires any
             inner = inner[PROP_TO_STRING];
-            result.push(`${prop}(${inner})`);
+            result.push(`${prop}:(${inner})`);
             return proxy;
           },
           {

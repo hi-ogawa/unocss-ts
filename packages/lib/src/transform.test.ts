@@ -58,7 +58,7 @@ describe("transform", () => {
     const output = transform(input);
     expect(output).toMatchInlineSnapshot(`
       "      expect(
-              \\"animate-spin sm(hidden) md(inline text-red-500 disabled(text-gray-500))\\"
+              \\"animate-spin sm:(hidden) md:(inline text-red-500 disabled:(text-gray-500))\\"
             ).toMatchInlineSnapshot(xxx);
       "
     `);

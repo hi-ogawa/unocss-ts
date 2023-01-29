@@ -1,8 +1,24 @@
 import vm from "node:vm";
+import type { SourceCodeTransformer } from "@unocss/core";
+import type MagicString from "magic-string";
 import { escapeRegex, mapRegex } from "./regex-utils";
 import { API_NAME, PROP_TO_STRING, createApi } from "./runtime";
 
-// TODO: MagicString based api
+export function transformerTypescriptDsl(): SourceCodeTransformer {
+  return {
+    name: "transformer-typescript-dsl",
+    enforce: "pre", // must come before `transformerVariantGroup`
+    transform: (code, _id, _ctx) => {
+      transformMagicString(code);
+    },
+  };
+}
+
+export function transformMagicString(code: MagicString) {
+  const output = transform(code.toString());
+  code.overwrite(0, code.length(), output);
+}
+
 export function transform(input: string): string {
   const regex = createRegex(API_NAME, PROP_TO_STRING);
   let output = "";
