@@ -4,6 +4,7 @@ import { tinyassert } from "@hiogawa/utils";
 export function escapeRegex(input: string): string {
   return input.replace(/[/\-\\^$*+?.()|[\]{}]/g, "\\$&");
 }
+
 // based on https://github.com/unocss/unocss/blob/2e74b31625bbe3b9c8351570749aa2d3f799d919/packages/autocomplete/src/parse.ts#L11
 export function mapRegex(
   input: string,
