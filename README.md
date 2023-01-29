@@ -16,6 +16,7 @@ pnpm test
 
 # run example
 pnpm build
+pnpm i
 pnpm example:generate  # re-generate tw-api.ts
 pnpm example:dev
 ```
