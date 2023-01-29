@@ -5,6 +5,6 @@ experimenting the idea of [typewind](https://github.com/Mokshit06/typewind) for 
 see `generated.ts`, `transform.test.ts` and `runtime.test.ts` for the current status.
 
 ```sh
-npx tsx src/generate-api.ts | tee src/generated.ts
+npx tsx src/cli.ts | tee src/generated.ts
 pnpm test
 ```

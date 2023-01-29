@@ -2,7 +2,7 @@
   "scripts": {
     "dev": "vite --no-clearScreen",
     "build": "vite build",
-    "unocss-typescript-dsl": "false"
+    "generate": "unocss-typescript-dsl > ./src/styles/tw-api.ts"
   },
   "dependencies": {
     "@hiogawa/unocss-typescript-dsl": "workspace:*",
