@@ -20,13 +20,10 @@ export default defineConfig({
   },
   shortcuts: {
     // ability to use dsl directly in shortcuts (or anywhere)
-    btn: tw.cursor_pointer._(`
-      transition
-      text-white
-      bg-blue-500
-      disabled:(cursor-not-allowed opacity-50)
-      not-disabled:hover:bg-blue-600
-    `).$,
+    btn: tw.cursor_pointer
+      ._("transition")
+      .text_white.bg_blue_500.disabled(tw.cursor_not_allowed._("opacity-50"))
+      .not_disabled(tw.hover(tw.bg_blue_600)).$,
   },
   presets: [
     presetUno(),
