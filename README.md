@@ -1,14 +1,15 @@
 # unocss typescript DSL
 
-adapting the idea of [typewind](https://github.com/Mokshit06/typewind) to [unocss](https://github.com/unocss/unocss).
+Adapting the idea of [typewind](https://github.com/Mokshit06/typewind) to [unocss](https://github.com/unocss/unocss).
 
-notable differences are:
+Notable differences are:
 
-- no babel dependency since the modified DSL is simple enough to allow regex-based transform.
-- the runtime itself is not tied to uno config and thus DSL can be used anywhere (e.g. when defining `shortcuts`).
+- No babel dependency since the modified DSL is simple enough to allow regex-based transform.
+- The runtime itself is not tied to uno config and thus the same DSL can be used anywhere (e.g. when defining `shortcuts`).
 
-see `packages/example` for the usage.
-an example of auto-generated typescript api is found at [`packages/example/src/styles/tw-api.ts`](packages/example/src/styles/tw-api.ts).
+See `packages/example` for the example vite app.
+
+The auto-generated typescript DSL is found at [`packages/example/src/styles/tw-api.ts`](packages/example/src/styles/tw-api.ts).
 
 ```sh
 # development
