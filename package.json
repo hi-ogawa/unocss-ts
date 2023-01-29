@@ -8,6 +8,7 @@
     "test": "pnpm -C packages/lib test",
     "example:generate": "pnpm -C packages/example generate",
     "example:dev": "pnpm -C packages/example dev",
+    "example:build": "pnpm -C packages/example build",
     "lint": "run-s lint:*",
     "lint-check": "run-s lint-check:*",
     "lint:prettier": "prettier --write --cache .",

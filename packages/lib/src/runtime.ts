@@ -34,7 +34,6 @@ type ApiToString = {
   $: string;
 };
 
-// "string" is to allow assigning to "className" prop
 export type Api = ApiProperty & ApiMethod & ApiCustom & ApiToString;
 `;
 
