@@ -2,4 +2,4 @@
 
 experimenting the idea of [typewind](https://github.com/Mokshit06/typewind) for [unocss](https://github.com/unocss/unocss)
 
-- https://github.com/hi-ogawa/unocss-typescript-dsl/pull/1
+- see https://github.com/hi-ogawa/unocss-typescript-dsl/pull/2
