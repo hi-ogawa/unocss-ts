@@ -2,6 +2,7 @@
   "scripts": {
     "dev": "run-p dev:*",
     "dev:tsc": "pnpm tsc --watch --preserveWatchOutput",
+    "dev:lib": "pnpm -C packages/lib dev",
     "tsc": "tsc -b",
     "build": "pnpm -C packages/lib build",
     "test": "pnpm -C packages/lib test",
