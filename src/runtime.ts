@@ -1,8 +1,45 @@
 import { tinyassert } from "@hiogawa/utils";
 
-// escape hatch to allow arbitrary value
-export const CUSTOM_RULE = "_";
-export const CUSTOM_VARIANT = "_v";
+export const PROP_CUSTOM_RULE = "_";
+export const PROP_CUSTOM_VARIANT = "_v";
+
+export const PROP_TO_STRING = "$";
+
+//
+// Api definition (i.e. typescript dsl)
+//
+
+export const API_DEFINITION = `\
+type Property = RuleStatic | RuleDynamic | Shortcut;
+type Method = Variant;
+
+type ApiProperty = {
+  [key in Property]: Api;
+};
+
+type ApiMethod = {
+  [key in Method]: (inner: Api) => Api;
+};
+
+// escape hatch to allow arbitrary values which are not supported by auto-generation
+type ApiCustom = {
+  _: (raw: string) => Api; // for rule
+  _v: (raw: string, inner: Api) => Api; // for variant
+};
+
+// force special property to dump the resulting class string,
+// which allows transform to be implemented trivially via regex
+type ApiToString = {
+  $: string;
+};
+
+// "string" is to allow assigning to "className" prop
+export type Api = ApiProperty & ApiMethod & ApiCustom & ApiToString;
+`;
+
+//
+// Api runtime implementation
+//
 
 // based on https://github.com/Mokshit06/typewind/blob/1526e6c086ca6607f0060ce8ede66474585efde4/packages/typewind/src/evaluate.ts
 export function createApi() {
@@ -27,15 +64,10 @@ function createApiIntenal() {
     {},
     {
       get(_target, prop: unknown) {
-        // emit final result via either `toString` or `Symbol.toPrimitive` https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toPrimitive
-        if (prop === "toString") {
-          return () => result.join(" ");
-        }
-        if (prop === Symbol.toPrimitive) {
-          return (hint: unknown) => {
-            tinyassert(hint === "string");
-            return result.join(" ");
-          };
+        tinyassert(typeof prop === "string");
+
+        if (prop === PROP_TO_STRING) {
+          return result.join(" ");
         }
 
         //
@@ -43,7 +75,7 @@ function createApiIntenal() {
         //
 
         // handle custom rule e.g. tw._("bg-[#123]")
-        if (prop === CUSTOM_RULE) {
+        if (prop === PROP_CUSTOM_RULE) {
           return (raw: unknown) => {
             tinyassert(typeof raw === "string");
             result.push(raw);
@@ -52,22 +84,25 @@ function createApiIntenal() {
         }
 
         // handle custom variant e.g. tw._V("aria-selected", ...)
-        if (prop === CUSTOM_VARIANT) {
+        if (prop === PROP_CUSTOM_VARIANT) {
           return (raw: unknown, inner: unknown) => {
             tinyassert(typeof raw === "string");
-            result.push(`${raw}(${inner})`); // invoke `toString/toPrimitive` on inner api
+            // @ts-expect-error requires any
+            inner = inner[PROP_TO_STRING];
+            result.push(`${raw}(${inner})`);
             return proxy;
           };
         }
 
         // convert back to hyphen (TODO: does this roundtrip acculately?)
-        tinyassert(typeof prop === "string");
         prop = prop.replaceAll("_", "-");
 
         return new Proxy(
           // variant e.g. tw.hover(...) (when called immediately, handle it as variant)
           (inner: unknown) => {
-            result.push(`${prop}(${inner})`); // invoke `toString/toPrimitive` on inner api
+            // @ts-expect-error requires any
+            inner = inner[PROP_TO_STRING];
+            result.push(`${prop}(${inner})`);
             return proxy;
           },
           {
