@@ -33,7 +33,7 @@ export type Api = ApiProperty & ApiMethod & ApiCustom & ApiToString;
 // constants based on unocss config
 //
 
-type Theme_width =
+export type Theme_width =
   | `auto`
   | `xs`
   | `sm`
@@ -49,7 +49,7 @@ type Theme_width =
   | `prose`
   | `screen`;
 
-type Theme_height =
+export type Theme_height =
   | `auto`
   | `xs`
   | `sm`
@@ -65,7 +65,7 @@ type Theme_height =
   | `prose`
   | `screen`;
 
-type Theme_maxWidth =
+export type Theme_maxWidth =
   | `none`
   | `xs`
   | `sm`
@@ -81,7 +81,7 @@ type Theme_maxWidth =
   | `prose`
   | `screen`;
 
-type Theme_maxHeight =
+export type Theme_maxHeight =
   | `none`
   | `xs`
   | `sm`
@@ -97,7 +97,7 @@ type Theme_maxHeight =
   | `prose`
   | `screen`;
 
-type Theme_minWidth =
+export type Theme_minWidth =
   | `none`
   | `xs`
   | `sm`
@@ -113,7 +113,7 @@ type Theme_minWidth =
   | `prose`
   | `screen`;
 
-type Theme_minHeight =
+export type Theme_minHeight =
   | `none`
   | `xs`
   | `sm`
@@ -129,7 +129,7 @@ type Theme_minHeight =
   | `prose`
   | `screen`;
 
-type Theme_inlineSize =
+export type Theme_inlineSize =
   | `auto`
   | `xs`
   | `sm`
@@ -145,7 +145,7 @@ type Theme_inlineSize =
   | `prose`
   | `screen`;
 
-type Theme_blockSize =
+export type Theme_blockSize =
   | `auto`
   | `xs`
   | `sm`
@@ -161,7 +161,7 @@ type Theme_blockSize =
   | `prose`
   | `screen`;
 
-type Theme_maxInlineSize =
+export type Theme_maxInlineSize =
   | `none`
   | `xs`
   | `sm`
@@ -177,7 +177,7 @@ type Theme_maxInlineSize =
   | `prose`
   | `screen`;
 
-type Theme_maxBlockSize =
+export type Theme_maxBlockSize =
   | `none`
   | `xs`
   | `sm`
@@ -193,7 +193,7 @@ type Theme_maxBlockSize =
   | `prose`
   | `screen`;
 
-type Theme_minInlineSize =
+export type Theme_minInlineSize =
   | `none`
   | `xs`
   | `sm`
@@ -209,7 +209,7 @@ type Theme_minInlineSize =
   | `prose`
   | `screen`;
 
-type Theme_minBlockSize =
+export type Theme_minBlockSize =
   | `none`
   | `xs`
   | `sm`
@@ -225,7 +225,7 @@ type Theme_minBlockSize =
   | `prose`
   | `screen`;
 
-type Theme_colors =
+export type Theme_colors =
   | `inherit`
   | `current`
   | `transparent`
@@ -913,12 +913,12 @@ type Theme_colors =
   | `blueGray_DEFAULT`
   | `primary`;
 
-type Theme_fontFamily =
+export type Theme_fontFamily =
   | `sans`
   | `serif`
   | `mono`;
 
-type Theme_fontSize =
+export type Theme_fontSize =
   | `xs`
   | `sm`
   | `base`
@@ -933,21 +933,21 @@ type Theme_fontSize =
   | `8xl`
   | `9xl`;
 
-type Theme_breakpoints =
+export type Theme_breakpoints =
   | `sm`
   | `md`
   | `lg`
   | `xl`
   | `2xl`;
 
-type Theme_verticalBreakpoints =
+export type Theme_verticalBreakpoints =
   | `sm`
   | `md`
   | `lg`
   | `xl`
   | `2xl`;
 
-type Theme_borderRadius =
+export type Theme_borderRadius =
   | `DEFAULT`
   | `none`
   | `sm`
@@ -958,7 +958,7 @@ type Theme_borderRadius =
   | `3xl`
   | `full`;
 
-type Theme_lineHeight =
+export type Theme_lineHeight =
   | `none`
   | `tight`
   | `snug`
@@ -966,7 +966,7 @@ type Theme_lineHeight =
   | `relaxed`
   | `loose`;
 
-type Theme_letterSpacing =
+export type Theme_letterSpacing =
   | `tighter`
   | `tight`
   | `normal`
@@ -974,7 +974,7 @@ type Theme_letterSpacing =
   | `wider`
   | `widest`;
 
-type Theme_wordSpacing =
+export type Theme_wordSpacing =
   | `tighter`
   | `tight`
   | `normal`
@@ -982,7 +982,7 @@ type Theme_wordSpacing =
   | `wider`
   | `widest`;
 
-type Theme_boxShadow =
+export type Theme_boxShadow =
   | `DEFAULT`
   | `none`
   | `sm`
@@ -992,7 +992,7 @@ type Theme_boxShadow =
   | `2xl`
   | `inner`;
 
-type Theme_textIndent =
+export type Theme_textIndent =
   | `DEFAULT`
   | `xs`
   | `sm`
@@ -1002,7 +1002,7 @@ type Theme_textIndent =
   | `2xl`
   | `3xl`;
 
-type Theme_textShadow =
+export type Theme_textShadow =
   | `DEFAULT`
   | `none`
   | `sm`
@@ -1010,14 +1010,14 @@ type Theme_textShadow =
   | `lg`
   | `xl`;
 
-type Theme_textStrokeWidth =
+export type Theme_textStrokeWidth =
   | `DEFAULT`
   | `none`
   | `sm`
   | `md`
   | `lg`;
 
-type Theme_blur =
+export type Theme_blur =
   | `0`
   | `DEFAULT`
   | `sm`
@@ -1027,7 +1027,7 @@ type Theme_blur =
   | `2xl`
   | `3xl`;
 
-type Theme_dropShadow =
+export type Theme_dropShadow =
   | `DEFAULT`
   | `sm`
   | `md`
@@ -1036,18 +1036,18 @@ type Theme_dropShadow =
   | `2xl`
   | `none`;
 
-type Theme_easing =
+export type Theme_easing =
   | `DEFAULT`
   | `linear`
   | `in`
   | `out`
   | `in_out`;
 
-type Theme_lineWidth =
+export type Theme_lineWidth =
   | `DEFAULT`
   | `none`;
 
-type Theme_spacing =
+export type Theme_spacing =
   | `DEFAULT`
   | `none`
   | `xs`
@@ -1063,7 +1063,7 @@ type Theme_spacing =
   | `8xl`
   | `9xl`;
 
-type Theme_duration =
+export type Theme_duration =
   | `75`
   | `100`
   | `150`
@@ -1075,11 +1075,11 @@ type Theme_duration =
   | `DEFAULT`
   | `none`;
 
-type Theme_ringWidth =
+export type Theme_ringWidth =
   | `DEFAULT`
   | `none`;
 
-type Theme_preflightBase =
+export type Theme_preflightBase =
   | `__un_rotate`
   | `__un_rotate_x`
   | `__un_rotate_y`
@@ -1131,7 +1131,7 @@ type Theme_preflightBase =
   | `__un_backdrop_saturate`
   | `__un_backdrop_sepia`;
 
-type Theme_containers =
+export type Theme_containers =
   | `xs`
   | `sm`
   | `md`
@@ -1145,7 +1145,7 @@ type Theme_containers =
   | `7xl`
   | `prose`;
 
-type Theme_aria =
+export type Theme_aria =
   | `busy`
   | `checked`
   | `disabled`
@@ -1157,7 +1157,7 @@ type Theme_aria =
   | `selected`
   | `current_page`;
 
-type Theme_animation_keyframes =
+export type Theme_animation_keyframes =
   | `pulse`
   | `bounce`
   | `spin`
@@ -1260,7 +1260,7 @@ type Theme_animation_keyframes =
   | `back_out_right`
   | `back_out_left`;
 
-type Theme_animation_durations =
+export type Theme_animation_durations =
   | `pulse`
   | `heart_beat`
   | `bounce_in`
@@ -1269,7 +1269,7 @@ type Theme_animation_durations =
   | `flip_out_y`
   | `hinge`;
 
-type Theme_animation_timingFns =
+export type Theme_animation_timingFns =
   | `pulse`
   | `ping`
   | `head_shake`
@@ -1280,7 +1280,7 @@ type Theme_animation_timingFns =
   | `light_speed_out_left`
   | `light_speed_out_right`;
 
-type Theme_animation_properties =
+export type Theme_animation_properties =
   | `bounce_alt`
   | `jello`
   | `swing`
@@ -1305,7 +1305,7 @@ type Theme_animation_properties =
   | `zoom_out_right`
   | `zoom_out_up`;
 
-type Theme_animation_counts =
+export type Theme_animation_counts =
   | `spin`
   | `ping`
   | `pulse`
@@ -1313,7 +1313,7 @@ type Theme_animation_counts =
   | `bounce`
   | `bounce_alt`;
 
-type Theme_media =
+export type Theme_media =
   | `portrait`
   | `landscape`
   | `os_dark`
@@ -1332,10 +1332,10 @@ type Theme_media =
   | `mouse`
   | `hd_color`;
 
-type Theme_supports =
+export type Theme_supports =
   | `grid`;
 
-type Autocomplete_num =
+export type Autocomplete_num =
   | `0`
   | `1`
   | `2`
@@ -1349,7 +1349,7 @@ type Autocomplete_num =
   | `24`
   | `36`;
 
-type Autocomplete_percent =
+export type Autocomplete_percent =
   | `0`
   | `10`
   | `20`
@@ -1362,7 +1362,7 @@ type Autocomplete_percent =
   | `90`
   | `100`;
 
-type Autocomplete_directions =
+export type Autocomplete_directions =
   | `x`
   | `y`
   | `t`
@@ -1372,7 +1372,7 @@ type Autocomplete_directions =
   | `s`
   | `e`;
 
-type RuleStatic =
+export type RuleStatic =
   | `sr_only`
   | `not_sr_only`
   | `pointer_events_auto`
@@ -1986,7 +1986,7 @@ type RuleStatic =
   | `content_empty`
   | `content_none`;
 
-type RuleDynamic =
+export type RuleDynamic =
   | `placeholder_${"op" | "opacity"}`
   | `placeholder_${"op" | "opacity"}_${Autocomplete_percent}`
   | `placeholder_${Theme_colors}`
@@ -2215,7 +2215,7 @@ type RuleDynamic =
   | `${"position" | "pos"}_inset_${"bs" | "be" | "is" | "ie"}_${Theme_spacing}`
   | `${"position" | "pos"}_${"top" | "left" | "right" | "bottom"}_${Theme_spacing}`;
 
-type Variant =
+export type Variant =
   | `print`
   | `${"at_" | "lt_" | ""}${Theme_breakpoints}`
   | `${"first_letter" | "first_line" | "any_link" | "link" | "visited" | "target" | "open" | "hover" | "active" | "focus_visible" | "focus_within" | "focus" | "autofill" | "enabled" | "disabled" | "read_only" | "read_write" | "placeholder_shown" | "default" | "checked" | "indeterminate" | "valid" | "invalid" | "in_range" | "out_of_range" | "required" | "optional" | "root" | "empty" | "even_of_type" | "even" | "odd_of_type" | "odd" | "first_of_type" | "first" | "last_of_type" | "last" | "only_child" | "only_of_type" | "placeholder" | "before" | "after" | "selection" | "marker" | "file" | "backdrop"}`
@@ -2237,6 +2237,6 @@ type Variant =
   | `light`
   | `hover`;
 
-type Shortcut =
+export type Shortcut =
   | `btn`;
 

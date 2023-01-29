@@ -147,8 +147,10 @@ const AUTOCOMPLETE_BUILTIN = {
 } satisfies Record<string, string[]>;
 
 function toStringUnionType(name: string, values: string[]): string {
+  // "export" to silence unused type warning
+  // "never" to gracefully handle empty options
   return `\
-type ${name} =
+export type ${name} =
 ${values.map((s) => `  | \`${s}\``).join("\n") || "  | never"};
 `;
 }
