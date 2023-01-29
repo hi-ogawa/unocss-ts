@@ -13,8 +13,7 @@
     "lint:prettier": "prettier --write --cache .",
     "lint-check:prettier": "prettier --check --cache .",
     "lint:eslint": "pnpm lint-check:eslint --fix",
-    "lint-check:eslint": "eslint . --cache --cache-location node_modules/.cache/.eslintcache --ext .js,.jsx,.ts,.tsx",
-    "release": "pnpm publish --no-git-checks --access public"
+    "lint-check:eslint": "eslint . --cache --cache-location node_modules/.cache/.eslintcache --ext .js,.jsx,.ts,.tsx"
   },
   "devDependencies": {
     "@tsconfig/strictest": "^1.0.2",
