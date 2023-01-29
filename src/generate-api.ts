@@ -1,20 +1,32 @@
 import { tinyassert } from "@hiogawa/utils";
 import { loadConfig } from "@unocss/config";
 import { createGenerator } from "@unocss/core";
+import { Minimatch } from "minimatch";
 import { mapRegex } from "./regex-utils";
 import { API_DEFINITION } from "./runtime";
 
-export async function generateApi() {
-  // initialize uno context
-  // TODO: support explicit options (e.g. cwd, config, etc...)
-  const config = await loadConfig();
+// TODO: unit test
+
+export interface GenerateApiOptions {
+  cwd?: string;
+  configPath?: string;
+  optimize?: {
+    filterColors?: string[] | undefined;
+  };
+}
+
+export async function generateApi(
+  options: GenerateApiOptions
+): Promise<string> {
+  // initialize uno instance
+  const config = await loadConfig(options.cwd, options.configPath);
   const uno = createGenerator(config.config);
-  const ctx = { uno };
 
   //
   // emit main typescript api
   //
-  console.log(`\
+  let result = "";
+  result += `\
 //
 // AUTO-GENERATED
 //
@@ -24,27 +36,38 @@ ${API_DEFINITION}
 //
 // constants based on unocss config
 //
-`);
+
+`;
 
   //
   // theme (e.g. colors, breakpoint) used for dynamic rule definition
   //
-  for (const [name, outer] of Object.entries(ctx.uno.config.theme)) {
+  for (const [name, outer] of Object.entries(uno.config.theme)) {
     // handle "colors" specific behavior https://github.com/unocss/unocss/blob/2e74b31625bbe3b9c8351570749aa2d3f799d919/packages/preset-mini/src/_utils/utilities.ts#L79
     if (name === "colors") {
+      // ad-hoc optimization to reduce string literal combinations for smoother autocompletion
+      const filters: Minimatch[] = (options.optimize?.filterColors ?? []).map(
+        (pattern) => new Minimatch(pattern)
+      );
+
       const values: string[] = [];
       for (const [innerName, inner] of Object.entries(outer as any)) {
         if (inner && typeof inner === "object" && !Array.isArray(inner)) {
-          const innerValues = Object.keys(inner).map(
+          let innerValues = Object.keys(inner).map(
             (key) => `${innerName}-${key}`
           );
+          if (filters.length > 0) {
+            innerValues = innerValues.filter((value) =>
+              filters.some((filter) => filter.match(value))
+            );
+          }
           values.push(...innerValues);
         } else {
           values.push(innerName);
         }
       }
       const valuesApi = values.map((rule) => rule.replaceAll("-", "_"));
-      console.log(toStringUnionType(`Theme_${name}`, valuesApi));
+      result += toStringUnionType(`Theme_${name}`, valuesApi);
 
       // handle "animation" special behavior
     } else if (name === "animation") {
@@ -52,15 +75,13 @@ ${API_DEFINITION}
         if (inner && typeof inner === "object" && !Array.isArray(inner)) {
           const values = Object.keys(inner);
           const valuesApi = values.map((rule) => rule.replaceAll("-", "_"));
-          console.log(
-            toStringUnionType(`Theme_${name}_${innerName}`, valuesApi)
-          );
+          result += toStringUnionType(`Theme_${name}_${innerName}`, valuesApi);
         }
       }
     } else {
       const values: string[] = Object.keys(outer as any);
       const valuesApi = values.map((rule) => rule.replaceAll("-", "_"));
-      console.log(toStringUnionType(`Theme_${name}`, valuesApi));
+      result += toStringUnionType(`Theme_${name}`, valuesApi);
     }
   }
 
@@ -68,21 +89,21 @@ ${API_DEFINITION}
   // autocomplete
   //
   for (const [name, values] of Object.entries(AUTOCOMPLETE_BUILTIN)) {
-    console.log(toStringUnionType(`Autocomplete_${name}`, values));
+    result += toStringUnionType(`Autocomplete_${name}`, values);
   }
 
   //
   // static rule (e.g. flex, cursor-pointer)
   //
-  const rulesStatic = Object.keys(ctx.uno.config.rulesStaticMap);
+  const rulesStatic = Object.keys(uno.config.rulesStaticMap);
   const rulesStaticApi = rulesStatic.map((rule) => rule.replaceAll("-", "_"));
-  console.log(toStringUnionType("RuleStatic", rulesStaticApi));
+  result += toStringUnionType("RuleStatic", rulesStaticApi);
 
   //
   // dynamic rule (e.g. ml-2)
   //
   const rulesDynamic: string[] = [];
-  for (const rule of ctx.uno.config.rulesDynamic) {
+  for (const rule of uno.config.rulesDynamic) {
     const meta = rule[3];
     const autocompletes = [meta?.autocomplete ?? []].flat();
     for (const autocomplete of autocompletes) {
@@ -90,13 +111,13 @@ ${API_DEFINITION}
     }
   }
   const rulesDynamicApi = rulesDynamic.map((rule) => rule.replaceAll("-", "_"));
-  console.log(toStringUnionType("RuleDynamic", rulesDynamicApi));
+  result += toStringUnionType("RuleDynamic", rulesDynamicApi);
 
   //
   // variant (e.g. hover)
   //
   const variants: string[] = [];
-  for (const variant of ctx.uno.config.variants) {
+  for (const variant of uno.config.variants) {
     // TODO: some variant doesn't have autocomplete? (e.g. hover, aria)
     let autocompletes = [variant?.autocomplete ?? []].flat();
     for (let autocomplete of autocompletes) {
@@ -117,13 +138,13 @@ ${API_DEFINITION}
     }
   }
   const variantsApi = variants.map((rule) => rule.replaceAll("-", "_"));
-  console.log(toStringUnionType("Variant", variantsApi));
+  result += toStringUnionType("Variant", variantsApi);
 
   //
   // shortcut
   //
   let shortcuts: string[] = [];
-  for (const shortcut of ctx.uno.config.shortcuts) {
+  for (const shortcut of uno.config.shortcuts) {
     // TODO: support "dynamic" shortcut?
     const key = shortcut[0];
     if (typeof key === "string") {
@@ -131,7 +152,9 @@ ${API_DEFINITION}
     }
   }
   const shortcutsApi = shortcuts.map((s) => s.replaceAll("-", "_"));
-  console.log(toStringUnionType("Shortcut", shortcutsApi));
+  result += toStringUnionType("Shortcut", shortcutsApi);
+
+  return result;
 }
 
 //
@@ -153,6 +176,7 @@ function toStringUnionType(name: string, values: string[]): string {
   return `\
 export type ${name} =
 ${values.map((s) => `  | \`${s}\``).join("\n") || "  | never"};
+
 `;
 }
 
