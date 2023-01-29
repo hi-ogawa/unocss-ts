@@ -20,7 +20,7 @@
     "dev": "run-p dev:*",
     "dev:tsc": "pnpm tsc --watch --preserveWatchOutput",
     "build": "tsup",
-    "tsc": "tsc -b",
+    "tsc": "tsc -b . ./packages/example",
     "test": "vitest",
     "lint": "run-s lint:*",
     "lint-check": "run-s lint-check:*",
