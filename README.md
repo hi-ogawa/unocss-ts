@@ -5,7 +5,7 @@ Adapting the idea of [typewind](https://github.com/Mokshit06/typewind) to [unocs
 Notable differences are:
 
 - No babel dependency since the modified DSL is simple enough to allow regex-based transform.
-- The runtime itself is not tied to uno config and thus the same DSL can be used anywhere (e.g. when defining `shortcuts`).
+- The runtime itself is not tied to uno config and thus the same DSL can be used anywhere (e.g. when defining `shortcuts` inside `uno.config.ts`).
 
 See `packages/example` for the example vite app.
 
