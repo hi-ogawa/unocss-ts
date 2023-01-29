@@ -22,6 +22,7 @@
     "@unocss/core": "^0.49.1",
     "eslint": "^8.32.0",
     "eslint-plugin-import": "^2.27.5",
+    "magic-string": "^0.27.0",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.8.3",
     "tsx": "^3.12.2",
@@ -31,6 +32,7 @@
   },
   "peerDependencies": {
     "@unocss/config": "*",
-    "@unocss/core": "*"
+    "@unocss/core": "*",
+    "magic-string": "*"
   }
 }
