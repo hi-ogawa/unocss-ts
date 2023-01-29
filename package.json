@@ -1,4 +1,6 @@
 {
+  "name": "@hiogawa/unocss-typescript-dsl",
+  "version": "1.0.0-pre.0",
   "scripts": {
     "dev": "run-p dev:*",
     "dev:tsc": "pnpm tsc --watch --preserveWatchOutput",
