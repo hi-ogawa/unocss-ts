@@ -1,10 +1,12 @@
 # unocss typescript DSL (wip)
 
-experimenting the idea of [typewind](https://github.com/Mokshit06/typewind) for [unocss](https://github.com/unocss/unocss).
+adapting the idea of [typewind](https://github.com/Mokshit06/typewind) to [unocss](https://github.com/unocss/unocss).
 
-see `generated.ts`, `transform.test.ts` and `runtime.test.ts` for the current status.
+see `packages/example` for the usage.
 
 ```sh
+# development
+pnpm i
 npx tsx src/cli.ts | tee src/generated.ts
 pnpm test
 ```
