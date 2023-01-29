@@ -10,7 +10,7 @@ describe("transform", () => {
 `;
     const output = transform(input);
     expect(output).toMatchInlineSnapshot(`
-      "      expect(\\"(TODO)\\").toMatchInlineSnapshot(xxx);
+      "      expect(\\"flex justify-center items-center\\").toMatchInlineSnapshot(xxx);
       "
     `);
   });
@@ -27,9 +27,9 @@ describe("transform", () => {
     expect(output).toMatchInlineSnapshot(`
       "      const tw = createApi() as Api;
 
-            expect(\\"(TODO)\\").toMatchInlineSnapshot(xxx);
+            expect(\\"flex justify-center items-center\\").toMatchInlineSnapshot(xxx);
 
-            expect(\\"(TODO)\\").toMatchInlineSnapshot(xxx);
+            expect(\\"flex flex-col justify-end\\").toMatchInlineSnapshot(xxx);
       "
     `);
   });
@@ -42,7 +42,7 @@ describe("transform", () => {
 `;
     const output = transform(input);
     expect(output).toMatchInlineSnapshot(`
-      "      expect(\\"(TODO)\\").toMatchInlineSnapshot(xxx);
+      "      expect(\\"flex justify-center items-center\\").toMatchInlineSnapshot(xxx);
       "
     `);
   });
@@ -58,7 +58,7 @@ describe("transform", () => {
     const output = transform(input);
     expect(output).toMatchInlineSnapshot(`
       "      expect(
-              \\"(TODO)\\"
+              \\"animate-spin sm(hidden) md(inline text-red-500 disabled(text-gray-500))\\"
             ).toMatchInlineSnapshot(xxx);
       "
     `);

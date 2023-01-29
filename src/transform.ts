@@ -1,3 +1,4 @@
+import vm from "node:vm";
 import { escapeRegex, mapRegex } from "./regex-utils";
 import { API_NAME, PROP_TO_STRING, createApi } from "./runtime";
 
@@ -9,7 +10,7 @@ export function transform(input: string): string {
     input,
     regex,
     (match) => {
-      output += evaluate(match[0]);
+      output += evaluate(API_NAME, match[0]);
     },
     (other) => {
       output += other;
@@ -18,10 +19,18 @@ export function transform(input: string): string {
   return output;
 }
 
-function evaluate(input: string): string {
-  input;
-  createApi;
-  return `"(TODO)"`;
+// evaluate code
+//   "tw.flex.justify_center.items_center.$" => "flex justify-center items-center"
+function evaluate(apiName: string, expression: string): string {
+  const api = createApi();
+  const context = { __result: "", __api: api };
+  const code = `\
+const ${apiName} = __api;
+__result = ${expression};
+`;
+  vm.createContext(context);
+  vm.runInContext(code, context);
+  return `"${context.__result}"`;
 }
 
 // match example
