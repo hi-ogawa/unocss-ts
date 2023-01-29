@@ -12,6 +12,7 @@
     "lint-check:eslint": "eslint . --cache --cache-location node_modules/.cache/.eslintcache --ext .js,.jsx,.ts,.tsx"
   },
   "devDependencies": {
+    "@hiogawa/utils": "^1.0.0",
     "@tsconfig/strictest": "^1.0.2",
     "@typescript-eslint/eslint-plugin": "^5.48.2",
     "@typescript-eslint/parser": "^5.48.2",
@@ -26,7 +27,8 @@
     "unocss": "^0.49.1",
     "vitest": "^0.28.3"
   },
-  "dependencies": {
-    "@hiogawa/utils": "^1.0.0"
+  "peerDependencies": {
+    "@unocss/config": "*",
+    "@unocss/core": "*"
   }
 }
