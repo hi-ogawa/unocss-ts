@@ -6,7 +6,7 @@ describe("generateApi", () => {
   it("basic", async () => {
     const output = await generateApi({
       optimize: {
-        filterColors: ["@(gray|blue)-*"],
+        filterColors: ["@(gray|blue)-*", "red*"],
       },
     });
     const match = output.match(/export type Theme_colors =(.*?);/ms);
@@ -37,7 +37,26 @@ describe("generateApi", () => {
         | \`blue_700\`
         | \`blue_800\`
         | \`blue_900\`
-        | \`blue_DEFAULT\`
+        | \`red_1\`
+        | \`red_2\`
+        | \`red_3\`
+        | \`red_4\`
+        | \`red_5\`
+        | \`red_6\`
+        | \`red_7\`
+        | \`red_8\`
+        | \`red_9\`
+        | \`red_50\`
+        | \`red_100\`
+        | \`red_200\`
+        | \`red_300\`
+        | \`red_400\`
+        | \`red_500\`
+        | \`red_600\`
+        | \`red_700\`
+        | \`red_800\`
+        | \`red_900\`
+        | \`red\`
         | \`gray_1\`
         | \`gray_2\`
         | \`gray_3\`
@@ -57,8 +76,8 @@ describe("generateApi", () => {
         | \`gray_700\`
         | \`gray_800\`
         | \`gray_900\`
-        | \`gray_DEFAULT\`
-        | \`primary\`;"
+        | \`primary\`
+      ;"
     `);
   });
 });

@@ -1,5 +1,8 @@
 import { transformerTypescriptDsl } from "@hiogawa/unocss-typescript-dsl";
 import {
+  DynamicRule,
+  Preset,
+  Variant,
   defineConfig,
   presetIcons,
   presetUno,
@@ -13,7 +16,6 @@ export default defineConfig({
     colors: {
       primary: "blue",
     },
-    // not supported
     aria: {
       "current-page": 'current="page"',
     },
@@ -27,6 +29,7 @@ export default defineConfig({
   },
   presets: [
     presetUno(),
+    examplePresetWithPrefix(),
     // not supported
     presetIcons({
       extraProperties: {
@@ -40,4 +43,35 @@ export default defineConfig({
     transformerDirectives(),
     transformerVariantGroup(),
   ],
+  // dummy rules/variants to workaround unsupported autocomplete by upstream
+  rules: [
+    dummyRule("border"),
+    dummyRule("(max-|min-|)(w|h)-full"),
+    dummyRule("(max-|min-|)(w|h)-<num>"),
+  ],
+  variants: [dummyVariant("aria-$aria")],
 });
+
+function dummyRule(autocomplete: string): DynamicRule {
+  return [/a^/, () => "", { autocomplete }];
+}
+
+function dummyVariant(autocomplete: string): Variant {
+  return {
+    match: () => undefined,
+    autocomplete,
+  };
+}
+
+function examplePresetWithPrefix(): Preset {
+  return {
+    name: examplePresetWithPrefix.name,
+    prefix: "textprefix-",
+    rules: [dummyRule("static-rule"), dummyRule("dynamic-rule-<num>")],
+    shortcuts: {
+      shortcut: "",
+    },
+    // variant cannot have "prefix"
+    variants: [dummyVariant("test-variant-<directions>")],
+  };
+}

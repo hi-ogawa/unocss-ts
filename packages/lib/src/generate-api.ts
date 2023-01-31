@@ -51,9 +51,14 @@ ${API_DEFINITION}
       const values: string[] = [];
       for (const [innerName, inner] of Object.entries(outer as any)) {
         if (inner && typeof inner === "object" && !Array.isArray(inner)) {
-          let innerValues = Object.keys(inner).map(
-            (key) => `${innerName}-${key}`
-          );
+          let innerValues: string[] = [];
+          for (const innerName2 of Object.keys(inner)) {
+            if (IGNORED_THEME_KEYS.includes(innerName2)) {
+              innerValues.push(innerName);
+            } else {
+              innerValues.push(`${innerName}-${innerName2}`);
+            }
+          }
           if (filters.length > 0) {
             innerValues = innerValues.filter((value) =>
               filters.some((filter) => filter.match(value))
@@ -93,7 +98,9 @@ ${API_DEFINITION}
   //
   // static rule (e.g. flex, cursor-pointer)
   //
-  const rulesStatic = Object.keys(uno.config.rulesStaticMap);
+  const rulesStatic = Object.entries(uno.config.rulesStaticMap).map(
+    ([key, value]) => (value?.[2]?.prefix ?? "") + key
+  );
   const rulesStaticApi = rulesStatic.map((rule) => rule.replaceAll("-", "_"));
   result += toStringUnionType("RuleStatic", rulesStaticApi);
 
@@ -105,7 +112,8 @@ ${API_DEFINITION}
     const meta = rule[3];
     const autocompletes = [meta?.autocomplete ?? []].flat();
     for (const autocomplete of autocompletes) {
-      rulesDynamic.push(resolveAutocomplete(autocomplete));
+      const resolved = resolveAutocomplete(autocomplete);
+      rulesDynamic.push((meta?.prefix ?? "") + resolved);
     }
   }
   const rulesDynamicApi = rulesDynamic.map((rule) => rule.replaceAll("-", "_"));
@@ -116,7 +124,8 @@ ${API_DEFINITION}
   //
   const variants: string[] = [];
   for (const variant of uno.config.variants) {
-    // TODO: some variant doesn't have autocomplete? (e.g. hover, aria)
+    // TODO: some variant doesn't have autocomplete? (e.g. aria-xxx)
+    // TODO: variant cannot have "prefix"
     let autocompletes = [variant?.autocomplete ?? []].flat();
     for (let autocomplete of autocompletes) {
       if (typeof autocomplete !== "string") {
@@ -173,10 +182,14 @@ function toStringUnionType(name: string, values: string[]): string {
   // "never" to gracefully handle empty options
   return `\
 export type ${name} =
-${values.map((s) => `  | \`${s}\``).join("\n") || "  | never"};
+${values.map((s) => `  | \`${s}\``).join("\n") || "  | never"}
+;
 
 `;
 }
+
+// https://github.com/unocss/unocss/blob/33290b66103c0c35e868212fd6c12947faa0a027/packages/autocomplete/src/parse.ts#L9
+const IGNORED_THEME_KEYS = ["DEFAULT"];
 
 //
 // based on https://github.com/unocss/unocss/blob/2e74b31625bbe3b9c8351570749aa2d3f799d919/packages/autocomplete/src/parse.ts#L31
