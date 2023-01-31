@@ -1614,7 +1614,8 @@ export type Variant =
   | `light`
   | `dark`
   | `light`
-  | `hover`;
+  | `hover`
+  | `aria_${Theme_aria}`;
 
 export type Shortcut =
   | `btn`;

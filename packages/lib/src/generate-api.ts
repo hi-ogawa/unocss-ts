@@ -121,7 +121,7 @@ ${API_DEFINITION}
   //
   const variants: string[] = [];
   for (const variant of uno.config.variants) {
-    // TODO: some variant doesn't have autocomplete? (e.g. hover, aria)
+    // TODO: some variant doesn't have autocomplete? (e.g. aria-xxx)
     let autocompletes = [variant?.autocomplete ?? []].flat();
     for (let autocomplete of autocompletes) {
       if (typeof autocomplete !== "string") {

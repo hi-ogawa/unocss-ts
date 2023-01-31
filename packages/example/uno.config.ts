@@ -1,6 +1,7 @@
 import { transformerTypescriptDsl } from "@hiogawa/unocss-typescript-dsl";
 import {
   DynamicRule,
+  Variant,
   defineConfig,
   presetIcons,
   presetUno,
@@ -35,20 +36,28 @@ export default defineConfig({
       },
     }),
   ],
-  rules: [
-    // workaround unsupported autocomplete by dummy rules
-    dummyRule("border"),
-    dummyRule("(max-|min-|)(w|h)-full"),
-    dummyRule("(max-|min-|)(w|h)-<num>"),
-  ],
   // requires transformerVariantGroup
   transformers: [
     transformerTypescriptDsl(),
     transformerDirectives(),
     transformerVariantGroup(),
   ],
+  // dummy rules/variants to workaround unsupported autocomplete by upstream
+  rules: [
+    dummyRule("border"),
+    dummyRule("(max-|min-|)(w|h)-full"),
+    dummyRule("(max-|min-|)(w|h)-<num>"),
+  ],
+  variants: [dummyVariant("aria-$aria")],
 });
 
 function dummyRule(autocomplete: string): DynamicRule {
   return [/a^/, () => "", { autocomplete }];
+}
+
+function dummyVariant(autocomplete: string): Variant {
+  return {
+    match: () => undefined,
+    autocomplete,
+  };
 }
