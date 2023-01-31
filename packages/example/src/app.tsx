@@ -7,16 +7,12 @@ export function App() {
         <h1 className={tw.text_xl.$}>Example App</h1>
         <span className={tw.flex_1.$}></span>
         <a
-          className={tw._("i-ri-github-line w-6 h-6").hover(tw.text_primary).$}
+          className={tw._("i-ri-github-line").w_6.h_6.hover(tw.text_primary).$}
           href="https://github.com/hi-ogawa/unocss-typescript-dsl"
         ></a>
       </header>
       <main className={tw.flex_1.flex.flex_col.items_center.px_2.$}>
-        <div
-          className={
-            tw._("w-full").max_w_xl._("border").flex.flex_col.gap_2.p_2.$
-          }
-        >
+        <div className={tw.w_full.max_w_xl.border.flex.flex_col.gap_2.p_2.$}>
           <h2 className={tw.text_lg.$}>Some header</h2>
           <div className={tw.text_red_500.$}>Some red text...</div>
           <div className={tw.text_blue_500.$}>Some blue text...</div>

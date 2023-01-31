@@ -1366,6 +1366,9 @@ export type RuleStatic =
   | `content_none`;
 
 export type RuleDynamic =
+  | `${"max_" | "min_" | ""}${"w" | "h"}_${Autocomplete_num}`
+  | `${"max_" | "min_" | ""}${"w" | "h"}_full`
+  | `border`
   | `placeholder_${"op" | "opacity"}`
   | `placeholder_${"op" | "opacity"}_${Autocomplete_percent}`
   | `placeholder_${Theme_colors}`
