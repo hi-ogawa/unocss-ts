@@ -249,7 +249,6 @@ export type Theme_colors =
   | `blue_700`
   | `blue_800`
   | `blue_900`
-  | `blue_DEFAULT`
   | `red_1`
   | `red_2`
   | `red_3`
@@ -269,7 +268,6 @@ export type Theme_colors =
   | `red_700`
   | `red_800`
   | `red_900`
-  | `red_DEFAULT`
   | `gray_1`
   | `gray_2`
   | `gray_3`
@@ -289,7 +287,6 @@ export type Theme_colors =
   | `gray_700`
   | `gray_800`
   | `gray_900`
-  | `gray_DEFAULT`
   | `primary`;
 
 export type Theme_fontFamily =

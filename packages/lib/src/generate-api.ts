@@ -51,9 +51,14 @@ ${API_DEFINITION}
       const values: string[] = [];
       for (const [innerName, inner] of Object.entries(outer as any)) {
         if (inner && typeof inner === "object" && !Array.isArray(inner)) {
-          let innerValues = Object.keys(inner).map(
-            (key) => `${innerName}-${key}`
-          );
+          let innerValues: string[] = [];
+          for (const innerName2 of Object.keys(inner)) {
+            if (IGNORED_THEME_KEYS.includes(innerName2)) {
+              innerValues.push(innerName);
+            } else {
+              innerValues.push(`${innerName}-${innerName2}`);
+            }
+          }
           if (filters.length > 0) {
             innerValues = innerValues.filter((value) =>
               filters.some((filter) => filter.match(value))
@@ -177,6 +182,9 @@ ${values.map((s) => `  | \`${s}\``).join("\n") || "  | never"};
 
 `;
 }
+
+// https://github.com/unocss/unocss/blob/33290b66103c0c35e868212fd6c12947faa0a027/packages/autocomplete/src/parse.ts#L9
+const IGNORED_THEME_KEYS = ["DEFAULT"];
 
 //
 // based on https://github.com/unocss/unocss/blob/2e74b31625bbe3b9c8351570749aa2d3f799d919/packages/autocomplete/src/parse.ts#L31
