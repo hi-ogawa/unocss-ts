@@ -178,7 +178,8 @@ function toStringUnionType(name: string, values: string[]): string {
   // "never" to gracefully handle empty options
   return `\
 export type ${name} =
-${values.map((s) => `  | \`${s}\``).join("\n") || "  | never"};
+${values.map((s) => `  | \`${s}\``).join("\n") || "  | never"}
+;
 
 `;
 }

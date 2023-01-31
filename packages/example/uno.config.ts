@@ -15,7 +15,6 @@ export default defineConfig({
     colors: {
       primary: "blue",
     },
-    // not supported
     aria: {
       "current-page": 'current="page"',
     },

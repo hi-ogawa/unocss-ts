@@ -76,7 +76,8 @@ describe("generateApi", () => {
         | \`gray_700\`
         | \`gray_800\`
         | \`gray_900\`
-        | \`primary\`;"
+        | \`primary\`
+      ;"
     `);
   });
 });
