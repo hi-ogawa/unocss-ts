@@ -1,6 +1,7 @@
 import { transformerTypescriptDsl } from "@hiogawa/unocss-typescript-dsl";
 import {
   DynamicRule,
+  Preset,
   Variant,
   defineConfig,
   presetIcons,
@@ -28,6 +29,7 @@ export default defineConfig({
   },
   presets: [
     presetUno(),
+    examplePresetWithPrefix(),
     // not supported
     presetIcons({
       extraProperties: {
@@ -58,5 +60,18 @@ function dummyVariant(autocomplete: string): Variant {
   return {
     match: () => undefined,
     autocomplete,
+  };
+}
+
+function examplePresetWithPrefix(): Preset {
+  return {
+    name: examplePresetWithPrefix.name,
+    prefix: "textprefix-",
+    rules: [dummyRule("static-rule"), dummyRule("dynamic-rule-<num>")],
+    shortcuts: {
+      shortcut: "",
+    },
+    // variant cannot have "prefix"
+    variants: [dummyVariant("test-variant-<directions>")],
   };
 }

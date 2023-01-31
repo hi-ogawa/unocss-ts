@@ -1412,6 +1412,8 @@ export type RuleDynamic =
   | `${"max_" | "min_" | ""}${"w" | "h"}_${Autocomplete_num}`
   | `${"max_" | "min_" | ""}${"w" | "h"}_full`
   | `border`
+  | `textprefix_dynamic_rule_${Autocomplete_num}`
+  | `textprefix_static_rule`
   | `placeholder_${"op" | "opacity"}`
   | `placeholder_${"op" | "opacity"}_${Autocomplete_percent}`
   | `placeholder_${Theme_colors}`
@@ -1662,10 +1664,12 @@ export type Variant =
   | `dark`
   | `light`
   | `hover`
+  | `test_variant_${Autocomplete_directions}`
   | `aria_${Theme_aria}`
 ;
 
 export type Shortcut =
   | `btn`
+  | `shortcut`
 ;
 

@@ -98,7 +98,9 @@ ${API_DEFINITION}
   //
   // static rule (e.g. flex, cursor-pointer)
   //
-  const rulesStatic = Object.keys(uno.config.rulesStaticMap);
+  const rulesStatic = Object.entries(uno.config.rulesStaticMap).map(
+    ([key, value]) => (value?.[2]?.prefix ?? "") + key
+  );
   const rulesStaticApi = rulesStatic.map((rule) => rule.replaceAll("-", "_"));
   result += toStringUnionType("RuleStatic", rulesStaticApi);
 
@@ -110,7 +112,8 @@ ${API_DEFINITION}
     const meta = rule[3];
     const autocompletes = [meta?.autocomplete ?? []].flat();
     for (const autocomplete of autocompletes) {
-      rulesDynamic.push(resolveAutocomplete(autocomplete));
+      const resolved = resolveAutocomplete(autocomplete);
+      rulesDynamic.push((meta?.prefix ?? "") + resolved);
     }
   }
   const rulesDynamicApi = rulesDynamic.map((rule) => rule.replaceAll("-", "_"));
@@ -122,6 +125,7 @@ ${API_DEFINITION}
   const variants: string[] = [];
   for (const variant of uno.config.variants) {
     // TODO: some variant doesn't have autocomplete? (e.g. aria-xxx)
+    // TODO: variant cannot have "prefix"
     let autocompletes = [variant?.autocomplete ?? []].flat();
     for (let autocomplete of autocompletes) {
       if (typeof autocomplete !== "string") {
