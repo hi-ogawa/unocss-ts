@@ -17,6 +17,6 @@ jobs:
       - run: pnpm lint-check
       - run: pnpm build
       - run: pnpm test
-      - run: pnpm example:generate
-      - run: pnpm example:build
       - run: pnpm tsc
+      - run: pnpm example:generate-test
+      - run: pnpm example:build
