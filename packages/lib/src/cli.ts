@@ -15,6 +15,11 @@ cli
     "--filter-colors <minimatch-pattern>",
     "Filter theme colors for performance"
   )
+  .option(
+    "--tailwind",
+    "Filter out unocss specific redundant rules for performance",
+    { default: true }
+  )
   .action(async (args: any) => {
     const options: GenerateApiOptions = {
       cwd: args.cwd,
@@ -23,6 +28,7 @@ cli
         filterColors: args.filterColors
           ? [args.filterColors].flat()
           : undefined,
+        tailwind: args.tailwind,
       },
     };
     let output = await generateApi(options);

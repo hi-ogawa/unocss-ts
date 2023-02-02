@@ -105,7 +105,10 @@ ${API_DEFINITION}
   //
   // autocomplete
   //
-  for (const [name, values] of Object.entries(AUTOCOMPLETE_BUILTIN)) {
+  for (let [name, values] of Object.entries(AUTOCOMPLETE_BUILTIN)) {
+    if (options.optimize?.tailwind) {
+      values = values.filter((v) => !["s", "e"].includes(v));
+    }
     result += toStringUnionType(`Autocomplete_${name}`, values);
   }
 
@@ -125,7 +128,15 @@ ${API_DEFINITION}
   for (const rule of uno.config.rulesDynamic) {
     const meta = rule[3];
     const autocompletes = [meta?.autocomplete ?? []].flat();
-    for (const autocomplete of autocompletes) {
+    for (let autocomplete of autocompletes) {
+      // find-and-replace to cull some redundancies
+      if (options.optimize?.tailwind) {
+        for (const redundancy of REDUNDANCIES) {
+          const from = "(" + redundancy.choice.join("|") + ")";
+          const to = redundancy.tailwind;
+          autocomplete = autocomplete.replaceAll(from, to);
+        }
+      }
       const resolved = resolveAutocomplete(autocomplete);
       rulesDynamic.push((meta?.prefix ?? "") + resolved);
     }
@@ -204,6 +215,22 @@ ${values.map((s) => `  | \`${s}\``).join("\n") || "  | never"}
 
 // https://github.com/unocss/unocss/blob/33290b66103c0c35e868212fd6c12947faa0a027/packages/autocomplete/src/parse.ts#L9
 const IGNORED_THEME_KEYS = ["DEFAULT"];
+
+// https://github.com/hi-ogawa/unocss-typescript-dsl/issues/8
+const REDUNDANCIES = [
+  {
+    tailwind: "opacity",
+    choice: ["op", "opacity"],
+  },
+  {
+    tailwind: "text",
+    choice: ["text", "color", "c"],
+  },
+  {
+    tailwind: "border",
+    choice: ["border", "b"],
+  },
+];
 
 //
 // based on https://github.com/unocss/unocss/blob/2e74b31625bbe3b9c8351570749aa2d3f799d919/packages/autocomplete/src/parse.ts#L31

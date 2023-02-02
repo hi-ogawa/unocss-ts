@@ -789,8 +789,6 @@ export type Autocomplete_directions =
   | `b`
   | `l`
   | `r`
-  | `s`
-  | `e`
 ;
 
 export type RuleStatic =
@@ -1409,13 +1407,14 @@ export type RuleStatic =
 ;
 
 export type RuleDynamic =
+  | `${"top" | "left" | "right" | "bottom"}_${Autocomplete_num}`
   | `${"max_" | "min_" | ""}${"w" | "h"}_${Autocomplete_num}`
   | `${"max_" | "min_" | ""}${"w" | "h"}_full`
   | `border`
   | `textprefix_dynamic_rule_${Autocomplete_num}`
   | `textprefix_static_rule`
-  | `placeholder_${"op" | "opacity"}`
-  | `placeholder_${"op" | "opacity"}_${Autocomplete_percent}`
+  | `placeholder_opacity`
+  | `placeholder_opacity_${Autocomplete_percent}`
   | `placeholder_${Theme_colors}`
   | `intrinsic_size_${Autocomplete_num}`
   | `transition_property_${"inherit" | "initial" | "revert" | "revert_layer" | "unset" | "all" | "colors" | "none" | "opacity" | "shadow" | "transform"}`
@@ -1432,8 +1431,8 @@ export type RuleDynamic =
   | `${"backdrop" | "filter"}_saturate`
   | `${"backdrop" | "filter"}_saturate_${Autocomplete_percent}`
   | `saturate_${Autocomplete_percent}`
-  | `backdrop_${"op" | "opacity"}`
-  | `backdrop_${"op" | "opacity"}_${Autocomplete_percent}`
+  | `backdrop_opacity`
+  | `backdrop_opacity_${Autocomplete_percent}`
   | `${"backdrop" | "filter"}_invert`
   | `${"backdrop" | "filter"}_invert_${Autocomplete_percent}`
   | `invert_${Autocomplete_percent}`
@@ -1449,19 +1448,19 @@ export type RuleDynamic =
   | `drop_shadow_${Theme_dropShadow}`
   | `filter_drop_shadow_color_${Theme_colors}`
   | `drop_shadow_color_${Theme_colors}`
-  | `filter_drop_shadow_color_${"op" | "opacity"}`
-  | `drop_shadow_color_${"op" | "opacity"}`
-  | `filter_drop_shadow_color_${"op" | "opacity"}_${Autocomplete_percent}`
-  | `drop_shadow_color_${"op" | "opacity"}_${Autocomplete_percent}`
+  | `filter_drop_shadow_color_opacity`
+  | `drop_shadow_color_opacity`
+  | `filter_drop_shadow_color_opacity_${Autocomplete_percent}`
+  | `drop_shadow_color_opacity_${Autocomplete_percent}`
   | `${"backdrop" | "filter"}_contrast_${Autocomplete_percent}`
   | `contrast_${Autocomplete_percent}`
   | `${"backdrop" | "filter"}_brightness_${Autocomplete_percent}`
   | `brightness_${Autocomplete_percent}`
   | `${"backdrop" | "filter"}_blur_${Theme_blur}`
   | `blur_${Theme_blur}`
-  | `ring_offset_${"op" | "opacity"}_${Autocomplete_percent}`
+  | `ring_offset_opacity_${Autocomplete_percent}`
   | `ring_offset_${Theme_colors}`
-  | `ring_${"op" | "opacity"}_${Autocomplete_percent}`
+  | `ring_opacity_${Autocomplete_percent}`
   | `ring_${Theme_colors}`
   | `ring_offset_${"width" | "size"}_${Theme_lineWidth}`
   | `ring_${"width" | "size"}_${Theme_lineWidth}`
@@ -1469,30 +1468,30 @@ export type RuleDynamic =
   | `outline_${"offset"}_${Autocomplete_num}`
   | `outline_${Theme_colors}`
   | `outline_${"width" | "size"}_${Autocomplete_num}`
-  | `shadow_${"op" | "opacity"}_${Autocomplete_percent}`
+  | `shadow_opacity_${Autocomplete_percent}`
   | `shadow_${Theme_colors}`
   | `shadow_${Theme_boxShadow}`
-  | `accent_${"op" | "opacity"}`
-  | `accent_${"op" | "opacity"}_${Autocomplete_percent}`
+  | `accent_opacity`
+  | `accent_opacity_${Autocomplete_percent}`
   | `accent_${Theme_colors}`
-  | `caret_${"op" | "opacity"}`
-  | `caret_${"op" | "opacity"}_${Autocomplete_percent}`
+  | `caret_opacity`
+  | `caret_opacity_${Autocomplete_percent}`
   | `caret_${Theme_colors}`
-  | `text_shadow_color_${"op" | "opacity"}_${Autocomplete_percent}`
+  | `text_shadow_color_opacity_${Autocomplete_percent}`
   | `text_shadow_color_${Theme_colors}`
   | `text_shadow_${Theme_textShadow}`
-  | `text_stroke_${"op" | "opacity"}_${Autocomplete_percent}`
+  | `text_stroke_opacity_${Autocomplete_percent}`
   | `text_stroke_${Theme_colors}`
   | `text_stroke_${Theme_textStrokeWidth}`
   | `${"underline" | "decoration"}_${"offset"}_${Autocomplete_num}`
-  | `${"underline" | "decoration"}_${"op" | "opacity"}_${Autocomplete_percent}`
+  | `${"underline" | "decoration"}_opacity_${Autocomplete_percent}`
   | `${"underline" | "decoration"}_${Theme_colors}`
   | `${"underline" | "decoration"}_${"auto" | "from_font"}`
   | `${"underline" | "decoration"}_${Autocomplete_num}`
   | `decoration_${"underline" | "overline" | "line_through"}`
-  | `${"text" | "color" | "c"}_${"op" | "opacity"}_${Autocomplete_percent}`
-  | `${"text" | "color" | "c"}_${Theme_colors}`
-  | `${"text" | "color" | "c"}_${Theme_colors}`
+  | `text_opacity_${Autocomplete_percent}`
+  | `text_${Theme_colors}`
+  | `text_${Theme_colors}`
   | `stacked_fractions`
   | `diagonal_fractions`
   | `tabular_nums`
@@ -1517,13 +1516,13 @@ export type RuleDynamic =
   | `${"m" | "p"}${Autocomplete_num}`
   | `${"m" | "p"}_${Autocomplete_num}`
   | `object_${"top" | "top_center" | "top_left" | "top_right" | "bottom" | "bottom_center" | "bottom_left" | "bottom_right" | "left" | "left_center" | "left_top" | "left_bottom" | "right" | "right_center" | "right_top" | "right_bottom" | "center" | "center_top" | "center_bottom" | "center_left" | "center_right" | "center_center" | "t" | "tc" | "tl" | "tr" | "b" | "bc" | "bl" | "br" | "l" | "lc" | "lt" | "lb" | "r" | "rc" | "rt" | "rb" | "c" | "ct" | "cb" | "cl" | "cr" | "cc"}`
-  | `stroke_${"op" | "opacity"}_${Autocomplete_percent}`
+  | `stroke_opacity_${Autocomplete_percent}`
   | `stroke_${Theme_colors}`
   | `stroke_offset_${Theme_lineWidth}`
   | `stroke_dash_${Autocomplete_num}`
   | `stroke_width_${Theme_lineWidth}`
   | `stroke_size_${Theme_lineWidth}`
-  | `fill_${"op" | "opacity"}_${Autocomplete_percent}`
+  | `fill_opacity_${Autocomplete_percent}`
   | `fill_${Theme_colors}`
   | `bg_gradient_shape`
   | `bg_gradient_shape_${"top" | "top_center" | "top_left" | "top_right" | "bottom" | "bottom_center" | "bottom_left" | "bottom_right" | "left" | "left_center" | "left_top" | "left_bottom" | "right" | "right_center" | "right_top" | "right_bottom" | "center" | "center_top" | "center_bottom" | "center_left" | "center_right" | "center_center" | "t" | "tc" | "tl" | "tr" | "b" | "bc" | "bl" | "br" | "l" | "lc" | "lt" | "lb" | "r" | "rc" | "rt" | "rb" | "c" | "ct" | "cb" | "cl" | "cr" | "cc"}`
@@ -1535,31 +1534,31 @@ export type RuleDynamic =
   | `bg_gradient`
   | `bg_gradient_${"from" | "to" | "via"}`
   | `bg_gradient_${"from" | "to" | "via"}_${Theme_colors}`
-  | `bg_gradient_${"from" | "to" | "via"}_${"op" | "opacity"}`
-  | `bg_gradient_${"from" | "to" | "via"}_${"op" | "opacity"}_${Autocomplete_percent}`
-  | `bg_${"op" | "opacity"}_${Autocomplete_percent}`
+  | `bg_gradient_${"from" | "to" | "via"}_opacity`
+  | `bg_gradient_${"from" | "to" | "via"}_opacity_${Autocomplete_percent}`
+  | `bg_opacity_${Autocomplete_percent}`
   | `bg_${Theme_colors}`
-  | `${"border" | "b"}_style`
-  | `${"border" | "b"}_${"solid" | "dashed" | "dotted" | "double" | "hidden" | "none" | "groove" | "ridge" | "inset" | "outset" | "inherit" | "initial" | "revert" | "revert_layer" | "unset"}`
-  | `${"border" | "b"}_${Autocomplete_directions}_style`
-  | `${"border" | "b"}_${Autocomplete_directions}_${"solid" | "dashed" | "dotted" | "double" | "hidden" | "none" | "groove" | "ridge" | "inset" | "outset" | "inherit" | "initial" | "revert" | "revert_layer" | "unset"}`
-  | `${"border" | "b"}_${Autocomplete_directions}_style_${"solid" | "dashed" | "dotted" | "double" | "hidden" | "none" | "groove" | "ridge" | "inset" | "outset" | "inherit" | "initial" | "revert" | "revert_layer" | "unset"}`
-  | `${"border" | "b"}_style_${"solid" | "dashed" | "dotted" | "double" | "hidden" | "none" | "groove" | "ridge" | "inset" | "outset" | "inherit" | "initial" | "revert" | "revert_layer" | "unset"}`
-  | `${"border" | "b"}_${"rounded" | "rd"}`
-  | `${"border" | "b"}_${"rounded" | "rd"}_${Autocomplete_num}`
+  | `border_style`
+  | `border_${"solid" | "dashed" | "dotted" | "double" | "hidden" | "none" | "groove" | "ridge" | "inset" | "outset" | "inherit" | "initial" | "revert" | "revert_layer" | "unset"}`
+  | `border_${Autocomplete_directions}_style`
+  | `border_${Autocomplete_directions}_${"solid" | "dashed" | "dotted" | "double" | "hidden" | "none" | "groove" | "ridge" | "inset" | "outset" | "inherit" | "initial" | "revert" | "revert_layer" | "unset"}`
+  | `border_${Autocomplete_directions}_style_${"solid" | "dashed" | "dotted" | "double" | "hidden" | "none" | "groove" | "ridge" | "inset" | "outset" | "inherit" | "initial" | "revert" | "revert_layer" | "unset"}`
+  | `border_style_${"solid" | "dashed" | "dotted" | "double" | "hidden" | "none" | "groove" | "ridge" | "inset" | "outset" | "inherit" | "initial" | "revert" | "revert_layer" | "unset"}`
+  | `border_${"rounded" | "rd"}`
+  | `border_${"rounded" | "rd"}_${Autocomplete_num}`
   | `${"rounded" | "rd"}`
   | `${"rounded" | "rd"}_${Autocomplete_num}`
-  | `${"border" | "b"}_${"op" | "opacity"}_${Autocomplete_percent}`
-  | `${"border" | "b"}_${Theme_colors}`
-  | `${"border" | "b"}_${Autocomplete_directions}_${Theme_colors}`
-  | `${"border" | "b"}_${Autocomplete_num}`
-  | `${"border" | "b"}_${Autocomplete_directions}_${Autocomplete_num}`
-  | `${"border" | "b"}_${Autocomplete_directions}`
+  | `border_opacity_${Autocomplete_percent}`
+  | `border_${Theme_colors}`
+  | `border_${Autocomplete_directions}_${Theme_colors}`
+  | `border_${Autocomplete_num}`
+  | `border_${Autocomplete_directions}_${Autocomplete_num}`
+  | `border_${Autocomplete_directions}`
   | `${"whitespace" | "ws"}_${"normal" | "nowrap" | "pre" | "pre_line" | "pre_wrap" | "break_spaces"}`
   | `${"overflow" | "of"}_${"auto" | "hidden" | "clip" | "visible" | "scroll" | "overlay" | "inherit" | "initial" | "revert" | "revert_layer" | "unset"}`
   | `${"overflow" | "of"}_${"x" | "y"}_${"auto" | "hidden" | "clip" | "visible" | "scroll" | "overlay" | "inherit" | "initial" | "revert" | "revert_layer" | "unset"}`
-  | `divide_${"op" | "opacity"}`
-  | `divide_${"op" | "opacity"}_${Autocomplete_percent}`
+  | `divide_opacity`
+  | `divide_opacity_${Autocomplete_percent}`
   | `divide_${Theme_colors}`
   | `divide_${"x" | "y" | "block" | "inline"}`
   | `divide_${"x" | "y" | "block" | "inline"}_reverse`
