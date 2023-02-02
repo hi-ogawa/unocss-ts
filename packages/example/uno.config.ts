@@ -48,6 +48,7 @@ export default defineConfig({
     dummyRule("border"),
     dummyRule("(max-|min-|)(w|h)-full"),
     dummyRule("(max-|min-|)(w|h)-<num>"),
+    dummyRule("(top|left|right|bottom)-<num>"),
   ],
   variants: [dummyVariant("aria-$aria")],
 });
