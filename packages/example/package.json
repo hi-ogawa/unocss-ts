@@ -2,7 +2,9 @@
   "scripts": {
     "dev": "vite --no-clearScreen",
     "build": "vite build",
-    "generate": "unocss-typescript-dsl --out-file ./src/styles/tw-api.ts --filter-colors '@(gray|blue|red)-*'"
+    "generate": "pnpm generate-stdout --out-file ./src/styles/tw-api.ts",
+    "generate-stdout": "unocss-typescript-dsl --filter-colors '@(gray|blue|red)-*'",
+    "generate-test": "pnpm -s generate-stdout | diff ./src/styles/tw-api.ts -"
   },
   "dependencies": {
     "@hiogawa/unocss-typescript-dsl": "workspace:*",
