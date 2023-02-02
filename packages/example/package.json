@@ -4,7 +4,7 @@
     "build": "vite build",
     "generate": "pnpm generate-stdout --out-file ./src/styles/tw-api.ts",
     "generate-stdout": "unocss-typescript-dsl --filter-colors '@(gray|blue|red)-*'",
-    "generate-test": "diff ./src/styles/tw-api.ts <(pnpm -s generate-stdout)"
+    "generate-test": "pnpm -s generate-stdout | diff ./src/styles/tw-api.ts -"
   },
   "dependencies": {
     "@hiogawa/unocss-typescript-dsl": "workspace:*",
