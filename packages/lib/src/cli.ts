@@ -1,4 +1,5 @@
 import fs from "node:fs";
+import process from "node:process";
 import { cac } from "cac";
 import { GenerateApiOptions, generateApi } from "./generate-api";
 
@@ -24,9 +25,10 @@ cli
           : undefined,
       },
     };
-    const output = await generateApi(options);
+    let output = await generateApi(options);
+    output = output.trimEnd() + "\n"; // fix trailing new lines
     if (args.outFile === "-") {
-      console.log(output);
+      process.stdout.write(output);
     } else {
       await fs.promises.writeFile(args.outFile, output);
     }

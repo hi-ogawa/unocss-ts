@@ -7,6 +7,7 @@
     "build": "pnpm -C packages/lib build",
     "test": "pnpm -C packages/lib test",
     "example:generate": "pnpm -C packages/example generate",
+    "example:generate-test": "pnpm -C packages/example generate-test",
     "example:dev": "pnpm -C packages/example dev",
     "example:build": "pnpm -C packages/example build",
     "lint": "run-s lint:*",
