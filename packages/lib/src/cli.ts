@@ -25,7 +25,8 @@ cli
           : undefined,
       },
     };
-    const output = await generateApi(options);
+    let output = await generateApi(options);
+    output = output.trimEnd() + "\n"; // fix trailing new lines
     if (args.outFile === "-") {
       process.stdout.write(output);
     } else {

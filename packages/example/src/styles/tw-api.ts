@@ -1672,4 +1672,3 @@ export type Shortcut =
   | `btn`
   | `shortcut`
 ;
-
