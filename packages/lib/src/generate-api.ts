@@ -8,17 +8,8 @@ import { API_DEFINITION } from "./runtime";
 export interface GenerateApiOptions {
   cwd?: string;
   configPath?: string;
-  // TODO: these kinds of culling is also possible simply vie sed/grep
   optimize?: {
     filterColors?: string[] | undefined;
-    // cull trivial redundancies
-    // - rules
-    //     op|opacity    =>  opacity
-    //     text|color|c  =>  text
-    //     border|b      =>  border
-    //     border|b      =>  border
-    // - autocomple
-    //     remove "s" and "e" from `Autocomplete_directions`
     tailwind?: boolean;
   };
   workaround?: {
