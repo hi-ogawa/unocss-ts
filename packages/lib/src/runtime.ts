@@ -62,7 +62,7 @@ function createApiIntenal() {
 
   const proxy: unknown = new Proxy(
     {
-      // support "reasonable" conversion since otherwise it would be too easy to throw when mis-typing
+      // support "reasonable" conversion since otherwise it would be too easy to throw (and take down whole vite dev server) when mis-typing
       // especially because typescript doesn't catch implic coercion https://github.com/microsoft/TypeScript/issues/30239
 
       // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toPrimitive
