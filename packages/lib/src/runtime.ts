@@ -61,9 +61,27 @@ function createApiIntenal() {
   let result: string[] = [];
 
   const proxy: unknown = new Proxy(
-    {},
+    {
+      // support "reasonable" conversion since otherwise it would be too easy to throw when mis-typing
+      // especially because typescript doesn't catch implic coercion https://github.com/microsoft/TypeScript/issues/30239
+
+      // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toPrimitive
+      [Symbol.toPrimitive](hint: unknown): string {
+        tinyassert(hint === "string" || hint === "default");
+        return result.join(" ");
+      },
+
+      toString(): string {
+        return result.join(" ");
+      },
+    },
     {
       get(_target, prop: unknown) {
+        if (prop === Symbol.toPrimitive || prop === "toString") {
+          // @ts-expect-error A spread argument must either have a tuple type or be passed to a rest parameter
+          return Reflect.get(...arguments);
+        }
+
         tinyassert(typeof prop === "string");
 
         if (prop === PROP_TO_STRING) {
@@ -106,7 +124,7 @@ function createApiIntenal() {
             return proxy;
           },
           {
-            // rule e.g. tw.flex (when property is accssed without call, handle it as rule)
+            // rule e.g. tw.flex (when property is accessed without call, handle it as rule)
             get(_target, next_prop: unknown) {
               tinyassert(typeof prop === "string");
               result.push(prop);

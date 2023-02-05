@@ -53,4 +53,27 @@ describe("runtime", () => {
       '"bg-white aria-selected:(bg-gray-100 text-blue-600)"'
     );
   });
+
+  describe("coercion", () => {
+    it("String", () => {
+      const tw = createApi() as any;
+      expect(String(tw.flex.justify_center.items_center)).toMatchInlineSnapshot(
+        '"flex justify-center items-center"'
+      );
+    });
+
+    it("interpolation", () => {
+      const tw = createApi() as any;
+      expect(`${tw.flex.justify_center.items_center}`).toMatchInlineSnapshot(
+        '"flex justify-center items-center"'
+      );
+    });
+
+    it("toString", () => {
+      const tw = createApi() as any;
+      expect(
+        tw.flex.justify_center.items_center.toString()
+      ).toMatchInlineSnapshot('"flex justify-center items-center"');
+    });
+  });
 });
