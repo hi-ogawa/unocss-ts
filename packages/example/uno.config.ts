@@ -1,8 +1,10 @@
-import { transformerTypescriptDsl } from "@hiogawa/unocss-typescript-dsl";
 import {
-  DynamicRule,
+  dummyRule,
+  dummyVariant,
+  transformerTypescriptDsl,
+} from "@hiogawa/unocss-typescript-dsl";
+import {
   Preset,
-  Variant,
   defineConfig,
   presetIcons,
   presetUno,
@@ -52,17 +54,6 @@ export default defineConfig({
   ],
   variants: [dummyVariant("aria-$aria")],
 });
-
-function dummyRule(autocomplete: string): DynamicRule {
-  return [/a^/, () => "", { autocomplete }];
-}
-
-function dummyVariant(autocomplete: string): Variant {
-  return {
-    match: () => undefined,
-    autocomplete,
-  };
-}
 
 function examplePresetWithPrefix(): Preset {
   return {
