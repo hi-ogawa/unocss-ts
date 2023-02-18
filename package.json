@@ -5,6 +5,7 @@
     "dev:lib": "pnpm -C packages/lib dev",
     "tsc": "tsc -b",
     "build": "pnpm -C packages/lib build",
+    "release": "pnpm -C packages/lib release",
     "test": "pnpm -C packages/lib test",
     "example:generate": "pnpm -C packages/example generate",
     "example:generate-test": "pnpm -C packages/example generate-test",
