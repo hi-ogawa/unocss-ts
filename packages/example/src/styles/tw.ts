@@ -1,4 +1,4 @@
-import { createApi } from "@hiogawa/unocss-typescript-dsl";
+import { createApi } from "@hiogawa/unocss-typescript-dsl/dist/runtime";
 import type { Api } from "./tw-api";
 
 // `createApi` (aka runtime) itself is so tiny, so it doesn't matter whether we eliminate it from bundle
