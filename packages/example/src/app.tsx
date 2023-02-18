@@ -7,7 +7,7 @@ export function App() {
         <h1 className={tw.text_xl.$}>Example App</h1>
         <span className={tw.flex_1.$}></span>
         <a
-          className={tw._("i-ri-github-line").w_6.h_6.hover(tw.text_primary).$}
+          className={tw.i_ri_github_line.w_6.h_6.hover(tw.text_primary).$}
           href="https://github.com/hi-ogawa/unocss-typescript-dsl"
         ></a>
       </header>

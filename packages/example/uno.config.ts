@@ -1,4 +1,5 @@
 import {
+  dummyPresetIconsRules,
   dummyRule,
   dummyVariant,
   transformerTypescriptDsl,
@@ -51,6 +52,7 @@ export default defineConfig({
     dummyRule("(max-|min-|)(w|h)-full"),
     dummyRule("(max-|min-|)(w|h)-<num>"),
     dummyRule("(top|left|right|bottom)-<num>"),
+    ...dummyPresetIconsRules(["ri"]),
   ],
   variants: [dummyVariant("aria-$aria")],
 });
