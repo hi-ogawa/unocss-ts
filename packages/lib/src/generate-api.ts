@@ -171,7 +171,9 @@ ${API_DEFINITION}
     // TODO: support "dynamic" shortcut?
     const key = shortcut[0];
     if (typeof key === "string") {
-      shortcuts.push(key);
+      shortcuts.push(
+        [shortcut[2]?.prefix, key].flat().filter(Boolean).join("-")
+      );
     }
   }
   const shortcutsApi = shortcuts.map((s) => s.replaceAll("-", "_"));
