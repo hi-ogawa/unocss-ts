@@ -2,8 +2,8 @@ import { tinyassert } from "@hiogawa/utils";
 import { loadConfig } from "@unocss/config";
 import { createGenerator } from "@unocss/core";
 import { Minimatch } from "minimatch";
+import { API_DEFINITION } from "./common";
 import { mapRegex } from "./regex-utils";
-import { API_DEFINITION } from "./runtime";
 
 export interface GenerateApiOptions {
   cwd?: string;

@@ -1,8 +1,9 @@
 import vm from "node:vm";
 import type { SourceCodeTransformer } from "@unocss/core";
 import type MagicString from "magic-string";
+import { API_NAME, PROP_TO_STRING } from "./common";
 import { escapeRegex, mapRegex } from "./regex-utils";
-import { API_NAME, PROP_TO_STRING, createApi } from "./runtime";
+import { createRuntime } from "./runtime";
 
 export function transformerTypescriptDsl(): SourceCodeTransformer {
   return {
@@ -38,7 +39,7 @@ export function transform(input: string): string {
 // evaluate code
 //   "tw.flex.justify_center.items_center.$" => "flex justify-center items-center"
 function evaluate(apiName: string, expression: string): string {
-  const api = createApi();
+  const api = createRuntime();
   const context = { __result: "", __api: api };
   const code = `\
 const ${apiName} = __api;

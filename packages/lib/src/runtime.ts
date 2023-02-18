@@ -1,54 +1,23 @@
 import { tinyassert } from "@hiogawa/utils";
-
-// TODO: configurable
-export const API_NAME = "tw";
-export const PROP_CUSTOM_RULE = "_";
-export const PROP_CUSTOM_VARIANT = "_v";
-export const PROP_TO_STRING = "$";
-
-//
-// Api definition (i.e. typescript dsl)
-//
-
-export const API_DEFINITION = `\
-type Property = RuleStatic | RuleDynamic | Shortcut;
-type Method = Variant;
-
-type ApiProperty = {
-  [key in Property]: Api;
-};
-
-type ApiMethod = {
-  [key in Method]: (inner: Api) => Api;
-};
-
-// escape hatch to allow arbitrary values which are not supported by auto-generation
-type ApiCustom = {
-  _: (raw: string) => Api; // for rule
-  _v: (raw: string, inner: Api) => Api; // for variant
-};
-
-// force special property to dump the resulting class string,
-// which allows transform to be implemented trivially via regex
-type ApiToString = {
-  $: string;
-};
-
-export type Api = ApiProperty & ApiMethod & ApiCustom & ApiToString;
-`;
+import {
+  PROP_CUSTOM_RULE,
+  PROP_CUSTOM_VARIANT,
+  PROP_TO_STRING,
+} from "./common";
 
 //
 // Api runtime implementation
 //
 
 // based on https://github.com/Mokshit06/typewind/blob/1526e6c086ca6607f0060ce8ede66474585efde4/packages/typewind/src/evaluate.ts
-export function createApi() {
+// TODO: rename to createRuntime?
+export function createRuntime() {
   return new Proxy(
     {},
     {
       get(_target, prop: string) {
         // instantiate clean instance on first property access
-        const apiInternal = createApiIntenal();
+        const apiInternal = createRuntimeInternal();
         // @ts-expect-error requires any
         return apiInternal[prop];
       },
@@ -56,7 +25,7 @@ export function createApi() {
   );
 }
 
-function createApiIntenal() {
+function createRuntimeInternal() {
   // accumulate css classes by intercepting a property access
   let result: string[] = [];
   const getResult = () => result.join(" ");

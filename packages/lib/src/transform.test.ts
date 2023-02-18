@@ -17,17 +17,13 @@ describe("transform", () => {
 
   it("global", () => {
     const input = `\
-      const tw = createApi() as Api;
-
       expect(tw.flex.justify_center.items_center.$).toMatchInlineSnapshot(xxx);
 
       expect(tw.flex.flex_col.justify_end.$).toMatchInlineSnapshot(xxx);
 `;
     const output = transform(input);
     expect(output).toMatchInlineSnapshot(`
-      "      const tw = createApi() as Api;
-
-            expect(\\"flex justify-center items-center\\").toMatchInlineSnapshot(xxx);
+      "      expect(\\"flex justify-center items-center\\").toMatchInlineSnapshot(xxx);
 
             expect(\\"flex flex-col justify-end\\").toMatchInlineSnapshot(xxx);
       "
@@ -68,8 +64,6 @@ describe("transform", () => {
 describe("debug-regex", () => {
   it("global", () => {
     const input = `\
-      const tw = createApi() as Api;
-
       expect(tw.flex.justify_center.items_center.$).toMatchInlineSnapshot(xxx);
 
       expect(tw.flex.flex_col.justify_end.$).toMatchInlineSnapshot(xxx);
