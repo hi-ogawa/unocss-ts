@@ -1,9 +1,9 @@
 import { describe, expect, it } from "vitest";
-import { createApi } from "./runtime";
+import { createRuntime } from "./runtime";
 
 describe("runtime", () => {
   it("basic", () => {
-    const tw = createApi() as any;
+    const tw = createRuntime() as any;
 
     expect(tw.flex.justify_center.items_center.$).toMatchInlineSnapshot(
       '"flex justify-center items-center"'
@@ -15,7 +15,7 @@ describe("runtime", () => {
   });
 
   it("variant", () => {
-    const tw = createApi() as any;
+    const tw = createRuntime() as any;
     expect(
       tw.animate_spin.sm(tw.hidden).md(tw.inline.text_red_500).$
     ).toMatchInlineSnapshot(
@@ -32,21 +32,21 @@ describe("runtime", () => {
   });
 
   it("user-defined", () => {
-    const tw = createApi() as any;
+    const tw = createRuntime() as any;
     expect(tw.text_primary.bg_white.$).toMatchInlineSnapshot(
       '"text-primary bg-white"'
     );
   });
 
   it("custom rule", () => {
-    const tw = createApi() as any;
+    const tw = createRuntime() as any;
     expect(
       tw.text_gray_500._("bg-[#123]")._("border-[#456]").$
     ).toMatchInlineSnapshot('"text-gray-500 bg-[#123] border-[#456]"');
   });
 
   it("custom variant", () => {
-    const tw = createApi() as any;
+    const tw = createRuntime() as any;
     expect(
       tw.bg_white._v("aria-selected", tw.bg_gray_100.text_blue_600).$
     ).toMatchInlineSnapshot(
@@ -56,21 +56,21 @@ describe("runtime", () => {
 
   describe("coercion", () => {
     it("String", () => {
-      const tw = createApi() as any;
+      const tw = createRuntime() as any;
       expect(String(tw.flex.justify_center.items_center)).toMatchInlineSnapshot(
         '"flex justify-center items-center"'
       );
     });
 
     it("interpolation", () => {
-      const tw = createApi() as any;
+      const tw = createRuntime() as any;
       expect(`${tw.flex.justify_center.items_center}`).toMatchInlineSnapshot(
         '"flex justify-center items-center"'
       );
     });
 
     it("toString", () => {
-      const tw = createApi() as any;
+      const tw = createRuntime() as any;
       expect(
         tw.flex.justify_center.items_center.toString()
       ).toMatchInlineSnapshot('"flex justify-center items-center"');
