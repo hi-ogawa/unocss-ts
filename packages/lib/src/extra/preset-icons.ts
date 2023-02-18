@@ -1,8 +1,8 @@
 import fs from "node:fs";
 import { tinyassert } from "@hiogawa/utils";
-import { resolveModule } from "local-pkg"; // TODO: createRequire side-effect?
+import { resolveModule } from "local-pkg";
 import type { DynamicRule } from "unocss";
-import { dummyRule } from "../workaround";
+import { dummyRule } from "./dummy";
 
 // sync version of https://github.com/iconify/iconify/blob/c04eb0dbb0296980997720378d5b00460aece7ba/packages/utils/src/loader/fs.ts
 export function dummyPresetIconsRules(
