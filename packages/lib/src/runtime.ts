@@ -107,7 +107,7 @@ function createApiIntenal() {
           };
         }
 
-        // handle custom variant e.g. tw._V("aria-selected", ...)
+        // handle custom variant e.g. tw._v("aria-selected", ...)
         if (prop === PROP_CUSTOM_VARIANT) {
           return (raw: unknown, inner: unknown) => {
             tinyassert(typeof raw === "string");
@@ -121,24 +121,23 @@ function createApiIntenal() {
         // convert back to hyphen (TODO: does this roundtrip acculately?)
         prop = prop.replaceAll("_", "-");
 
-        return new Proxy(
+        return new Proxy(() => {}, {
           // variant e.g. tw.hover(...) (when called immediately, handle it as variant)
-          (inner: unknown) => {
-            // @ts-expect-error requires any
-            inner = inner[PROP_TO_STRING];
+          apply(_target, _thisArg, args) {
+            tinyassert(args.length === 1);
+            const inner = args[0][PROP_TO_STRING];
             result.push(`${prop}:(${inner})`);
             return proxy;
           },
-          {
-            // rule e.g. tw.flex (when property is accessed without call, handle it as rule)
-            get(_target, next_prop: unknown) {
-              tinyassert(typeof prop === "string");
-              result.push(prop);
-              // @ts-expect-error requires any
-              return proxy[next_prop];
-            },
-          }
-        );
+
+          // rule e.g. tw.flex (when property is accessed without call, handle it as rule)
+          get(_target, next_prop: unknown) {
+            tinyassert(typeof prop === "string");
+            result.push(prop);
+            // @ts-expect-error requires any
+            return proxy[next_prop];
+          },
+        });
       },
     }
   );
