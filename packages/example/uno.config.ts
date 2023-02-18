@@ -63,7 +63,7 @@ function examplePresetWithPrefix(): Preset {
     prefix: "textprefix-",
     rules: [dummyRule("static-rule"), dummyRule("dynamic-rule-<num>")],
     shortcuts: {
-      shortcut: "",
+      shortcut: "xxx",
     },
     // variant cannot have "prefix"
     variants: [dummyVariant("test-variant-<directions>")],
