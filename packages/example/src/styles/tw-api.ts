@@ -3940,5 +3940,5 @@ export type Variant =
 
 export type Shortcut =
   | `btn`
-  | `textprefix__shortcut`
+  | `textprefix_shortcut`
 ;

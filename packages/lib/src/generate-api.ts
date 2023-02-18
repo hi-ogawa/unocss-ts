@@ -172,7 +172,7 @@ ${API_DEFINITION}
     const key = shortcut[0];
     if (typeof key === "string") {
       shortcuts.push(
-        [shortcut[2]?.prefix, key].flat().filter(Boolean).join("-")
+        [shortcut[2]?.prefix, key].flat().filter(Boolean).join("")
       );
     }
   }
