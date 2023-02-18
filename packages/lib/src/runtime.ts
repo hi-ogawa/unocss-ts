@@ -11,13 +11,13 @@ import {
 
 // based on https://github.com/Mokshit06/typewind/blob/1526e6c086ca6607f0060ce8ede66474585efde4/packages/typewind/src/evaluate.ts
 // TODO: rename to createRuntime?
-export function createApi() {
+export function createRuntime() {
   return new Proxy(
     {},
     {
       get(_target, prop: string) {
         // instantiate clean instance on first property access
-        const apiInternal = createApiIntenal();
+        const apiInternal = createRuntimeInternal();
         // @ts-expect-error requires any
         return apiInternal[prop];
       },
@@ -25,7 +25,7 @@ export function createApi() {
   );
 }
 
-function createApiIntenal() {
+function createRuntimeInternal() {
   // accumulate css classes by intercepting a property access
   let result: string[] = [];
   const getResult = () => result.join(" ");

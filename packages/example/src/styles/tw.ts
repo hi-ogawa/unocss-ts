@@ -1,5 +1,5 @@
-import { createApi } from "@hiogawa/unocss-typescript-dsl/dist/runtime";
+import { createRuntime } from "@hiogawa/unocss-typescript-dsl/dist/runtime";
 import type { Api } from "./tw-api";
 
-// `createApi` (aka runtime) itself is so tiny, so it doesn't matter whether we eliminate it from bundle
-export const tw = createApi() as Api;
+// runtime is so tiny and with no dependency, so it doesn't matter whether we eliminate it from bundle
+export const tw = createRuntime() as Api;
