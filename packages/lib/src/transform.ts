@@ -1,8 +1,9 @@
 import vm from "node:vm";
 import type { SourceCodeTransformer } from "@unocss/core";
 import type MagicString from "magic-string";
+import { API_NAME, PROP_TO_STRING } from "./common";
 import { escapeRegex, mapRegex } from "./regex-utils";
-import { API_NAME, PROP_TO_STRING, createApi } from "./runtime";
+import { createApi } from "./runtime";
 
 export function transformerTypescriptDsl(): SourceCodeTransformer {
   return {
