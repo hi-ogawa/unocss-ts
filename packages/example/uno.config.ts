@@ -5,8 +5,8 @@ import {
   transformerTypescriptDsl,
 } from "@hiogawa/unocss-typescript-dsl";
 import {
-  defineConfig,
   Preset,
+  defineConfig,
   presetIcons,
   presetUno,
   transformerDirectives,
