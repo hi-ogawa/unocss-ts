@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import process from "node:process";
 import { cac } from "cac";
-import { GenerateApiOptions, generateApi } from "./generate-api";
+import { generateApi, GenerateApiOptions } from "./generate-api";
 
 const cli = cac("unocss-typescript-dsl");
 
