@@ -1,28 +1,23 @@
 import { tinyassert } from "@hiogawa/utils";
 import { loadConfig } from "@unocss/config";
 import { createGenerator } from "@unocss/core";
-import { Minimatch } from "minimatch";
+import { z } from "zod";
 import { API_DEFINITION } from "./common";
 import { mapRegex } from "./regex-utils";
 
-export interface GenerateApiOptions {
-  cwd?: string;
-  configPath?: string;
-  optimize?: {
-    filterColors?: string[] | undefined;
-    tailwind?: boolean;
-  };
-  workaround?: {
-    // TODO: https://github.com/hi-ogawa/unocss-typescript-dsl/issues/9
-    fixDefault?: boolean;
-  };
-}
+export const Z_GENERATE_API_OPTIONS = z.object({
+  cwd: z.string().optional(),
+  configFile: z.string().optional(),
+  skipNonTailwind: z.boolean().default(true),
+});
+
+type GenerateApiOptions = z.infer<typeof Z_GENERATE_API_OPTIONS>;
 
 export async function generateApi(
   options: GenerateApiOptions
 ): Promise<string> {
   // initialize uno instance
-  const config = await loadConfig(options.cwd, options.configPath);
+  const config = await loadConfig(options.cwd, options.configFile);
   const uno = createGenerator(config.config);
 
   //
@@ -48,11 +43,6 @@ ${API_DEFINITION}
   for (const [name, outer] of Object.entries(uno.config.theme)) {
     // handle "colors" specific behavior https://github.com/unocss/unocss/blob/2e74b31625bbe3b9c8351570749aa2d3f799d919/packages/preset-mini/src/_utils/utilities.ts#L79
     if (name === "colors") {
-      // ad-hoc optimization to reduce string literal combinations for smoother autocompletion
-      const filters: Minimatch[] = (options.optimize?.filterColors ?? []).map(
-        (pattern) => new Minimatch(pattern)
-      );
-
       const values: string[] = [];
       for (const [innerName, inner] of Object.entries(outer as any)) {
         if (inner && typeof inner === "object" && !Array.isArray(inner)) {
@@ -63,11 +53,6 @@ ${API_DEFINITION}
             } else {
               innerValues.push(`${innerName}-${innerName2}`);
             }
-          }
-          if (filters.length > 0) {
-            innerValues = innerValues.filter((value) =>
-              filters.some((filter) => filter.match(value))
-            );
           }
           values.push(...innerValues);
         } else {
@@ -97,7 +82,7 @@ ${API_DEFINITION}
   // autocomplete
   //
   for (let [name, values] of Object.entries(AUTOCOMPLETE_BUILTIN)) {
-    if (options.optimize?.tailwind) {
+    if (options.skipNonTailwind) {
       values = values.filter((v) => !["s", "e"].includes(v));
     }
     result += toStringUnionType(`Autocomplete_${name}`, values);
@@ -121,7 +106,7 @@ ${API_DEFINITION}
     const autocompletes = [meta?.autocomplete ?? []].flat();
     for (let autocomplete of autocompletes) {
       // find-and-replace to cull some redundancies
-      if (options.optimize?.tailwind) {
+      if (options.skipNonTailwind) {
         for (const redundancy of REDUNDANCIES) {
           const from = "(" + redundancy.choice.join("|") + ")";
           const to = redundancy.tailwind;

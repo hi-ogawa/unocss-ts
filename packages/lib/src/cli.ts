@@ -1,49 +1,74 @@
 import fs from "node:fs";
+import { join } from "node:path";
 import process from "node:process";
 import { cac } from "cac";
-import { GenerateApiOptions, generateApi } from "./generate-api";
+import consola from "consola";
+import { z } from "zod";
+import { Z_GENERATE_API_OPTIONS, generateApi } from "./generate-api";
 
 const cli = cac("unocss-typescript-dsl");
+
+const Z_CLI_OPTIONS = z.object({
+  stdout: z.boolean().optional(),
+  outDir: z.string().optional(),
+});
 
 cli
   .help()
   .command("", "generate typescript api")
-  .option("-o, --out-file <file>", "Output typescript file", { default: "-" })
-  .option("-c, --config-file <file>", "Unocss config file")
-  .option("--cwd <directory>", "Project directory")
+  .option(`--${Z_CLI_OPTIONS.keyof().enum.stdout}`, "print types to stdout")
   .option(
-    "--filter-colors <minimatch-pattern>",
-    "Filter theme colors for performance"
+    `--${Z_CLI_OPTIONS.keyof().enum.outDir} <file>`,
+    "output index.ts and types.ts files"
   )
   .option(
-    "--tailwind",
-    "Filter out unocss specific redundant rules for performance",
-    { default: true }
+    `--${Z_GENERATE_API_OPTIONS.keyof().enum.cwd} <file>`,
+    "project directory"
   )
-  .action(async (args: any) => {
-    const options: GenerateApiOptions = {
-      cwd: args.cwd,
-      configPath: args.configFile,
-      optimize: {
-        filterColors: args.filterColors
-          ? [args.filterColors].flat()
-          : undefined,
-        tailwind: args.tailwind,
-      },
-    };
-    let output = await generateApi(options);
-    output = output.trimEnd() + "\n"; // fix trailing new lines
-    if (args.outFile === "-") {
-      process.stdout.write(output);
-    } else {
-      await fs.promises.writeFile(args.outFile, output);
-    }
-  });
+  .option(
+    `--${Z_GENERATE_API_OPTIONS.keyof().enum.configFile} <file>`,
+    "unocss config file"
+  )
+  .option(
+    `--${Z_GENERATE_API_OPTIONS.keyof().enum.skipNonTailwind}`,
+    "filter out unocss specific redundant rules (tsc optimization)"
+  )
+  .action(runCliGenerate);
 
-async function main() {
-  cli.parse(undefined, { run: false });
-  await cli.runMatchedCommand();
+async function runCliGenerate(rawArgs: unknown) {
+  const args = Z_CLI_OPTIONS.parse(rawArgs);
+  let output = await generateApi(Z_GENERATE_API_OPTIONS.parse(rawArgs));
+  output = output.trimEnd() + "\n"; // fix trailing new lines
+  if (args.stdout) {
+    process.stdout.write(output);
+  }
+  if (args.outDir) {
+    if (!fs.existsSync(args.outDir)) {
+      await fs.promises.mkdir(args.outDir, { recursive: true });
+    }
+    await fs.promises.writeFile(join(args.outDir, "types.ts"), output);
+    await fs.promises.writeFile(
+      join(args.outDir, "index.ts"),
+      RUNTIME_FILE_OUTPUT
+    );
+  }
 }
 
-// TODO: handle error https://github.com/unocss/unocss/blob/f1957bfbd70aa8ffc8dcb57da36771b7af7ab2dd/packages/cli/src/cli.ts#L4-L5
+const RUNTIME_FILE_OUTPUT = `\
+import { createRuntime } from "@hiogawa/unocss-typescript-dsl/dist/runtime";
+import type { Api } from "./types";
+
+export const tw = createRuntime() as Api;
+`;
+
+async function main() {
+  try {
+    cli.parse(undefined, { run: false });
+    await cli.runMatchedCommand();
+  } catch (e) {
+    consola.error(e);
+    process.exit(1);
+  }
+}
+
 main();

@@ -27,7 +27,6 @@ type ApiToString = {
 
 export type Api = ApiProperty & ApiMethod & ApiCustom & ApiToString;
 
-
 //
 // constants based on unocss config
 //
@@ -46,8 +45,7 @@ export type Theme_width =
   | `6xl`
   | `7xl`
   | `prose`
-  | `screen`
-;
+  | `screen`;
 
 export type Theme_height =
   | `auto`
@@ -63,8 +61,7 @@ export type Theme_height =
   | `6xl`
   | `7xl`
   | `prose`
-  | `screen`
-;
+  | `screen`;
 
 export type Theme_maxWidth =
   | `none`
@@ -80,8 +77,7 @@ export type Theme_maxWidth =
   | `6xl`
   | `7xl`
   | `prose`
-  | `screen`
-;
+  | `screen`;
 
 export type Theme_maxHeight =
   | `none`
@@ -97,8 +93,7 @@ export type Theme_maxHeight =
   | `6xl`
   | `7xl`
   | `prose`
-  | `screen`
-;
+  | `screen`;
 
 export type Theme_minWidth =
   | `none`
@@ -114,8 +109,7 @@ export type Theme_minWidth =
   | `6xl`
   | `7xl`
   | `prose`
-  | `screen`
-;
+  | `screen`;
 
 export type Theme_minHeight =
   | `none`
@@ -131,8 +125,7 @@ export type Theme_minHeight =
   | `6xl`
   | `7xl`
   | `prose`
-  | `screen`
-;
+  | `screen`;
 
 export type Theme_inlineSize =
   | `auto`
@@ -148,8 +141,7 @@ export type Theme_inlineSize =
   | `6xl`
   | `7xl`
   | `prose`
-  | `screen`
-;
+  | `screen`;
 
 export type Theme_blockSize =
   | `auto`
@@ -165,8 +157,7 @@ export type Theme_blockSize =
   | `6xl`
   | `7xl`
   | `prose`
-  | `screen`
-;
+  | `screen`;
 
 export type Theme_maxInlineSize =
   | `none`
@@ -182,8 +173,7 @@ export type Theme_maxInlineSize =
   | `6xl`
   | `7xl`
   | `prose`
-  | `screen`
-;
+  | `screen`;
 
 export type Theme_maxBlockSize =
   | `none`
@@ -199,8 +189,7 @@ export type Theme_maxBlockSize =
   | `6xl`
   | `7xl`
   | `prose`
-  | `screen`
-;
+  | `screen`;
 
 export type Theme_minInlineSize =
   | `none`
@@ -216,8 +205,7 @@ export type Theme_minInlineSize =
   | `6xl`
   | `7xl`
   | `prose`
-  | `screen`
-;
+  | `screen`;
 
 export type Theme_minBlockSize =
   | `none`
@@ -233,8 +221,7 @@ export type Theme_minBlockSize =
   | `6xl`
   | `7xl`
   | `prose`
-  | `screen`
-;
+  | `screen`;
 
 export type Theme_colors =
   | `inherit`
@@ -261,6 +248,7 @@ export type Theme_colors =
   | `blue_700`
   | `blue_800`
   | `blue_900`
+  | `blue`
   | `red_1`
   | `red_2`
   | `red_3`
@@ -280,33 +268,10 @@ export type Theme_colors =
   | `red_700`
   | `red_800`
   | `red_900`
-  | `gray_1`
-  | `gray_2`
-  | `gray_3`
-  | `gray_4`
-  | `gray_5`
-  | `gray_6`
-  | `gray_7`
-  | `gray_8`
-  | `gray_9`
-  | `gray_50`
-  | `gray_100`
-  | `gray_200`
-  | `gray_300`
-  | `gray_400`
-  | `gray_500`
-  | `gray_600`
-  | `gray_700`
-  | `gray_800`
-  | `gray_900`
-  | `primary`
-;
+  | `red`
+  | `primary`;
 
-export type Theme_fontFamily =
-  | `sans`
-  | `serif`
-  | `mono`
-;
+export type Theme_fontFamily = `sans` | `serif` | `mono`;
 
 export type Theme_fontSize =
   | `xs`
@@ -321,24 +286,11 @@ export type Theme_fontSize =
   | `6xl`
   | `7xl`
   | `8xl`
-  | `9xl`
-;
+  | `9xl`;
 
-export type Theme_breakpoints =
-  | `sm`
-  | `md`
-  | `lg`
-  | `xl`
-  | `2xl`
-;
+export type Theme_breakpoints = `sm` | `md` | `lg` | `xl` | `2xl`;
 
-export type Theme_verticalBreakpoints =
-  | `sm`
-  | `md`
-  | `lg`
-  | `xl`
-  | `2xl`
-;
+export type Theme_verticalBreakpoints = `sm` | `md` | `lg` | `xl` | `2xl`;
 
 export type Theme_borderRadius =
   | `DEFAULT`
@@ -349,8 +301,7 @@ export type Theme_borderRadius =
   | `xl`
   | `2xl`
   | `3xl`
-  | `full`
-;
+  | `full`;
 
 export type Theme_lineHeight =
   | `none`
@@ -358,8 +309,7 @@ export type Theme_lineHeight =
   | `snug`
   | `normal`
   | `relaxed`
-  | `loose`
-;
+  | `loose`;
 
 export type Theme_letterSpacing =
   | `tighter`
@@ -367,8 +317,7 @@ export type Theme_letterSpacing =
   | `normal`
   | `wide`
   | `wider`
-  | `widest`
-;
+  | `widest`;
 
 export type Theme_wordSpacing =
   | `tighter`
@@ -376,8 +325,7 @@ export type Theme_wordSpacing =
   | `normal`
   | `wide`
   | `wider`
-  | `widest`
-;
+  | `widest`;
 
 export type Theme_boxShadow =
   | `DEFAULT`
@@ -387,8 +335,7 @@ export type Theme_boxShadow =
   | `lg`
   | `xl`
   | `2xl`
-  | `inner`
-;
+  | `inner`;
 
 export type Theme_textIndent =
   | `DEFAULT`
@@ -398,25 +345,11 @@ export type Theme_textIndent =
   | `lg`
   | `xl`
   | `2xl`
-  | `3xl`
-;
+  | `3xl`;
 
-export type Theme_textShadow =
-  | `DEFAULT`
-  | `none`
-  | `sm`
-  | `md`
-  | `lg`
-  | `xl`
-;
+export type Theme_textShadow = `DEFAULT` | `none` | `sm` | `md` | `lg` | `xl`;
 
-export type Theme_textStrokeWidth =
-  | `DEFAULT`
-  | `none`
-  | `sm`
-  | `md`
-  | `lg`
-;
+export type Theme_textStrokeWidth = `DEFAULT` | `none` | `sm` | `md` | `lg`;
 
 export type Theme_blur =
   | `0`
@@ -426,8 +359,7 @@ export type Theme_blur =
   | `lg`
   | `xl`
   | `2xl`
-  | `3xl`
-;
+  | `3xl`;
 
 export type Theme_dropShadow =
   | `DEFAULT`
@@ -436,21 +368,11 @@ export type Theme_dropShadow =
   | `lg`
   | `xl`
   | `2xl`
-  | `none`
-;
+  | `none`;
 
-export type Theme_easing =
-  | `DEFAULT`
-  | `linear`
-  | `in`
-  | `out`
-  | `in_out`
-;
+export type Theme_easing = `DEFAULT` | `linear` | `in` | `out` | `in_out`;
 
-export type Theme_lineWidth =
-  | `DEFAULT`
-  | `none`
-;
+export type Theme_lineWidth = `DEFAULT` | `none`;
 
 export type Theme_spacing =
   | `DEFAULT`
@@ -466,8 +388,7 @@ export type Theme_spacing =
   | `6xl`
   | `7xl`
   | `8xl`
-  | `9xl`
-;
+  | `9xl`;
 
 export type Theme_duration =
   | `75`
@@ -479,13 +400,9 @@ export type Theme_duration =
   | `700`
   | `1000`
   | `DEFAULT`
-  | `none`
-;
+  | `none`;
 
-export type Theme_ringWidth =
-  | `DEFAULT`
-  | `none`
-;
+export type Theme_ringWidth = `DEFAULT` | `none`;
 
 export type Theme_preflightBase =
   | `__un_rotate`
@@ -537,8 +454,7 @@ export type Theme_preflightBase =
   | `__un_backdrop_invert`
   | `__un_backdrop_opacity`
   | `__un_backdrop_saturate`
-  | `__un_backdrop_sepia`
-;
+  | `__un_backdrop_sepia`;
 
 export type Theme_containers =
   | `xs`
@@ -552,8 +468,7 @@ export type Theme_containers =
   | `5xl`
   | `6xl`
   | `7xl`
-  | `prose`
-;
+  | `prose`;
 
 export type Theme_aria =
   | `busy`
@@ -565,8 +480,7 @@ export type Theme_aria =
   | `readonly`
   | `required`
   | `selected`
-  | `current_page`
-;
+  | `current_page`;
 
 export type Theme_animation_keyframes =
   | `pulse`
@@ -669,8 +583,7 @@ export type Theme_animation_keyframes =
   | `back_out_up`
   | `back_out_down`
   | `back_out_right`
-  | `back_out_left`
-;
+  | `back_out_left`;
 
 export type Theme_animation_durations =
   | `pulse`
@@ -679,8 +592,7 @@ export type Theme_animation_durations =
   | `bounce_out`
   | `flip_out_x`
   | `flip_out_y`
-  | `hinge`
-;
+  | `hinge`;
 
 export type Theme_animation_timingFns =
   | `pulse`
@@ -691,8 +603,7 @@ export type Theme_animation_timingFns =
   | `light_speed_in_left`
   | `light_speed_in_right`
   | `light_speed_out_left`
-  | `light_speed_out_right`
-;
+  | `light_speed_out_right`;
 
 export type Theme_animation_properties =
   | `bounce_alt`
@@ -717,8 +628,7 @@ export type Theme_animation_properties =
   | `zoom_out_down`
   | `zoom_out_left`
   | `zoom_out_right`
-  | `zoom_out_up`
-;
+  | `zoom_out_up`;
 
 export type Theme_animation_counts =
   | `spin`
@@ -726,8 +636,7 @@ export type Theme_animation_counts =
   | `pulse`
   | `pulse_alt`
   | `bounce`
-  | `bounce_alt`
-;
+  | `bounce_alt`;
 
 export type Theme_media =
   | `portrait`
@@ -746,12 +655,9 @@ export type Theme_media =
   | `stylus`
   | `pointer`
   | `mouse`
-  | `hd_color`
-;
+  | `hd_color`;
 
-export type Theme_supports =
-  | `grid`
-;
+export type Theme_supports = `grid`;
 
 export type Autocomplete_num =
   | `0`
@@ -765,8 +671,7 @@ export type Autocomplete_num =
   | `10`
   | `12`
   | `24`
-  | `36`
-;
+  | `36`;
 
 export type Autocomplete_percent =
   | `0`
@@ -779,17 +684,9 @@ export type Autocomplete_percent =
   | `70`
   | `80`
   | `90`
-  | `100`
-;
+  | `100`;
 
-export type Autocomplete_directions =
-  | `x`
-  | `y`
-  | `t`
-  | `b`
-  | `l`
-  | `r`
-;
+export type Autocomplete_directions = `x` | `y` | `t` | `b` | `l` | `r`;
 
 export type RuleStatic =
   | `sr_only`
@@ -1403,8 +1300,7 @@ export type RuleStatic =
   | `content_visibility_revert_layer`
   | `content_visibility_unset`
   | `content_empty`
-  | `content_none`
-;
+  | `content_none`;
 
 export type RuleDynamic =
   | `i_ri_zzz_line`
@@ -3688,14 +3584,31 @@ export type RuleDynamic =
   | `placeholder_opacity_${Autocomplete_percent}`
   | `placeholder_${Theme_colors}`
   | `intrinsic_size_${Autocomplete_num}`
-  | `transition_property_${"inherit" | "initial" | "revert" | "revert_layer" | "unset" | "all" | "colors" | "none" | "opacity" | "shadow" | "transform"}`
+  | `transition_property_${
+      | "inherit"
+      | "initial"
+      | "revert"
+      | "revert_layer"
+      | "unset"
+      | "all"
+      | "colors"
+      | "none"
+      | "opacity"
+      | "shadow"
+      | "transform"}`
   | `transition_ease_${"linear" | "in" | "out" | "in_out" | "DEFAULT"}`
   | `ease_${"linear" | "in" | "out" | "in_out" | "DEFAULT"}`
   | `transition_delay_${Theme_duration}`
   | `delay_${Theme_duration}`
   | `transition_duration_${Theme_duration}`
   | `duration_${Theme_duration}`
-  | `transition_${"all" | "colors" | "none" | "opacity" | "shadow" | "transform"}`
+  | `transition_${
+      | "all"
+      | "colors"
+      | "none"
+      | "opacity"
+      | "shadow"
+      | "transform"}`
   | `${"backdrop" | "filter"}_sepia`
   | `${"backdrop" | "filter"}_sepia_${Autocomplete_percent}`
   | `sepia_${Autocomplete_percent}`
@@ -3774,11 +3687,47 @@ export type RuleDynamic =
   | `word_spacing_${Theme_wordSpacing}`
   | `tracking_${Theme_letterSpacing}`
   | `${"leading" | "lh"}_${Theme_lineHeight}`
-  | `${"font" | "fw"}_${"100" | "200" | "300" | "400" | "500" | "600" | "700" | "800" | "900" | "thin" | "extralight" | "light" | "normal" | "medium" | "semibold" | "bold" | "extrabold" | "black"}`
+  | `${"font" | "fw"}_${
+      | "100"
+      | "200"
+      | "300"
+      | "400"
+      | "500"
+      | "600"
+      | "700"
+      | "800"
+      | "900"
+      | "thin"
+      | "extralight"
+      | "light"
+      | "normal"
+      | "medium"
+      | "semibold"
+      | "bold"
+      | "extrabold"
+      | "black"}`
   | `text_size_${Theme_fontSize}`
   | `text_${Theme_fontSize}`
   | `font_${Theme_fontFamily}`
-  | `${"vertical" | "align" | "v"}_${"mid" | "base" | "btm" | "baseline" | "top" | "start" | "middle" | "bottom" | "end" | "text_top" | "text_bottom" | "sub" | "super" | "inherit" | "initial" | "revert" | "revert_layer" | "unset"}`
+  | `${"vertical" | "align" | "v"}_${
+      | "mid"
+      | "base"
+      | "btm"
+      | "baseline"
+      | "top"
+      | "start"
+      | "middle"
+      | "bottom"
+      | "end"
+      | "text_top"
+      | "text_bottom"
+      | "sub"
+      | "super"
+      | "inherit"
+      | "initial"
+      | "revert"
+      | "revert_layer"
+      | "unset"}`
   | `indent_${Theme_textIndent}`
   | `${"m" | "p"}_${"bs" | "be" | "is" | "ie"}_${Autocomplete_num}`
   | `${"m" | "p"}_${"block" | "inline"}_${Autocomplete_num}`
@@ -3786,7 +3735,51 @@ export type RuleDynamic =
   | `${"m" | "p"}_${"xy"}`
   | `${"m" | "p"}${Autocomplete_num}`
   | `${"m" | "p"}_${Autocomplete_num}`
-  | `object_${"top" | "top_center" | "top_left" | "top_right" | "bottom" | "bottom_center" | "bottom_left" | "bottom_right" | "left" | "left_center" | "left_top" | "left_bottom" | "right" | "right_center" | "right_top" | "right_bottom" | "center" | "center_top" | "center_bottom" | "center_left" | "center_right" | "center_center" | "t" | "tc" | "tl" | "tr" | "b" | "bc" | "bl" | "br" | "l" | "lc" | "lt" | "lb" | "r" | "rc" | "rt" | "rb" | "c" | "ct" | "cb" | "cl" | "cr" | "cc"}`
+  | `object_${
+      | "top"
+      | "top_center"
+      | "top_left"
+      | "top_right"
+      | "bottom"
+      | "bottom_center"
+      | "bottom_left"
+      | "bottom_right"
+      | "left"
+      | "left_center"
+      | "left_top"
+      | "left_bottom"
+      | "right"
+      | "right_center"
+      | "right_top"
+      | "right_bottom"
+      | "center"
+      | "center_top"
+      | "center_bottom"
+      | "center_left"
+      | "center_right"
+      | "center_center"
+      | "t"
+      | "tc"
+      | "tl"
+      | "tr"
+      | "b"
+      | "bc"
+      | "bl"
+      | "br"
+      | "l"
+      | "lc"
+      | "lt"
+      | "lb"
+      | "r"
+      | "rc"
+      | "rt"
+      | "rb"
+      | "c"
+      | "ct"
+      | "cb"
+      | "cl"
+      | "cr"
+      | "cc"}`
   | `stroke_opacity_${Autocomplete_percent}`
   | `stroke_${Theme_colors}`
   | `stroke_offset_${Theme_lineWidth}`
@@ -3796,9 +3789,109 @@ export type RuleDynamic =
   | `fill_opacity_${Autocomplete_percent}`
   | `fill_${Theme_colors}`
   | `bg_gradient_shape`
-  | `bg_gradient_shape_${"top" | "top_center" | "top_left" | "top_right" | "bottom" | "bottom_center" | "bottom_left" | "bottom_right" | "left" | "left_center" | "left_top" | "left_bottom" | "right" | "right_center" | "right_top" | "right_bottom" | "center" | "center_top" | "center_bottom" | "center_left" | "center_right" | "center_center" | "t" | "tc" | "tl" | "tr" | "b" | "bc" | "bl" | "br" | "l" | "lc" | "lt" | "lb" | "r" | "rc" | "rt" | "rb" | "c" | "ct" | "cb" | "cl" | "cr" | "cc"}`
-  | `shape_${"top" | "top_center" | "top_left" | "top_right" | "bottom" | "bottom_center" | "bottom_left" | "bottom_right" | "left" | "left_center" | "left_top" | "left_bottom" | "right" | "right_center" | "right_top" | "right_bottom" | "center" | "center_top" | "center_bottom" | "center_left" | "center_right" | "center_center" | "t" | "tc" | "tl" | "tr" | "b" | "bc" | "bl" | "br" | "l" | "lc" | "lt" | "lb" | "r" | "rc" | "rt" | "rb" | "c" | "ct" | "cb" | "cl" | "cr" | "cc"}`
-  | `bg_gradient_to_${"t" | "tl" | "tr" | "b" | "bl" | "br" | "l" | "lt" | "lb" | "r" | "rt" | "rb"}`
+  | `bg_gradient_shape_${
+      | "top"
+      | "top_center"
+      | "top_left"
+      | "top_right"
+      | "bottom"
+      | "bottom_center"
+      | "bottom_left"
+      | "bottom_right"
+      | "left"
+      | "left_center"
+      | "left_top"
+      | "left_bottom"
+      | "right"
+      | "right_center"
+      | "right_top"
+      | "right_bottom"
+      | "center"
+      | "center_top"
+      | "center_bottom"
+      | "center_left"
+      | "center_right"
+      | "center_center"
+      | "t"
+      | "tc"
+      | "tl"
+      | "tr"
+      | "b"
+      | "bc"
+      | "bl"
+      | "br"
+      | "l"
+      | "lc"
+      | "lt"
+      | "lb"
+      | "r"
+      | "rc"
+      | "rt"
+      | "rb"
+      | "c"
+      | "ct"
+      | "cb"
+      | "cl"
+      | "cr"
+      | "cc"}`
+  | `shape_${
+      | "top"
+      | "top_center"
+      | "top_left"
+      | "top_right"
+      | "bottom"
+      | "bottom_center"
+      | "bottom_left"
+      | "bottom_right"
+      | "left"
+      | "left_center"
+      | "left_top"
+      | "left_bottom"
+      | "right"
+      | "right_center"
+      | "right_top"
+      | "right_bottom"
+      | "center"
+      | "center_top"
+      | "center_bottom"
+      | "center_left"
+      | "center_right"
+      | "center_center"
+      | "t"
+      | "tc"
+      | "tl"
+      | "tr"
+      | "b"
+      | "bc"
+      | "bl"
+      | "br"
+      | "l"
+      | "lc"
+      | "lt"
+      | "lb"
+      | "r"
+      | "rc"
+      | "rt"
+      | "rb"
+      | "c"
+      | "ct"
+      | "cb"
+      | "cl"
+      | "cr"
+      | "cc"}`
+  | `bg_gradient_to_${
+      | "t"
+      | "tl"
+      | "tr"
+      | "b"
+      | "bl"
+      | "br"
+      | "l"
+      | "lt"
+      | "lb"
+      | "r"
+      | "rt"
+      | "rb"}`
   | `bg_gradient_repeating`
   | `bg_gradient_${"linear" | "radial" | "conic"}`
   | `bg_gradient_repeating_${"linear" | "radial" | "conic"}`
@@ -3810,11 +3903,71 @@ export type RuleDynamic =
   | `bg_opacity_${Autocomplete_percent}`
   | `bg_${Theme_colors}`
   | `border_style`
-  | `border_${"solid" | "dashed" | "dotted" | "double" | "hidden" | "none" | "groove" | "ridge" | "inset" | "outset" | "inherit" | "initial" | "revert" | "revert_layer" | "unset"}`
+  | `border_${
+      | "solid"
+      | "dashed"
+      | "dotted"
+      | "double"
+      | "hidden"
+      | "none"
+      | "groove"
+      | "ridge"
+      | "inset"
+      | "outset"
+      | "inherit"
+      | "initial"
+      | "revert"
+      | "revert_layer"
+      | "unset"}`
   | `border_${Autocomplete_directions}_style`
-  | `border_${Autocomplete_directions}_${"solid" | "dashed" | "dotted" | "double" | "hidden" | "none" | "groove" | "ridge" | "inset" | "outset" | "inherit" | "initial" | "revert" | "revert_layer" | "unset"}`
-  | `border_${Autocomplete_directions}_style_${"solid" | "dashed" | "dotted" | "double" | "hidden" | "none" | "groove" | "ridge" | "inset" | "outset" | "inherit" | "initial" | "revert" | "revert_layer" | "unset"}`
-  | `border_style_${"solid" | "dashed" | "dotted" | "double" | "hidden" | "none" | "groove" | "ridge" | "inset" | "outset" | "inherit" | "initial" | "revert" | "revert_layer" | "unset"}`
+  | `border_${Autocomplete_directions}_${
+      | "solid"
+      | "dashed"
+      | "dotted"
+      | "double"
+      | "hidden"
+      | "none"
+      | "groove"
+      | "ridge"
+      | "inset"
+      | "outset"
+      | "inherit"
+      | "initial"
+      | "revert"
+      | "revert_layer"
+      | "unset"}`
+  | `border_${Autocomplete_directions}_style_${
+      | "solid"
+      | "dashed"
+      | "dotted"
+      | "double"
+      | "hidden"
+      | "none"
+      | "groove"
+      | "ridge"
+      | "inset"
+      | "outset"
+      | "inherit"
+      | "initial"
+      | "revert"
+      | "revert_layer"
+      | "unset"}`
+  | `border_style_${
+      | "solid"
+      | "dashed"
+      | "dotted"
+      | "double"
+      | "hidden"
+      | "none"
+      | "groove"
+      | "ridge"
+      | "inset"
+      | "outset"
+      | "inherit"
+      | "initial"
+      | "revert"
+      | "revert_layer"
+      | "unset"}`
   | `border_${"rounded" | "rd"}`
   | `border_${"rounded" | "rd"}_${Autocomplete_num}`
   | `${"rounded" | "rd"}`
@@ -3825,9 +3978,37 @@ export type RuleDynamic =
   | `border_${Autocomplete_num}`
   | `border_${Autocomplete_directions}_${Autocomplete_num}`
   | `border_${Autocomplete_directions}`
-  | `${"whitespace" | "ws"}_${"normal" | "nowrap" | "pre" | "pre_line" | "pre_wrap" | "break_spaces"}`
-  | `${"overflow" | "of"}_${"auto" | "hidden" | "clip" | "visible" | "scroll" | "overlay" | "inherit" | "initial" | "revert" | "revert_layer" | "unset"}`
-  | `${"overflow" | "of"}_${"x" | "y"}_${"auto" | "hidden" | "clip" | "visible" | "scroll" | "overlay" | "inherit" | "initial" | "revert" | "revert_layer" | "unset"}`
+  | `${"whitespace" | "ws"}_${
+      | "normal"
+      | "nowrap"
+      | "pre"
+      | "pre_line"
+      | "pre_wrap"
+      | "break_spaces"}`
+  | `${"overflow" | "of"}_${
+      | "auto"
+      | "hidden"
+      | "clip"
+      | "visible"
+      | "scroll"
+      | "overlay"
+      | "inherit"
+      | "initial"
+      | "revert"
+      | "revert_layer"
+      | "unset"}`
+  | `${"overflow" | "of"}_${"x" | "y"}_${
+      | "auto"
+      | "hidden"
+      | "clip"
+      | "visible"
+      | "scroll"
+      | "overlay"
+      | "inherit"
+      | "initial"
+      | "revert"
+      | "revert_layer"
+      | "unset"}`
   | `divide_opacity`
   | `divide_opacity_${Autocomplete_percent}`
   | `divide_${Theme_colors}`
@@ -3842,26 +4023,120 @@ export type RuleDynamic =
   | `gap_${Theme_spacing}`
   | `gap_${Autocomplete_num}`
   | `columns_${Autocomplete_num}`
-  | `list_${"disc" | "circle" | "square" | "decimal" | "zero_decimal" | "greek" | "roman" | "upper_roman" | "alpha" | "upper_alpha" | "latin" | "upper_latin"}`
-  | `list_${"disc" | "circle" | "square" | "decimal" | "zero_decimal" | "greek" | "roman" | "upper_roman" | "alpha" | "upper_alpha" | "latin" | "upper_latin"}_${"outside" | "inside"}`
+  | `list_${
+      | "disc"
+      | "circle"
+      | "square"
+      | "decimal"
+      | "zero_decimal"
+      | "greek"
+      | "roman"
+      | "upper_roman"
+      | "alpha"
+      | "upper_alpha"
+      | "latin"
+      | "upper_latin"}`
+  | `list_${
+      | "disc"
+      | "circle"
+      | "square"
+      | "decimal"
+      | "zero_decimal"
+      | "greek"
+      | "roman"
+      | "upper_roman"
+      | "alpha"
+      | "upper_alpha"
+      | "latin"
+      | "upper_latin"}_${"outside" | "inside"}`
   | `scroll_${"m" | "p" | "ma" | "pa" | "block" | "inline"}`
   | `scroll_${"m" | "p" | "ma" | "pa" | "block" | "inline"}_${Theme_spacing}`
-  | `scroll_${"m" | "p" | "ma" | "pa" | "block" | "inline"}_${"x" | "y" | "r" | "l" | "t" | "b" | "bs" | "be" | "is" | "ie"}`
-  | `scroll_${"m" | "p" | "ma" | "pa" | "block" | "inline"}_${"x" | "y" | "r" | "l" | "t" | "b" | "bs" | "be" | "is" | "ie"}_${Theme_spacing}`
+  | `scroll_${"m" | "p" | "ma" | "pa" | "block" | "inline"}_${
+      | "x"
+      | "y"
+      | "r"
+      | "l"
+      | "t"
+      | "b"
+      | "bs"
+      | "be"
+      | "is"
+      | "ie"}`
+  | `scroll_${"m" | "p" | "ma" | "pa" | "block" | "inline"}_${
+      | "x"
+      | "y"
+      | "r"
+      | "l"
+      | "t"
+      | "b"
+      | "bs"
+      | "be"
+      | "is"
+      | "ie"}_${Theme_spacing}`
   | `snap_${"x" | "y" | "both"}`
   | `touch_pan`
   | `touch_pan_${"x" | "left" | "right" | "y" | "up" | "down"}`
   | `animate_${"play" | "state" | "play_state"}`
-  | `animate_${"play" | "state" | "play_state"}_${"paused" | "running" | "inherit" | "initial" | "revert" | "revert_layer" | "unset"}`
-  | `animate_${"paused" | "running" | "inherit" | "initial" | "revert" | "revert_layer" | "unset"}`
+  | `animate_${"play" | "state" | "play_state"}_${
+      | "paused"
+      | "running"
+      | "inherit"
+      | "initial"
+      | "revert"
+      | "revert_layer"
+      | "unset"}`
+  | `animate_${
+      | "paused"
+      | "running"
+      | "inherit"
+      | "initial"
+      | "revert"
+      | "revert_layer"
+      | "unset"}`
   | `animate_${"iteration" | "count" | "iteration_count"}`
   | `animate_${"iteration" | "count" | "iteration_count"}_${Autocomplete_num}`
   | `animate_direction`
-  | `animate_direction_${"normal" | "reverse" | "alternate" | "alternate_reverse" | "inherit" | "initial" | "revert" | "revert_layer" | "unset"}`
-  | `animate_${"normal" | "reverse" | "alternate" | "alternate_reverse" | "inherit" | "initial" | "revert" | "revert_layer" | "unset"}`
+  | `animate_direction_${
+      | "normal"
+      | "reverse"
+      | "alternate"
+      | "alternate_reverse"
+      | "inherit"
+      | "initial"
+      | "revert"
+      | "revert_layer"
+      | "unset"}`
+  | `animate_${
+      | "normal"
+      | "reverse"
+      | "alternate"
+      | "alternate_reverse"
+      | "inherit"
+      | "initial"
+      | "revert"
+      | "revert_layer"
+      | "unset"}`
   | `animate_${"fill" | "mode" | "fill_mode"}`
-  | `animate_${"fill" | "mode" | "fill_mode"}_${"none" | "forwards" | "backwards" | "both" | "inherit" | "initial" | "revert" | "revert_layer" | "unset"}`
-  | `animate_${"none" | "forwards" | "backwards" | "both" | "inherit" | "initial" | "revert" | "revert_layer" | "unset"}`
+  | `animate_${"fill" | "mode" | "fill_mode"}_${
+      | "none"
+      | "forwards"
+      | "backwards"
+      | "both"
+      | "inherit"
+      | "initial"
+      | "revert"
+      | "revert_layer"
+      | "unset"}`
+  | `animate_${
+      | "none"
+      | "forwards"
+      | "backwards"
+      | "both"
+      | "inherit"
+      | "initial"
+      | "revert"
+      | "revert_layer"
+      | "unset"}`
   | `animate_delay_${Theme_easing}`
   | `animate_delay`
   | `animate_delay_${Theme_duration}`
@@ -3871,10 +4146,101 @@ export type RuleDynamic =
   | `animate_keyframes_${Theme_animation_keyframes}`
   | `keyframes_${Theme_animation_keyframes}`
   | `transform_${"translate" | "rotate" | "scale"}_${Autocomplete_percent}`
-  | `transform_${"translate" | "rotate" | "scale"}_${"x" | "y" | "z"}_${Autocomplete_percent}`
+  | `transform_${"translate" | "rotate" | "scale"}_${
+      | "x"
+      | "y"
+      | "z"}_${Autocomplete_percent}`
   | `transform_skew_${"x" | "y"}_${Autocomplete_percent}`
-  | `transform_origin_${"top" | "top_center" | "top_left" | "top_right" | "bottom" | "bottom_center" | "bottom_left" | "bottom_right" | "left" | "left_center" | "left_top" | "left_bottom" | "right" | "right_center" | "right_top" | "right_bottom" | "center" | "center_top" | "center_bottom" | "center_left" | "center_right" | "center_center" | "t" | "tc" | "tl" | "tr" | "b" | "bc" | "bl" | "br" | "l" | "lc" | "lt" | "lb" | "r" | "rc" | "rt" | "rb" | "c" | "ct" | "cb" | "cl" | "cr" | "cc"}`
-  | `origin_${"top" | "top_center" | "top_left" | "top_right" | "bottom" | "bottom_center" | "bottom_left" | "bottom_right" | "left" | "left_center" | "left_top" | "left_bottom" | "right" | "right_center" | "right_top" | "right_bottom" | "center" | "center_top" | "center_bottom" | "center_left" | "center_right" | "center_center" | "t" | "tc" | "tl" | "tr" | "b" | "bc" | "bl" | "br" | "l" | "lc" | "lt" | "lb" | "r" | "rc" | "rt" | "rb" | "c" | "ct" | "cb" | "cl" | "cr" | "cc"}`
+  | `transform_origin_${
+      | "top"
+      | "top_center"
+      | "top_left"
+      | "top_right"
+      | "bottom"
+      | "bottom_center"
+      | "bottom_left"
+      | "bottom_right"
+      | "left"
+      | "left_center"
+      | "left_top"
+      | "left_bottom"
+      | "right"
+      | "right_center"
+      | "right_top"
+      | "right_bottom"
+      | "center"
+      | "center_top"
+      | "center_bottom"
+      | "center_left"
+      | "center_right"
+      | "center_center"
+      | "t"
+      | "tc"
+      | "tl"
+      | "tr"
+      | "b"
+      | "bc"
+      | "bl"
+      | "br"
+      | "l"
+      | "lc"
+      | "lt"
+      | "lb"
+      | "r"
+      | "rc"
+      | "rt"
+      | "rb"
+      | "c"
+      | "ct"
+      | "cb"
+      | "cl"
+      | "cr"
+      | "cc"}`
+  | `origin_${
+      | "top"
+      | "top_center"
+      | "top_left"
+      | "top_right"
+      | "bottom"
+      | "bottom_center"
+      | "bottom_left"
+      | "bottom_right"
+      | "left"
+      | "left_center"
+      | "left_top"
+      | "left_bottom"
+      | "right"
+      | "right_center"
+      | "right_top"
+      | "right_bottom"
+      | "center"
+      | "center_top"
+      | "center_bottom"
+      | "center_left"
+      | "center_right"
+      | "center_center"
+      | "t"
+      | "tc"
+      | "tl"
+      | "tr"
+      | "b"
+      | "bc"
+      | "bl"
+      | "br"
+      | "l"
+      | "lc"
+      | "lt"
+      | "lb"
+      | "r"
+      | "rc"
+      | "rt"
+      | "rb"
+      | "c"
+      | "ct"
+      | "cb"
+      | "cl"
+      | "cr"
+      | "cc"}`
   | `border_spacing_${"x" | "y"}`
   | `border_spacing_${"x" | "y"}_${Theme_spacing}`
   | `border_spacing`
@@ -3899,7 +4265,12 @@ export type RuleDynamic =
   | `aspect_ratio_${"square" | "video"}`
   | `grid_${"rows" | "cols"}_${Autocomplete_num}`
   | `grid_${"rows" | "cols"}_none`
-  | `${"grid_auto_flow" | "auto_flow" | "grid_flow"}_${"row" | "col" | "dense" | "row_dense" | "col_dense"}`
+  | `${"grid_auto_flow" | "auto_flow" | "grid_flow"}_${
+      | "row"
+      | "col"
+      | "dense"
+      | "row_dense"
+      | "col_dense"}`
   | `grid_auto_${"rows" | "cols"}_${Autocomplete_num}`
   | `grid_${"row" | "col"}_${"start" | "end"}_${Autocomplete_num}`
   | `grid_${"row" | "col"}_span_${Autocomplete_num}`
@@ -3910,14 +4281,101 @@ export type RuleDynamic =
   | `${"position" | "pos"}_inset_${Autocomplete_directions}_${Theme_spacing}`
   | `${"position" | "pos"}_inset_${"block" | "inline"}_${Theme_spacing}`
   | `${"position" | "pos"}_inset_${"bs" | "be" | "is" | "ie"}_${Theme_spacing}`
-  | `${"position" | "pos"}_${"top" | "left" | "right" | "bottom"}_${Theme_spacing}`
-;
+  | `${"position" | "pos"}_${
+      | "top"
+      | "left"
+      | "right"
+      | "bottom"}_${Theme_spacing}`;
 
 export type Variant =
   | `print`
   | `${"at_" | "lt_" | ""}${Theme_breakpoints}`
-  | `${"first_letter" | "first_line" | "any_link" | "link" | "visited" | "target" | "open" | "hover" | "active" | "focus_visible" | "focus_within" | "focus" | "autofill" | "enabled" | "disabled" | "read_only" | "read_write" | "placeholder_shown" | "default" | "checked" | "indeterminate" | "valid" | "invalid" | "in_range" | "out_of_range" | "required" | "optional" | "root" | "empty" | "even_of_type" | "even" | "odd_of_type" | "odd" | "first_of_type" | "first" | "last_of_type" | "last" | "only_child" | "only_of_type" | "placeholder" | "before" | "after" | "selection" | "marker" | "file" | "backdrop"}`
-  | `${"not" | "is" | "where" | "has"}_${"any_link" | "link" | "visited" | "target" | "open" | "hover" | "active" | "focus_visible" | "focus_within" | "focus" | "autofill" | "enabled" | "disabled" | "read_only" | "read_write" | "placeholder_shown" | "default" | "checked" | "indeterminate" | "valid" | "invalid" | "in_range" | "out_of_range" | "required" | "optional" | "root" | "empty" | "even_of_type" | "even" | "odd_of_type" | "odd" | "first_of_type" | "first" | "last_of_type" | "last" | "only_child" | "only_of_type" | ""}`
+  | `${
+      | "first_letter"
+      | "first_line"
+      | "any_link"
+      | "link"
+      | "visited"
+      | "target"
+      | "open"
+      | "hover"
+      | "active"
+      | "focus_visible"
+      | "focus_within"
+      | "focus"
+      | "autofill"
+      | "enabled"
+      | "disabled"
+      | "read_only"
+      | "read_write"
+      | "placeholder_shown"
+      | "default"
+      | "checked"
+      | "indeterminate"
+      | "valid"
+      | "invalid"
+      | "in_range"
+      | "out_of_range"
+      | "required"
+      | "optional"
+      | "root"
+      | "empty"
+      | "even_of_type"
+      | "even"
+      | "odd_of_type"
+      | "odd"
+      | "first_of_type"
+      | "first"
+      | "last_of_type"
+      | "last"
+      | "only_child"
+      | "only_of_type"
+      | "placeholder"
+      | "before"
+      | "after"
+      | "selection"
+      | "marker"
+      | "file"
+      | "backdrop"}`
+  | `${"not" | "is" | "where" | "has"}_${
+      | "any_link"
+      | "link"
+      | "visited"
+      | "target"
+      | "open"
+      | "hover"
+      | "active"
+      | "focus_visible"
+      | "focus_within"
+      | "focus"
+      | "autofill"
+      | "enabled"
+      | "disabled"
+      | "read_only"
+      | "read_write"
+      | "placeholder_shown"
+      | "default"
+      | "checked"
+      | "indeterminate"
+      | "valid"
+      | "invalid"
+      | "in_range"
+      | "out_of_range"
+      | "required"
+      | "optional"
+      | "root"
+      | "empty"
+      | "even_of_type"
+      | "even"
+      | "odd_of_type"
+      | "odd"
+      | "first_of_type"
+      | "first"
+      | "last_of_type"
+      | "last"
+      | "only_child"
+      | "only_of_type"
+      | ""}`
   | `dark`
   | `light`
   | `rtl`
@@ -3935,10 +4393,6 @@ export type Variant =
   | `light`
   | `hover`
   | `test_variant_${Autocomplete_directions}`
-  | `aria_${Theme_aria}`
-;
+  | `aria_${Theme_aria}`;
 
-export type Shortcut =
-  | `btn`
-  | `textprefix_shortcut`
-;
+export type Shortcut = `btn` | `textprefix_shortcut`;

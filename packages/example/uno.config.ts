@@ -2,6 +2,7 @@ import {
   dummyPresetIconsRules,
   dummyRule,
   dummyVariant,
+  filterColorPallete,
   transformerTypescriptDsl,
 } from "@hiogawa/unocss-typescript-dsl";
 import {
@@ -31,7 +32,7 @@ export default defineConfig({
       .not_disabled(tw.hover(tw.bg_blue_600)).$,
   },
   presets: [
-    presetUno(),
+    filterColorPallete(presetUno(), ["blue", "red"]),
     examplePresetWithPrefix(),
     // not supported
     presetIcons({
