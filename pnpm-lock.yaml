@@ -51,22 +51,24 @@ importers:
 
   packages/lib:
     specifiers:
-      '@hiogawa/utils': ^1.0.2
+      '@hiogawa/utils': ^1.2.0
       '@types/node': ^16.18.11
       '@typescript-eslint/eslint-plugin': ^5.49.0
       '@typescript-eslint/parser': ^5.49.0
       '@unocss/config': ^0.49.1
       '@unocss/core': ^0.49.1
       cac: ^6.7.14
+      consola: ^2.15.3
       local-pkg: ^0.4.3
       magic-string: ^0.27.0
-      minimatch: ^6.1.6
       unocss: ^0.49.1
+      zod: ^3.21.0
     dependencies:
       cac: 6.7.14
-      minimatch: 6.1.6
+      consola: 2.15.3
+      zod: 3.21.0
     devDependencies:
-      '@hiogawa/utils': 1.0.2
+      '@hiogawa/utils': 1.2.0
       '@types/node': 16.18.11
       '@typescript-eslint/eslint-plugin': 5.49.0_wxm6hkjtuois6ojbvd4okzqyxe
       '@typescript-eslint/parser': 5.49.0
@@ -572,6 +574,11 @@ packages:
 
   /@hiogawa/utils/1.0.2:
     resolution: {integrity: sha512-LpHFeUD0hd+tIijN0uKml+xLK3Rqm685M8wNiPWo0m+Q+q8Bz2zUGEP7h4/3nMgVNJPSXzoPAO+1qKO5Y//z1g==}
+    dev: false
+
+  /@hiogawa/utils/1.2.0:
+    resolution: {integrity: sha512-6ejQ1tDLPj3ybOOvPW+MD3uQmjYGTtWGXcP+zQjygTAXCPrKqA93k7VjP2wziZO4mayzLO1YJS9xcVm/yavqOA==}
+    dev: true
 
   /@iconify-json/ri/1.1.4:
     resolution: {integrity: sha512-gAk2gQBVghgbMLOmbUCc3l4COMMH5sR3HhBqpjaPUFBbC4WsNNRyOD4RZgjlanU7DTgFrj4NarY5K2EkXaVxuw==}
@@ -1151,6 +1158,7 @@ packages:
 
   /balanced-match/1.0.2:
     resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
+    dev: true
 
   /binary-extensions/2.2.0:
     resolution: {integrity: sha512-jDctJ/IVQbZoJykoeHbhXpOlNBqGNcwXJKJog42E5HDPUwQTSdjCHdihjj0DlnheQ7blbT6dHOafNAiS8ooQKA==}
@@ -1163,12 +1171,6 @@ packages:
       balanced-match: 1.0.2
       concat-map: 0.0.1
     dev: true
-
-  /brace-expansion/2.0.1:
-    resolution: {integrity: sha512-XnAIvQ8eM+kC6aULx6wuQiwVsnzsi9d3WxzV3FpWTGA19F621kwdbsAcFKXgKUHZWsy+mY6iL1sHTxWEFCytDA==}
-    dependencies:
-      balanced-match: 1.0.2
-    dev: false
 
   /braces/3.0.2:
     resolution: {integrity: sha512-b8um+L1RzM3WDSzvhm6gIz1yfTbBt6YTlcEKAvsmqCZZFw46z626lVj9j1yEPW33H5H+lBQpZMP1k8l+78Ha0A==}
@@ -1298,7 +1300,6 @@ packages:
 
   /consola/2.15.3:
     resolution: {integrity: sha512-9vAdYbHj6x2fLKC4+oPH0kFzY/orMZyG2Aj+kNylHxKGJ/Ed4dpNyAQYwJOdqO4zdM7XpVHmyejQDcQHrnuXbw==}
-    dev: true
 
   /convert-source-map/1.9.0:
     resolution: {integrity: sha512-ASFBup0Mz1uyiIjANan1jzLQami9z1PoYSZCiiYW2FczPbenXc45FZdBZLzOT+r6+iciuEModtmCti+hjaAk0A==}
@@ -2294,13 +2295,6 @@ packages:
     dependencies:
       brace-expansion: 1.1.11
     dev: true
-
-  /minimatch/6.1.6:
-    resolution: {integrity: sha512-6bR3UIeh/DF8+p6A9Spyuy67ShOq42rOkHWi7eUe3Ua99Zo5lZfGC6lJJWkeoK4k9jQFT3Pl7czhTXimG2XheA==}
-    engines: {node: '>=10'}
-    dependencies:
-      brace-expansion: 2.0.1
-    dev: false
 
   /mlly/1.1.0:
     resolution: {integrity: sha512-cwzBrBfwGC1gYJyfcy8TcZU1f+dbH/T+TuOhtYP2wLv/Fb51/uV7HJQfBPtEupZ2ORLRU1EKFS/QfS3eo9+kBQ==}
@@ -3401,3 +3395,7 @@ packages:
     resolution: {integrity: sha512-9bnSc/HEW2uRy67wc+T8UwauLuPJVn28jb+GtJY16iiKWyvmYJRXVT4UamsAEGQfPohgr2q4Tq0sQbQlxTfi1g==}
     engines: {node: '>=12.20'}
     dev: true
+
+  /zod/3.21.0:
+    resolution: {integrity: sha512-UYdykTcVxB6lfdyLzAqLyyYAlOcpoluECvjsdoaqfQmz9p+3LRaIqYcNiL/J2kFYp66fBM8wwBvIGVEjq7KtZw==}
+    dev: false

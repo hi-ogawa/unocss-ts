@@ -261,6 +261,7 @@ export type Theme_colors =
   | `blue_700`
   | `blue_800`
   | `blue_900`
+  | `blue`
   | `red_1`
   | `red_2`
   | `red_3`
@@ -280,25 +281,7 @@ export type Theme_colors =
   | `red_700`
   | `red_800`
   | `red_900`
-  | `gray_1`
-  | `gray_2`
-  | `gray_3`
-  | `gray_4`
-  | `gray_5`
-  | `gray_6`
-  | `gray_7`
-  | `gray_8`
-  | `gray_9`
-  | `gray_50`
-  | `gray_100`
-  | `gray_200`
-  | `gray_300`
-  | `gray_400`
-  | `gray_500`
-  | `gray_600`
-  | `gray_700`
-  | `gray_800`
-  | `gray_900`
+  | `red`
   | `primary`
 ;
 
