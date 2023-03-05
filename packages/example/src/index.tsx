@@ -1,7 +1,7 @@
+import "./styles/index.ts";
 import { tinyassert } from "@hiogawa/utils";
 import { createRoot } from "react-dom/client";
 import { App } from "./app";
-import "./styles/index.ts";
 
 function main() {
   const el = document.querySelector("#root");
