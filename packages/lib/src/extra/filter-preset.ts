@@ -1,6 +1,9 @@
 import type { Preset } from "unocss";
 
-export function filterColorPallete(preset: Preset, allowed: string[]): Preset {
+export function filterColorPallete(
+  preset: Preset,
+  allowed: string[] = []
+): Preset {
   const theme = preset.theme as any;
   if (theme) {
     for (const [k, v] of Object.entries(theme.colors)) {
