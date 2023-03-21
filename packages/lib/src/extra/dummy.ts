@@ -24,6 +24,10 @@ export function dummyPreset(): Preset {
       dummyRule("(max-|min-|)(w|h)-<num>"),
       dummyRule("(top|left|right|bottom)-<num>"),
     ],
-    variants: [dummyVariant("important"), dummyVariant("aria-$aria")],
+    variants: [
+      dummyVariant("important"),
+      dummyVariant("aria-$aria"),
+      dummyVariant("media-$media"),
+    ],
   };
 }
