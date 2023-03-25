@@ -27,6 +27,7 @@ export function dummyPreset(): Preset {
       dummyRule("opacity-<percent>"),
       dummyRule("rounded-full"),
       dummyRule("absolute"),
+      dummyRule("relative"),
       dummyRule("fixed"),
     ],
     variants: [
