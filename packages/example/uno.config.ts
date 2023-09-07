@@ -1,4 +1,5 @@
 import {
+  dummyPreset,
   dummyPresetIconsRules,
   dummyRule,
   dummyVariant,
@@ -40,6 +41,7 @@ export default defineConfig({
         display: "inline-block",
       },
     }),
+    dummyPreset(),
   ],
   // requires transformerVariantGroup
   transformers: [

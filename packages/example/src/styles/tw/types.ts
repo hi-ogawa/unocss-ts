@@ -3665,6 +3665,17 @@ export type RuleDynamic =
   | `${"max_" | "min_" | ""}${"w" | "h"}_${Autocomplete_num}`
   | `${"max_" | "min_" | ""}${"w" | "h"}_full`
   | `border`
+  | `fixed`
+  | `relative`
+  | `absolute`
+  | `rounded_full`
+  | `opacity_${Autocomplete_percent}`
+  | `ring_${Autocomplete_num}`
+  | `${"top" | "left" | "right" | "bottom"}_${Autocomplete_num}`
+  | `${"max_" | "min_" | ""}${"w" | "h"}_${Autocomplete_num}`
+  | `${"max_" | "min_" | ""}${"w" | "h"}_full`
+  | `transition`
+  | `border`
   | `textprefix_dynamic_rule_${Autocomplete_num}`
   | `textprefix_static_rule`
   | `placeholder_opacity`
@@ -3918,6 +3929,9 @@ export type Variant =
   | `light`
   | `hover`
   | `test_variant_${Autocomplete_directions}`
+  | `important`
+  | `aria_${Theme_aria}`
+  | `media_${Theme_media}`
   | `aria_${Theme_aria}`
 ;
 
