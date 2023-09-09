@@ -51,6 +51,7 @@ importers:
 
   packages/lib:
     specifiers:
+      '@hiogawa/tiny-cli': 0.0.4-pre.1
       '@hiogawa/utils': ^1.2.0
       '@types/node': ^16.18.11
       '@typescript-eslint/eslint-plugin': ^5.49.0
@@ -68,6 +69,7 @@ importers:
       consola: 2.15.3
       zod: 3.21.0
     devDependencies:
+      '@hiogawa/tiny-cli': 0.0.4-pre.1
       '@hiogawa/utils': 1.2.0
       '@types/node': 16.18.11
       '@typescript-eslint/eslint-plugin': 5.49.0_wxm6hkjtuois6ojbvd4okzqyxe
@@ -570,6 +572,10 @@ packages:
       consola: 2.15.3
       prettier: 2.8.3
       typescript: 4.9.4
+    dev: true
+
+  /@hiogawa/tiny-cli/0.0.4-pre.1:
+    resolution: {integrity: sha512-3z/qYXDyROVX8oaFdqMyiLL8ZZE9dEaEw02ZYXOxmUF6U5MM3pskzLZId/KMvT+ZnLCLI4CUBuga6AIf56JXTw==}
     dev: true
 
   /@hiogawa/utils/1.0.2:
