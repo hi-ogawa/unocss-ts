@@ -171,13 +171,18 @@ ${API_DEFINITION}
 // misc
 //
 
-// hard-coded autocomplete shorthands https://github.com/unocss/unocss/blob/2e74b31625bbe3b9c8351570749aa2d3f799d919/packages/autocomplete/src/parse.ts#L3-L7
+// hard-coded autocomplete shorthands
+// https://github.com/unocss/unocss/blob/2e74b31625bbe3b9c8351570749aa2d3f799d919/packages/autocomplete/src/parse.ts#L3-L7
+// https://github.com/unocss/unocss/blob/4b20bb99d3806a132985165ea29f527633968bab/packages/preset-mini/src/shorthands.ts#L1-L13
 const AUTOCOMPLETE_BUILTIN = {
   // adding "${number}" will cause some inconveniences e.g.
   //   Property 'm_1' comes from an index signature, so it must be accessed with ['m_1']
   num: [0, 1, 2, 3, 4, 5, 6, 8, 10, 12, 24, 36].map(String),
   percent: Array.from({ length: 11 }, (_, i) => i * 10).map(String),
+  percentage: Array.from({ length: 10 }, (_, i) => `${(i + 1) * 10}%`),
   directions: ["x", "y", "t", "b", "l", "r", "s", "e"],
+  position: ["relative", "absolute", "fixed", "sticky", "static"],
+  globalKeyword: ["inherit", "initial", "revert", "revert-layer", "unset"],
 } satisfies Record<string, string[]>;
 
 function toStringUnionType(name: string, values: string[]): string {
@@ -224,8 +229,15 @@ function resolveAutocomplete(template: string): string {
       const builtin = match[1];
       // builtin = builtin.slice(1, -1);
       tinyassert(builtin);
-      tinyassert(builtin in AUTOCOMPLETE_BUILTIN);
-      const type = `Autocomplete_${builtin}`;
+      let type: string;
+      if (builtin in AUTOCOMPLETE_BUILTIN) {
+        type = `Autocomplete_${builtin}`;
+      } else {
+        type = "never";
+        console.error(
+          `Uknown autocomplete shorthand '<${builtin}>' in '${template}'`
+        );
+      }
       result += "${" + type + "}";
     },
     (other) => {
