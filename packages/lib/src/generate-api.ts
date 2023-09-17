@@ -177,6 +177,7 @@ const AUTOCOMPLETE_BUILTIN = {
   //   Property 'm_1' comes from an index signature, so it must be accessed with ['m_1']
   num: [0, 1, 2, 3, 4, 5, 6, 8, 10, 12, 24, 36].map(String),
   percent: Array.from({ length: 11 }, (_, i) => i * 10).map(String),
+  percentage: Array.from({ length: 10 }, (_, i) => `${(i + 1) * 10}%`),
   directions: ["x", "y", "t", "b", "l", "r", "s", "e"],
 } satisfies Record<string, string[]>;
 
@@ -224,7 +225,7 @@ function resolveAutocomplete(template: string): string {
       const builtin = match[1];
       // builtin = builtin.slice(1, -1);
       tinyassert(builtin);
-      tinyassert(builtin in AUTOCOMPLETE_BUILTIN);
+      tinyassert(builtin in AUTOCOMPLETE_BUILTIN, `Uknown autocomplete shorthand '<${builtin}>'`);
       const type = `Autocomplete_${builtin}`;
       result += "${" + type + "}";
     },
