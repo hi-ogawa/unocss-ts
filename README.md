@@ -2,6 +2,13 @@
 
 Adapting the idea of [Typewind](https://github.com/Mokshit06/typewind) to [UnoCSS](https://github.com/unocss/unocss).
 
+## example
+
+[Try it on Stackblitz](TODO)
+
+```tsx
+```
+
 Notable differences are:
 
 - No babel dependency since the modified DSL is simple enough to allow regex-based transform.
@@ -62,3 +69,12 @@ export function App() {
 </details>
 
 ![image](https://user-images.githubusercontent.com/4232207/215325254-6012680e-4f3a-4b11-834b-bf8c7eb055eb.png)
+
+## development
+
+```sh
+pnpm i
+pnpm -r build
+pnpm -C packages/example generate  # generate tw-types.d.ts
+pnpm -C packages/example dev
+```

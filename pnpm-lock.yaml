@@ -11,6 +11,9 @@ importers:
 
   .:
     devDependencies:
+      '@hiogawa/inline-template':
+        specifier: 0.0.1-pre.5
+        version: 0.0.1-pre.5
       '@hiogawa/isort-ts':
         specifier: 1.1.2-pre.2
         version: 1.1.2-pre.2(prettier@3.2.5)(typescript@5.3.3)
@@ -627,6 +630,11 @@ packages:
     os: [win32]
     requiresBuild: true
     optional: true
+
+  /@hiogawa/inline-template@0.0.1-pre.5:
+    resolution: {integrity: sha512-ZGERiBkWkadk8uXZYtKZY4nAIcXKwxBM0ujQ0UxEtJXjziamG3QuYO5Nb2V4aw03lZmZd+bWJzPK2dZBGAyIXQ==}
+    hasBin: true
+    dev: true
 
   /@hiogawa/isort-ts@1.1.2-pre.2(prettier@3.2.5)(typescript@5.3.3):
     resolution: {integrity: sha512-1+AGjS2YcnJMvlQn6l2i+5FkdUwKWlbuZ6f48SwVqmtjYHnFClFIOKYCS8Cr2xulKFpUwJATiqOXbL9Pz4eNDg==}
