@@ -1,3 +1,4 @@
+import { tinyassert } from "@hiogawa/utils";
 import type { SourceCodeTransformer } from "@unocss/core";
 import type MagicString from "magic-string";
 import { API_NAME, PROP_TO_STRING } from "./common";
@@ -15,12 +16,21 @@ export function transformerTypescriptDsl(): SourceCodeTransformer {
 }
 
 export function transformMagicString(code: MagicString) {
-  // TODO: improve magic-string update
-  const output = transform(code.toString());
-  code.overwrite(0, code.length(), output);
+  mapRegex(
+    code.toString(),
+    createRegex(API_NAME, PROP_TO_STRING),
+    (match) => {
+      const { 0: expr, index } = match;
+      tinyassert(typeof index === "number");
+      code.remove(index, index + expr.length);
+      code.appendLeft(index, evaluate(API_NAME, expr));
+    },
+    (_other) => {},
+  );
+  return code;
 }
 
-export function transform(input: string): string {
+export function transformString(input: string): string {
   const regex = createRegex(API_NAME, PROP_TO_STRING);
   let output = "";
   mapRegex(
@@ -44,7 +54,6 @@ function evaluate(apiName: string, expression: string): string {
   return `"${result}"`;
 }
 
-// TODO: strip literal before regex?
 // match example
 //   tw.xxx.yyy(tw.abc).zzz.$
 //   ~~~                   ~~
