@@ -1,6 +1,7 @@
 {
   "name": "@hiogawa/unocss-ts-example",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "vite --no-clearScreen",
     "build": "vite build",
