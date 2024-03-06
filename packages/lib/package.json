@@ -2,9 +2,6 @@
   "name": "@hiogawa/unocss-typescript-dsl",
   "version": "2.0.0-pre.8",
   "type": "module",
-  "main": "./dist/index.js",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "import": "./dist/index.js",
@@ -17,6 +14,9 @@
       "types": "./dist/runtime.d.ts"
     }
   },
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "bin": {
     "unocss-typescript-dsl": "./bin/cli.mjs",
     "unocss-typescript-dsl-pre": "./bin/cli-v2.js"
@@ -29,6 +29,11 @@
     "build": "tsup",
     "test": "vitest",
     "release": "pnpm publish --no-git-checks --access public"
+  },
+  "dependencies": {
+    "cac": "^6.7.14",
+    "consola": "^3.2.3",
+    "zod": "^3.22.4"
   },
   "devDependencies": {
     "@hiogawa/tiny-cli": "0.0.4-pre.1",
@@ -48,10 +53,5 @@
     "@unocss/core": "*",
     "local-pkg": "*",
     "magic-string": "*"
-  },
-  "dependencies": {
-    "cac": "^6.7.14",
-    "consola": "^3.2.3",
-    "zod": "^3.22.4"
   }
 }
