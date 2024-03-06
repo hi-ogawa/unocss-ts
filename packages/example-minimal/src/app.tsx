@@ -9,6 +9,7 @@ export function App() {
         <a
           className={tw.i_ri_github_line.w_6.h_6.hover(tw.text_blue_500).$}
           href="https://github.com/hi-ogawa/unocss-ts"
+          target="_blank"
         ></a>
       </header>
       <main className={tw.flex_1.flex.flex_col.items_center.px_2.$}>
