@@ -1,13 +1,7 @@
 {
-  "extends": "@tsconfig/strictest",
+  "extends": ["../../tsconfig.base.json"],
   "include": ["src"],
   "compilerOptions": {
-    "checkJs": false,
-    "noEmit": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "target": "esnext",
-    "lib": ["esnext", "dom"],
     "jsx": "react-jsx"
   }
 }

@@ -19,19 +19,19 @@ cli
   .option(`--${Z_CLI_OPTIONS.keyof().enum.stdout}`, "print types to stdout")
   .option(
     `--${Z_CLI_OPTIONS.keyof().enum.outDir} <file>`,
-    "output index.ts and types.ts files"
+    "output index.ts and types.ts files",
   )
   .option(
     `--${Z_GENERATE_API_OPTIONS.keyof().enum.cwd} <file>`,
-    "project directory"
+    "project directory",
   )
   .option(
     `--${Z_GENERATE_API_OPTIONS.keyof().enum.configFile} <file>`,
-    "unocss config file"
+    "unocss config file",
   )
   .option(
     `--${Z_GENERATE_API_OPTIONS.keyof().enum.skipNonTailwind}`,
-    "filter out unocss specific redundant rules (tsc optimization)"
+    "filter out unocss specific redundant rules (tsc optimization)",
   )
   .action(runCliGenerate);
 
@@ -49,7 +49,7 @@ async function runCliGenerate(rawArgs: unknown) {
     await fs.promises.writeFile(join(args.outDir, "types.ts"), output);
     await fs.promises.writeFile(
       join(args.outDir, "index.ts"),
-      RUNTIME_FILE_OUTPUT
+      RUNTIME_FILE_OUTPUT,
     );
   }
 }

@@ -10,7 +10,7 @@ describe("transform", () => {
 `;
     const output = transform(input);
     expect(output).toMatchInlineSnapshot(`
-      "      expect(\\"flex justify-center items-center\\").toMatchInlineSnapshot(xxx);
+      "      expect("flex justify-center items-center").toMatchInlineSnapshot(xxx);
       "
     `);
   });
@@ -23,9 +23,9 @@ describe("transform", () => {
 `;
     const output = transform(input);
     expect(output).toMatchInlineSnapshot(`
-      "      expect(\\"flex justify-center items-center\\").toMatchInlineSnapshot(xxx);
+      "      expect("flex justify-center items-center").toMatchInlineSnapshot(xxx);
 
-            expect(\\"flex flex-col justify-end\\").toMatchInlineSnapshot(xxx);
+            expect("flex flex-col justify-end").toMatchInlineSnapshot(xxx);
       "
     `);
   });
@@ -38,7 +38,7 @@ describe("transform", () => {
 `;
     const output = transform(input);
     expect(output).toMatchInlineSnapshot(`
-      "      expect(\\"flex justify-center items-center\\").toMatchInlineSnapshot(xxx);
+      "      expect("flex justify-center items-center").toMatchInlineSnapshot(xxx);
       "
     `);
   });
@@ -54,7 +54,7 @@ describe("transform", () => {
     const output = transform(input);
     expect(output).toMatchInlineSnapshot(`
       "      expect(
-              \\"animate-spin sm:(hidden) md:(inline text-red-500 disabled:(text-gray-500))\\"
+              "animate-spin sm:(hidden) md:(inline text-red-500 disabled:(text-gray-500))"
             ).toMatchInlineSnapshot(xxx);
       "
     `);

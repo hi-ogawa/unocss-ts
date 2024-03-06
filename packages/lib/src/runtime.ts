@@ -21,7 +21,7 @@ export function createRuntime() {
         // @ts-expect-error requires any
         return apiInternal[prop];
       },
-    }
+    },
   );
 }
 
@@ -108,7 +108,7 @@ function createRuntimeInternal() {
           },
         });
       },
-    }
+    },
   );
 
   return proxy;

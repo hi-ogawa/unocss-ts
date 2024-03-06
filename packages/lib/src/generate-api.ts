@@ -14,7 +14,7 @@ export const Z_GENERATE_API_OPTIONS = z.object({
 type GenerateApiOptions = z.infer<typeof Z_GENERATE_API_OPTIONS>;
 
 export async function generateApi(
-  options: GenerateApiOptions
+  options: GenerateApiOptions,
 ): Promise<string> {
   // initialize uno instance
   const config = await loadConfig(options.cwd, options.configFile);
@@ -92,7 +92,7 @@ ${API_DEFINITION}
   // static rule (e.g. flex, cursor-pointer)
   //
   const rulesStatic = Object.entries(uno.config.rulesStaticMap).map(
-    ([key, value]) => (value?.[2]?.prefix ?? "") + key
+    ([key, value]) => (value?.[2]?.prefix ?? "") + key,
   );
   const rulesStaticApi = rulesStatic.map((rule) => rule.replaceAll("-", "_"));
   result += toStringUnionType("RuleStatic", rulesStaticApi);
@@ -157,7 +157,7 @@ ${API_DEFINITION}
     const key = shortcut[0];
     if (typeof key === "string") {
       shortcuts.push(
-        [shortcut[2]?.prefix, key].flat().filter(Boolean).join("")
+        [shortcut[2]?.prefix, key].flat().filter(Boolean).join(""),
       );
     }
   }
@@ -235,7 +235,7 @@ function resolveAutocomplete(template: string): string {
       } else {
         type = "never";
         console.error(
-          `Uknown autocomplete shorthand '<${builtin}>' in '${template}'`
+          `Uknown autocomplete shorthand '<${builtin}>' in '${template}'`,
         );
       }
       result += "${" + type + "}";
@@ -276,11 +276,11 @@ function resolveAutocomplete(template: string): string {
             },
             (other) => {
               result += other;
-            }
+            },
           );
-        }
+        },
       );
-    }
+    },
   );
   return result;
 }

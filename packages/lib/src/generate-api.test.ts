@@ -35,6 +35,7 @@ describe("generateApi", () => {
         | \`rose_700\`
         | \`rose_800\`
         | \`rose_900\`
+        | \`rose_950\`
         | \`rose\`
         | \`pink_1\`
         | \`pink_2\`
@@ -55,6 +56,7 @@ describe("generateApi", () => {
         | \`pink_700\`
         | \`pink_800\`
         | \`pink_900\`
+        | \`pink_950\`
         | \`pink\`
         | \`fuchsia_1\`
         | \`fuchsia_2\`
@@ -75,6 +77,7 @@ describe("generateApi", () => {
         | \`fuchsia_700\`
         | \`fuchsia_800\`
         | \`fuchsia_900\`
+        | \`fuchsia_950\`
         | \`fuchsia\`
         | \`purple_1\`
         | \`purple_2\`
@@ -95,6 +98,7 @@ describe("generateApi", () => {
         | \`purple_700\`
         | \`purple_800\`
         | \`purple_900\`
+        | \`purple_950\`
         | \`purple\`
         | \`violet_1\`
         | \`violet_2\`
@@ -115,6 +119,7 @@ describe("generateApi", () => {
         | \`violet_700\`
         | \`violet_800\`
         | \`violet_900\`
+        | \`violet_950\`
         | \`violet\`
         | \`indigo_1\`
         | \`indigo_2\`
@@ -135,6 +140,7 @@ describe("generateApi", () => {
         | \`indigo_700\`
         | \`indigo_800\`
         | \`indigo_900\`
+        | \`indigo_950\`
         | \`indigo\`
         | \`blue_1\`
         | \`blue_2\`
@@ -155,6 +161,7 @@ describe("generateApi", () => {
         | \`blue_700\`
         | \`blue_800\`
         | \`blue_900\`
+        | \`blue_950\`
         | \`blue\`
         | \`sky_1\`
         | \`sky_2\`
@@ -175,6 +182,7 @@ describe("generateApi", () => {
         | \`sky_700\`
         | \`sky_800\`
         | \`sky_900\`
+        | \`sky_950\`
         | \`sky\`
         | \`cyan_1\`
         | \`cyan_2\`
@@ -195,6 +203,7 @@ describe("generateApi", () => {
         | \`cyan_700\`
         | \`cyan_800\`
         | \`cyan_900\`
+        | \`cyan_950\`
         | \`cyan\`
         | \`teal_1\`
         | \`teal_2\`
@@ -215,6 +224,7 @@ describe("generateApi", () => {
         | \`teal_700\`
         | \`teal_800\`
         | \`teal_900\`
+        | \`teal_950\`
         | \`teal\`
         | \`emerald_1\`
         | \`emerald_2\`
@@ -235,6 +245,7 @@ describe("generateApi", () => {
         | \`emerald_700\`
         | \`emerald_800\`
         | \`emerald_900\`
+        | \`emerald_950\`
         | \`emerald\`
         | \`green_1\`
         | \`green_2\`
@@ -255,6 +266,7 @@ describe("generateApi", () => {
         | \`green_700\`
         | \`green_800\`
         | \`green_900\`
+        | \`green_950\`
         | \`green\`
         | \`lime_1\`
         | \`lime_2\`
@@ -275,6 +287,7 @@ describe("generateApi", () => {
         | \`lime_700\`
         | \`lime_800\`
         | \`lime_900\`
+        | \`lime_950\`
         | \`lime\`
         | \`yellow_1\`
         | \`yellow_2\`
@@ -295,6 +308,7 @@ describe("generateApi", () => {
         | \`yellow_700\`
         | \`yellow_800\`
         | \`yellow_900\`
+        | \`yellow_950\`
         | \`yellow\`
         | \`amber_1\`
         | \`amber_2\`
@@ -315,6 +329,7 @@ describe("generateApi", () => {
         | \`amber_700\`
         | \`amber_800\`
         | \`amber_900\`
+        | \`amber_950\`
         | \`amber\`
         | \`orange_1\`
         | \`orange_2\`
@@ -335,6 +350,7 @@ describe("generateApi", () => {
         | \`orange_700\`
         | \`orange_800\`
         | \`orange_900\`
+        | \`orange_950\`
         | \`orange\`
         | \`red_1\`
         | \`red_2\`
@@ -355,6 +371,7 @@ describe("generateApi", () => {
         | \`red_700\`
         | \`red_800\`
         | \`red_900\`
+        | \`red_950\`
         | \`red\`
         | \`gray_1\`
         | \`gray_2\`
@@ -375,6 +392,7 @@ describe("generateApi", () => {
         | \`gray_700\`
         | \`gray_800\`
         | \`gray_900\`
+        | \`gray_950\`
         | \`gray\`
         | \`slate_1\`
         | \`slate_2\`
@@ -395,6 +413,7 @@ describe("generateApi", () => {
         | \`slate_700\`
         | \`slate_800\`
         | \`slate_900\`
+        | \`slate_950\`
         | \`slate\`
         | \`zinc_1\`
         | \`zinc_2\`
@@ -415,6 +434,7 @@ describe("generateApi", () => {
         | \`zinc_700\`
         | \`zinc_800\`
         | \`zinc_900\`
+        | \`zinc_950\`
         | \`zinc\`
         | \`neutral_1\`
         | \`neutral_2\`
@@ -435,6 +455,7 @@ describe("generateApi", () => {
         | \`neutral_700\`
         | \`neutral_800\`
         | \`neutral_900\`
+        | \`neutral_950\`
         | \`neutral\`
         | \`stone_1\`
         | \`stone_2\`
@@ -455,6 +476,7 @@ describe("generateApi", () => {
         | \`stone_700\`
         | \`stone_800\`
         | \`stone_900\`
+        | \`stone_950\`
         | \`stone\`
         | \`light_1\`
         | \`light_2\`
@@ -475,6 +497,7 @@ describe("generateApi", () => {
         | \`light_700\`
         | \`light_800\`
         | \`light_900\`
+        | \`light_950\`
         | \`light\`
         | \`dark_1\`
         | \`dark_2\`
@@ -495,6 +518,7 @@ describe("generateApi", () => {
         | \`dark_700\`
         | \`dark_800\`
         | \`dark_900\`
+        | \`dark_950\`
         | \`dark\`
         | \`lightblue_1\`
         | \`lightblue_2\`
@@ -515,6 +539,7 @@ describe("generateApi", () => {
         | \`lightblue_700\`
         | \`lightblue_800\`
         | \`lightblue_900\`
+        | \`lightblue_950\`
         | \`lightblue\`
         | \`lightBlue_1\`
         | \`lightBlue_2\`
@@ -535,6 +560,7 @@ describe("generateApi", () => {
         | \`lightBlue_700\`
         | \`lightBlue_800\`
         | \`lightBlue_900\`
+        | \`lightBlue_950\`
         | \`lightBlue\`
         | \`warmgray_1\`
         | \`warmgray_2\`
@@ -555,6 +581,7 @@ describe("generateApi", () => {
         | \`warmgray_700\`
         | \`warmgray_800\`
         | \`warmgray_900\`
+        | \`warmgray_950\`
         | \`warmgray\`
         | \`warmGray_1\`
         | \`warmGray_2\`
@@ -575,6 +602,7 @@ describe("generateApi", () => {
         | \`warmGray_700\`
         | \`warmGray_800\`
         | \`warmGray_900\`
+        | \`warmGray_950\`
         | \`warmGray\`
         | \`truegray_1\`
         | \`truegray_2\`
@@ -595,6 +623,7 @@ describe("generateApi", () => {
         | \`truegray_700\`
         | \`truegray_800\`
         | \`truegray_900\`
+        | \`truegray_950\`
         | \`truegray\`
         | \`trueGray_1\`
         | \`trueGray_2\`
@@ -615,6 +644,7 @@ describe("generateApi", () => {
         | \`trueGray_700\`
         | \`trueGray_800\`
         | \`trueGray_900\`
+        | \`trueGray_950\`
         | \`trueGray\`
         | \`coolgray_1\`
         | \`coolgray_2\`
@@ -635,6 +665,7 @@ describe("generateApi", () => {
         | \`coolgray_700\`
         | \`coolgray_800\`
         | \`coolgray_900\`
+        | \`coolgray_950\`
         | \`coolgray\`
         | \`coolGray_1\`
         | \`coolGray_2\`
@@ -655,6 +686,7 @@ describe("generateApi", () => {
         | \`coolGray_700\`
         | \`coolGray_800\`
         | \`coolGray_900\`
+        | \`coolGray_950\`
         | \`coolGray\`
         | \`bluegray_1\`
         | \`bluegray_2\`
@@ -675,6 +707,7 @@ describe("generateApi", () => {
         | \`bluegray_700\`
         | \`bluegray_800\`
         | \`bluegray_900\`
+        | \`bluegray_950\`
         | \`bluegray\`
         | \`blueGray_1\`
         | \`blueGray_2\`
@@ -695,6 +728,7 @@ describe("generateApi", () => {
         | \`blueGray_700\`
         | \`blueGray_800\`
         | \`blueGray_900\`
+        | \`blueGray_950\`
         | \`blueGray\`
         | \`primary\`
       ;"

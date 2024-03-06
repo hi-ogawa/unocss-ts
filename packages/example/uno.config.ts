@@ -51,6 +51,7 @@ export default defineConfig({
   ],
   // dummy rules/variants to workaround unsupported autocomplete by upstream
   rules: [
+    dummyRule("bg-$colors"), // TODO: where did this go in latest unocss?
     dummyRule("border"),
     dummyRule("(max-|min-|)(w|h)-full"),
     dummyRule("(max-|min-|)(w|h)-<num>"),

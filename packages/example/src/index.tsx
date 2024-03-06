@@ -1,4 +1,4 @@
-import "./styles/index.ts";
+import "./styles/index";
 import { tinyassert } from "@hiogawa/utils";
 import { createRoot } from "react-dom/client";
 import { App } from "./app";

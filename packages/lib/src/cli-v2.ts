@@ -25,7 +25,7 @@ cli.defineCommand(
         process.exitCode = 1;
       }
     }
-  }
+  },
 );
 
 async function transformFile(file: string): Promise<boolean> {

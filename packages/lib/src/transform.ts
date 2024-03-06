@@ -31,7 +31,7 @@ export function transform(input: string): string {
     },
     (other) => {
       output += other;
-    }
+    },
   );
   return output;
 }
