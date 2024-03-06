@@ -1,74 +1,65 @@
 import fs from "node:fs";
-import { join } from "node:path";
-import process from "node:process";
-import { cac } from "cac"; // TODO: remove cac
-import consola from "consola"; // TODO: remove consola
-import { z } from "zod";
-import { Z_GENERATE_API_OPTIONS, generateApi } from "./generate-api";
+import { TinyCli, arg, tinyCliMain } from "@hiogawa/tiny-cli";
+import { version as packageVersion } from "../package.json";
+import { generateApi } from "./generate-api";
+import { transformString } from "./transform";
 
-const cli = cac("unocss-typescript-dsl");
-
-const Z_CLI_OPTIONS = z.object({
-  stdout: z.boolean().optional(),
-  outDir: z.string().optional(),
+const cli = new TinyCli({
+  program: "unocss-typescript-dsl",
+  version: packageVersion,
 });
 
-cli
-  .help()
-  .command("", "generate typescript api")
-  .option(`--${Z_CLI_OPTIONS.keyof().enum.stdout}`, "print types to stdout")
-  .option(
-    `--${Z_CLI_OPTIONS.keyof().enum.outDir} <file>`,
-    "output index.ts and types.ts files",
-  )
-  .option(
-    `--${Z_GENERATE_API_OPTIONS.keyof().enum.cwd} <file>`,
-    "project directory",
-  )
-  .option(
-    `--${Z_GENERATE_API_OPTIONS.keyof().enum.configFile} <file>`,
-    "unocss config file",
-  )
-  .option(
-    `--${Z_GENERATE_API_OPTIONS.keyof().enum.skipNonTailwind}`,
-    "filter out unocss specific redundant rules (tsc optimization)",
-  )
-  .action(runCliGenerate);
-
-async function runCliGenerate(rawArgs: unknown) {
-  const args = Z_CLI_OPTIONS.parse(rawArgs);
-  let output = await generateApi(Z_GENERATE_API_OPTIONS.parse(rawArgs));
-  output = output.trimEnd() + "\n"; // fix trailing new lines
-  if (args.stdout) {
-    process.stdout.write(output);
-  }
-  if (args.outDir) {
-    if (!fs.existsSync(args.outDir)) {
-      await fs.promises.mkdir(args.outDir, { recursive: true });
+cli.defineCommand(
+  {
+    name: "generate",
+    args: {
+      outFile: arg.string("Output .d.ts file", { optional: true }),
+      configFile: arg.string("UnoCSS config file", { optional: true }),
+    },
+  },
+  async ({ args }) => {
+    let output = await generateApi({
+      cwd: process.cwd(),
+      configFile: args.configFile,
+      skipNonTailwind: true,
+    });
+    output = output.trimEnd() + "\n"; // fix trailing new lines
+    if (args.outFile) {
+      await fs.promises.writeFile(args.outFile, output);
+    } else {
+      process.stdout.write(output);
     }
-    await fs.promises.writeFile(join(args.outDir, "types.d.ts"), output);
-    // await fs.promises.writeFile(
-    //   join(args.outDir, "index.ts"),
-    //   RUNTIME_FILE_OUTPUT,
-    // );
+  },
+);
+
+cli.defineCommand(
+  {
+    name: "transform",
+    args: {
+      files: arg.stringArray("Input files to apply transform"),
+    },
+  },
+  async ({ args }) => {
+    for (const file of args.files) {
+      try {
+        const changed = await transformFile(file);
+        console.log(changed ? "✅" : "ℹ️", file);
+      } catch (e) {
+        console.log("❌", file, String(e));
+        process.exitCode = 1;
+      }
+    }
+  },
+);
+
+async function transformFile(file: string): Promise<boolean> {
+  const input = await fs.promises.readFile(file, "utf-8");
+  const output = transformString(input);
+  if (input === output) {
+    return false;
   }
+  await fs.promises.writeFile(file, output);
+  return true;
 }
 
-// const RUNTIME_FILE_OUTPUT = `\
-// import { createRuntime } from "@hiogawa/unocss-typescript-dsl/dist/runtime";
-// import type { Api } from "./types";
-
-// export const tw = createRuntime() as Api;
-// `;
-
-async function main() {
-  try {
-    cli.parse(undefined, { run: false });
-    await cli.runMatchedCommand();
-  } catch (e) {
-    consola.error(e);
-    process.exit(1);
-  }
-}
-
-main();
+tinyCliMain(cli);

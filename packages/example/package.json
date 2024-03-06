@@ -5,8 +5,8 @@
   "scripts": {
     "dev": "vite --no-clearScreen",
     "build": "vite build",
-    "generate": "unocss-typescript-dsl --outDir ./src/styles/tw",
-    "generate-test": "unocss-typescript-dsl --stdout | diff ./src/styles/tw/types.d.ts -"
+    "generate": "unocss-typescript-dsl generate --outFile ./src/styles/tw/types.d.ts",
+    "generate-test": "unocss-typescript-dsl generate | diff ./src/styles/tw/types.d.ts -"
   },
   "dependencies": {
     "@hiogawa/unocss-typescript-dsl": "workspace:*",

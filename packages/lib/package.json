@@ -9,10 +9,7 @@
       "default": "./dist/index.js"
     }
   },
-  "bin": {
-    "unocss-typescript-dsl": "./bin/cli.mjs",
-    "unocss-typescript-dsl-pre": "./bin/cli-v2.js"
-  },
+  "bin": "./bin/cli.js",
   "files": [
     "dist"
   ],
