@@ -73,6 +73,40 @@ importers:
         specifier: ^5.1.5
         version: 5.1.5(@types/node@20.11.24)
 
+  packages/example-minimal:
+    dependencies:
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
+      react-dom:
+        specifier: ^18.2.0
+        version: 18.2.0(react@18.2.0)
+    devDependencies:
+      '@hiogawa/unocss-ts':
+        specifier: workspace:*
+        version: link:../lib
+      '@iconify-json/ri':
+        specifier: ^1.1.20
+        version: 1.1.20
+      '@types/react':
+        specifier: ^18.2.63
+        version: 18.2.63
+      '@types/react-dom':
+        specifier: ^18.2.20
+        version: 18.2.20
+      '@unocss/reset':
+        specifier: ^0.58.5
+        version: 0.58.5
+      '@vitejs/plugin-react':
+        specifier: ^4.2.1
+        version: 4.2.1(vite@5.1.5)
+      unocss:
+        specifier: ^0.58.5
+        version: 0.58.5(postcss@8.4.35)(vite@5.1.5)
+      vite:
+        specifier: ^5.1.5
+        version: 5.1.5(@types/node@20.11.24)
+
   packages/lib:
     dependencies:
       '@unocss/config':
