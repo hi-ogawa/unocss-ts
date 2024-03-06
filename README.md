@@ -1,6 +1,8 @@
 # unocss-ts
 
-Adapting the idea of [Typewind](https://github.com/Mokshit06/typewind) to [UnoCSS](https://github.com/unocss/unocss).
+Type-safe API to write [UnoCSS](https://github.com/unocss/unocss) classes.
+
+Inspired by [Typewind](https://github.com/Mokshit06/typewind) for [Tailwind](https://github.com/tailwindlabs/tailwindcss).
 
 ## example
 
