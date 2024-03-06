@@ -1,4 +1,4 @@
-import { createRuntime } from "@hiogawa/unocss-typescript-dsl/dist/runtime";
+import { createRuntime } from "@hiogawa/unocss-typescript-dsl/runtime";
 import type { Api } from "./types";
 
 export const tw = createRuntime() as Api;

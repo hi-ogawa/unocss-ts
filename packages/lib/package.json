@@ -4,19 +4,14 @@
   "type": "module",
   "exports": {
     ".": {
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs",
-      "types": "./dist/index.d.ts"
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
     },
-    "./dist/runtime": {
-      "import": "./dist/runtime.js",
-      "require": "./dist/runtime.cjs",
-      "types": "./dist/runtime.d.ts"
+    "./runtime": {
+      "types": "./dist/runtime.d.ts",
+      "default": "./dist/runtime.js"
     }
   },
-  "main": "./dist/index.js",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
   "bin": {
     "unocss-typescript-dsl": "./bin/cli.mjs",
     "unocss-typescript-dsl-pre": "./bin/cli-v2.js"
@@ -28,6 +23,7 @@
     "dev": "tsup --watch",
     "build": "tsup",
     "test": "vitest",
+    "prepack": "tsup --clean",
     "release": "pnpm publish --no-git-checks --access public"
   },
   "dependencies": {
