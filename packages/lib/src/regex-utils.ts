@@ -10,7 +10,7 @@ export function mapRegex(
   input: string,
   regex: RegExp,
   onMatch: (match: RegExpMatchArray) => void,
-  onNonMatch: (part: string) => void
+  onNonMatch: (part: string) => void,
 ) {
   let lastIndex = 0;
   for (const m of input.matchAll(regex)) {

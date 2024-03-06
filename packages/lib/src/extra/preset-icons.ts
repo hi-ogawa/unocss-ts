@@ -7,7 +7,7 @@ import { dummyRule } from "./dummy";
 // sync version of https://github.com/iconify/iconify/blob/c04eb0dbb0296980997720378d5b00460aece7ba/packages/utils/src/loader/fs.ts
 export function dummyPresetIconsRules(
   collectionNames: string[],
-  prefix: string = "i-"
+  prefix: string = "i-",
 ): DynamicRule[] {
   let names: string[] = [];
   for (const colName of collectionNames) {

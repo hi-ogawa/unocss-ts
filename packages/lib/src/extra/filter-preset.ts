@@ -2,7 +2,7 @@ import type { Preset } from "unocss";
 
 export function filterColorPallete(
   preset: Preset,
-  allowed: string[] = []
+  allowed: string[] = [],
 ): Preset {
   const theme = preset.theme as any;
   if (theme) {
