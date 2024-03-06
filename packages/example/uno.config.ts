@@ -1,73 +1,33 @@
 import {
-  filterColorPallete,
   presetFixAutocomplete,
   transformerTypescriptDsl,
   tw,
 } from "@hiogawa/unocss-ts";
 import riIcons from "@iconify-json/ri/icons.json";
 import {
-  type Preset,
   defineConfig,
   presetIcons,
   presetUno,
-  transformerDirectives,
   transformerVariantGroup,
 } from "unocss";
 
 export default defineConfig({
-  theme: {
-    colors: {
-      primary: "blue",
-    },
-    aria: {
-      "current-page": 'current="page"',
-    },
-  },
   shortcuts: {
-    // ability to use dsl directly in shortcuts (or anywhere)
+    // you can use `tw` without transform, so it can be used to define shortcut
     btn: tw.cursor_pointer
       ._("transition")
       .text_white.bg_blue_500.disabled(tw.cursor_not_allowed._("opacity-50"))
       .not_disabled(tw.hover(tw.bg_blue_600)).$,
   },
   presets: [
-    filterColorPallete(presetUno(), ["blue", "red"]),
-    examplePresetWithPrefix(),
-    presetIcons({
-      extraProperties: {
-        display: "inline-block",
-      },
-    }),
+    presetUno(),
+    presetIcons(),
+    // provide missing autocomplete
     presetFixAutocomplete({
-      rules: ["border"],
-      variants: ["aria-$aria"],
+      rules: [],
+      variants: [],
       icons: [riIcons],
     }),
   ],
-  transformers: [
-    transformerTypescriptDsl(),
-    transformerDirectives(),
-    transformerVariantGroup(),
-  ],
+  transformers: [transformerTypescriptDsl(), transformerVariantGroup()],
 });
-
-function examplePresetWithPrefix(): Preset {
-  return {
-    name: examplePresetWithPrefix.name,
-    prefix: "textprefix-",
-    rules: [
-      [/a^/, () => "", { autocomplete: "static-rule" }],
-      [/a^/, () => "", { autocomplete: "dynamic-rule-<num>" }],
-    ],
-    shortcuts: {
-      shortcut: "xxx",
-    },
-    // variant cannot have "prefix"
-    variants: [
-      {
-        match: () => undefined,
-        autocomplete: "test-variant-<directions>",
-      },
-    ],
-  };
-}

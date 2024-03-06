@@ -1,4 +1,4 @@
-# example
+# unocss-ts example
 
 ```sh
 pnpm i

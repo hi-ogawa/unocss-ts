@@ -3,6 +3,7 @@ import unocss from "unocss/vite";
 import { defineConfig } from "vite";
 
 export default defineConfig({
+  clearScreen: false,
   build: {
     minify: false,
     sourcemap: true,
