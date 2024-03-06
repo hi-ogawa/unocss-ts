@@ -1,6 +1,13 @@
 {
   "name": "@hiogawa/unocss-ts",
   "version": "0.0.1-pre.0",
+  "homepage": "https://github.com/hi-ogawa/unocss-ts/tree/main/packages/lib",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hi-ogawa/unocss-ts",
+    "directory": "packages/lib"
+  },
+  "license": "MIT",
   "type": "module",
   "exports": {
     ".": {
