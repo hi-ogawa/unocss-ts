@@ -11,6 +11,9 @@ importers:
 
   .:
     devDependencies:
+      '@hiogawa/inline-template':
+        specifier: 0.0.1-pre.5
+        version: 0.0.1-pre.5
       '@hiogawa/isort-ts':
         specifier: 1.1.2-pre.2
         version: 1.1.2-pre.2(prettier@3.2.5)(typescript@5.3.3)
@@ -41,9 +44,6 @@ importers:
 
   packages/example:
     dependencies:
-      '@hiogawa/unocss-ts':
-        specifier: workspace:*
-        version: link:../lib
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -51,9 +51,15 @@ importers:
         specifier: ^18.2.0
         version: 18.2.0(react@18.2.0)
     devDependencies:
+      '@hiogawa/unocss-ts':
+        specifier: workspace:*
+        version: link:../lib
       '@iconify-json/ri':
         specifier: ^1.1.20
         version: 1.1.20
+      '@tsconfig/strictest':
+        specifier: ^2.0.3
+        version: 2.0.3
       '@types/react':
         specifier: ^18.2.63
         version: 18.2.63
@@ -88,6 +94,40 @@ importers:
       magic-string:
         specifier: ^0.30.8
         version: 0.30.8
+
+  packages/test:
+    dependencies:
+      '@hiogawa/unocss-ts':
+        specifier: workspace:*
+        version: link:../lib
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
+      react-dom:
+        specifier: ^18.2.0
+        version: 18.2.0(react@18.2.0)
+    devDependencies:
+      '@iconify-json/ri':
+        specifier: ^1.1.20
+        version: 1.1.20
+      '@types/react':
+        specifier: ^18.2.63
+        version: 18.2.63
+      '@types/react-dom':
+        specifier: ^18.2.20
+        version: 18.2.20
+      '@unocss/reset':
+        specifier: ^0.58.5
+        version: 0.58.5
+      '@vitejs/plugin-react':
+        specifier: ^4.2.1
+        version: 4.2.1(vite@5.1.5)
+      unocss:
+        specifier: ^0.58.5
+        version: 0.58.5(postcss@8.4.35)(vite@5.1.5)
+      vite:
+        specifier: ^5.1.5
+        version: 5.1.5(@types/node@20.11.24)
 
 packages:
 
@@ -590,6 +630,11 @@ packages:
     os: [win32]
     requiresBuild: true
     optional: true
+
+  /@hiogawa/inline-template@0.0.1-pre.5:
+    resolution: {integrity: sha512-ZGERiBkWkadk8uXZYtKZY4nAIcXKwxBM0ujQ0UxEtJXjziamG3QuYO5Nb2V4aw03lZmZd+bWJzPK2dZBGAyIXQ==}
+    hasBin: true
+    dev: true
 
   /@hiogawa/isort-ts@1.1.2-pre.2(prettier@3.2.5)(typescript@5.3.3):
     resolution: {integrity: sha512-1+AGjS2YcnJMvlQn6l2i+5FkdUwKWlbuZ6f48SwVqmtjYHnFClFIOKYCS8Cr2xulKFpUwJATiqOXbL9Pz4eNDg==}

@@ -1,20 +1,20 @@
 {
-  "name": "@hiogawa/unocss-ts-example",
+  "name": "@hiogawa/unocss-ts-test",
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --no-clearScreen",
     "build": "vite build",
-    "generate": "unocss-ts generate --outFile ./src/tw-types.d.ts"
+    "generate": "unocss-ts generate --outFile ./src/tw-types.d.ts",
+    "generate-test": "unocss-ts generate | diff ./src/tw-types.d.ts -"
   },
   "dependencies": {
+    "@hiogawa/unocss-ts": "workspace:*",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@iconify-json/ri": "^1.1.20",
-    "@hiogawa/unocss-ts": "latest",
-    "@tsconfig/strictest": "^2.0.3",
     "@types/react": "^18.2.63",
     "@types/react-dom": "^18.2.20",
     "@unocss/reset": "^0.58.5",

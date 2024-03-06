@@ -12,8 +12,7 @@ jobs:
       - run: corepack enable
       - run: pnpm i
       - run: pnpm lint-check
-      - run: pnpm build
-      - run: pnpm test
+      - run: pnpm -r build
+      - run: pnpm -r test
+      - run: pnpm -r generate-test
       - run: pnpm tsc
-      - run: pnpm example:generate-test
-      - run: pnpm example:build

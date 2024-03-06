@@ -6,13 +6,7 @@
     "dev:tsc": "pnpm tsc --watch --preserveWatchOutput",
     "dev:lib": "pnpm -C packages/lib dev",
     "tsc": "tsc -b packages/*/tsconfig.json",
-    "build": "pnpm -C packages/lib build",
-    "release": "pnpm -C packages/lib release",
-    "test": "pnpm -C packages/lib test",
-    "example:generate": "pnpm -C packages/example generate",
-    "example:generate-test": "pnpm -C packages/example generate-test",
-    "example:dev": "pnpm -C packages/example dev",
-    "example:build": "pnpm -C packages/example build",
+    "docs-update": "inline-template README.md && prettier -w README.md",
     "lint": "pnpm run --sequential /^lint:/",
     "lint-check": "pnpm run --sequential /^lint-check:/",
     "lint:isort": "isort-ts --cache --git --fix",
@@ -21,6 +15,7 @@
     "lint-check:prettier": "prettier --check --cache ."
   },
   "devDependencies": {
+    "@hiogawa/inline-template": "0.0.1-pre.5",
     "@hiogawa/isort-ts": "1.1.2-pre.2",
     "@hiogawa/utils": "1.6.2",
     "@tsconfig/strictest": "^2.0.3",
