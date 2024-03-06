@@ -1,5 +1,7 @@
 import type { DynamicRule, Preset, Variant } from "unocss";
 
+// TODO: rename dummy?
+
 // workaround missing autocomplete
 // https://github.com/hi-ogawa/unocss-typescript-dsl/issues/12
 
