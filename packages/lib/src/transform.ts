@@ -1,4 +1,3 @@
-import vm from "node:vm"; // TODO: dynamic `node:vm` import or just use eval
 import type { SourceCodeTransformer } from "@unocss/core";
 import type MagicString from "magic-string";
 import { API_NAME, PROP_TO_STRING } from "./common";
@@ -41,14 +40,8 @@ export function transform(input: string): string {
 //   "tw.flex.justify_center.items_center.$" => "flex justify-center items-center"
 function evaluate(apiName: string, expression: string): string {
   const api = createRuntime();
-  const context = { __result: "", __api: api };
-  const code = `\
-const ${apiName} = __api;
-__result = ${expression};
-`;
-  vm.createContext(context);
-  vm.runInContext(code, context);
-  return `"${context.__result}"`;
+  const result = (0, eval)(`(${apiName}) => ${expression}`)(api);
+  return `"${result}"`;
 }
 
 // TODO: strip literal before regex?
