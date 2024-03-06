@@ -22,6 +22,7 @@
   },
   "devDependencies": {
     "@hiogawa/isort-ts": "1.1.2-pre.2",
+    "@hiogawa/utils": "1.6.2",
     "@tsconfig/strictest": "^2.0.3",
     "@types/node": "^20.11.24",
     "prettier": "^3.2.5",

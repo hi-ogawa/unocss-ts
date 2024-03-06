@@ -11,6 +11,9 @@ importers:
       '@hiogawa/isort-ts':
         specifier: 1.1.2-pre.2
         version: 1.1.2-pre.2(prettier@3.2.5)(typescript@5.3.3)
+      '@hiogawa/utils':
+        specifier: 1.6.2
+        version: 1.6.2
       '@tsconfig/strictest':
         specifier: ^2.0.3
         version: 2.0.3
@@ -38,9 +41,6 @@ importers:
       '@hiogawa/unocss-typescript-dsl':
         specifier: workspace:*
         version: link:../lib
-      '@hiogawa/utils':
-        specifier: 1.6.1-pre.10.test
-        version: 1.6.1-pre.10.test
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -88,9 +88,6 @@ importers:
       '@hiogawa/tiny-cli':
         specifier: 0.0.4-pre.1
         version: 0.0.4-pre.1
-      '@hiogawa/utils':
-        specifier: 1.6.1-pre.10.test
-        version: 1.6.1-pre.10.test
       '@types/node':
         specifier: ^20.11.24
         version: 20.11.24
@@ -740,8 +737,9 @@ packages:
     resolution: {integrity: sha512-3z/qYXDyROVX8oaFdqMyiLL8ZZE9dEaEw02ZYXOxmUF6U5MM3pskzLZId/KMvT+ZnLCLI4CUBuga6AIf56JXTw==}
     dev: true
 
-  /@hiogawa/utils@1.6.1-pre.10.test:
-    resolution: {integrity: sha512-MIH760z6eZkZgeHWGeQBOQ6cBchln49yzr/H5+DWtzU9XEu1sXBY+vCXcvoYAzz/OPqbnDJpYbCNMAQ+WJu8xw==}
+  /@hiogawa/utils@1.6.2:
+    resolution: {integrity: sha512-t2xSsf6UZA6Y1NjrV80RUse5cElGTBxZOOs+RLSTI82O5u9yPhPXQ8xlxvExBqlR2SwjBvikCHqs4Oe6waWw1Q==}
+    dev: true
 
   /@humanwhocodes/config-array@0.11.14:
     resolution: {integrity: sha512-3T8LkOmg45BV5FICb15QQMsyUSWrQ8AygVfC7ZG32zOalnqrilm018ZVCw0eapXux8FtA33q8PSRSstjee3jSg==}

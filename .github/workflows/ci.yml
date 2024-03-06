@@ -9,7 +9,6 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: pnpm
       - run: corepack enable
       - run: pnpm i
       - run: pnpm lint-check

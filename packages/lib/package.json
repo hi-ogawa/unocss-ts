@@ -37,7 +37,6 @@
   },
   "devDependencies": {
     "@hiogawa/tiny-cli": "0.0.4-pre.1",
-    "@hiogawa/utils": "1.6.1-pre.10.test",
     "@types/node": "^20.11.24",
     "@typescript-eslint/eslint-plugin": "^7.1.1",
     "@typescript-eslint/parser": "^7.1.1",
