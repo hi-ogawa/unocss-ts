@@ -6,7 +6,7 @@ import { createRuntime } from "./runtime";
 
 export function transformerTypescriptDsl(): SourceCodeTransformer {
   return {
-    name: "transformer-typescript-dsl",
+    name: "transformer-unocss-ts",
     enforce: "pre", // must come before `transformerVariantGroup`
     transform: (code, _id, _ctx) => {
       transformMagicString(code);

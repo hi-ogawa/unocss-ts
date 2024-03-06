@@ -8,7 +8,15 @@ export const PROP_TO_STRING = "$";
 // Api definition
 //
 
+const packageName = "@hiogawa/unocss-ts";
+
 export const API_DEFINITION = `\
+import "${packageName}";
+
+declare module "${packageName}" {
+  interface RuntimeType extends Api {}
+}
+
 type Property = RuleStatic | RuleDynamic | Shortcut;
 type Method = Variant;
 
@@ -32,5 +40,5 @@ type ApiToString = {
   $: string;
 };
 
-export type Api = ApiProperty & ApiMethod & ApiCustom & ApiToString;
+type Api = ApiProperty & ApiMethod & ApiCustom & ApiToString;
 `;

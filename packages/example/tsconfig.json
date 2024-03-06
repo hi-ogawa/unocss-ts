@@ -1,6 +1,6 @@
 {
   "extends": ["../../tsconfig.base.json"],
-  "include": ["src"],
+  "include": ["src", "uno.config.ts"],
   "compilerOptions": {
     "jsx": "react-jsx"
   }

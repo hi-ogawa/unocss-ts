@@ -38,7 +38,7 @@ export function App() {
         <span className={tw.flex_1.$}></span>
         <a
           className={tw._("i-ri-github-line w-6 h-6").hover(tw.text_primary).$}
-          href="https://github.com/hi-ogawa/unocss-typescript-dsl"
+          href="https://github.com/hi-ogawa/unocss-ts"
         ></a>
       </header>
       <main className={tw.flex_1.flex.flex_col.items_center.px_2.$}>

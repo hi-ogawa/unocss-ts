@@ -1,22 +1,22 @@
 {
-  "name": "@hiogawa/unocss-typescript-dsl",
-  "version": "2.0.0-pre.8",
+  "name": "@hiogawa/unocss-ts",
+  "version": "0.0.1-pre.0",
+  "homepage": "https://github.com/hi-ogawa/unocss-ts/tree/main/packages/lib",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hi-ogawa/unocss-ts",
+    "directory": "packages/lib"
+  },
+  "license": "MIT",
   "type": "module",
-  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
       "default": "./dist/index.js"
-    },
-    "./dist/runtime": {
-      "types": "./dist/runtime.d.ts",
-      "default": "./dist/runtime.js"
     }
   },
-  "bin": {
-    "unocss-typescript-dsl": "./bin/cli.mjs",
-    "unocss-typescript-dsl-pre": "./bin/cli-v2.js"
-  },
+  "types": "./dist/index.d.ts",
+  "bin": "./bin/cli.js",
   "files": [
     "dist"
   ],
@@ -29,11 +29,7 @@
   },
   "dependencies": {
     "@unocss/config": "^0.58.5",
-    "cac": "^6.7.14",
-    "consola": "^3.2.3",
-    "local-pkg": "^0.5.0",
-    "unocss": "^0.58.5",
-    "zod": "^3.22.4"
+    "unocss": "^0.58.5"
   },
   "devDependencies": {
     "@hiogawa/tiny-cli": "0.0.4-pre.1",

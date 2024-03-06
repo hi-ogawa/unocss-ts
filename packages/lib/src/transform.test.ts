@@ -26,7 +26,7 @@ describe("transform", () => {
           <span className={tw.flex_1.$}></span>
           <a
             className={tw.i_ri_github_line.w_6.h_6.hover(tw.text_primary).$}
-            href="https://github.com/hi-ogawa/unocss-typescript-dsl"
+            href="https://github.com/hi-ogawa/unocss-ts"
           ></a>
         </header>
         <main className={tw.flex_1.flex.flex_col.items_center.px_2.$}>
@@ -47,7 +47,7 @@ describe("transform", () => {
                 <span className={"flex-1"}></span>
                 <a
                   className={"i-ri-github-line w-6 h-6 hover:(text-primary)"}
-                  href="https://github.com/hi-ogawa/unocss-typescript-dsl"
+                  href="https://github.com/hi-ogawa/unocss-ts"
                 ></a>
               </header>
               <main className={"flex-1 flex flex-col items-center px-2"}>

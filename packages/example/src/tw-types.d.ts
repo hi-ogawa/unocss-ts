@@ -2,6 +2,12 @@
 // AUTO-GENERATED
 //
 
+import "@hiogawa/unocss-ts";
+
+declare module "@hiogawa/unocss-ts" {
+  interface RuntimeType extends Api {}
+}
+
 type Property = RuleStatic | RuleDynamic | Shortcut;
 type Method = Variant;
 
@@ -25,7 +31,7 @@ type ApiToString = {
   $: string;
 };
 
-export type Api = ApiProperty & ApiMethod & ApiCustom & ApiToString;
+type Api = ApiProperty & ApiMethod & ApiCustom & ApiToString;
 
 
 //

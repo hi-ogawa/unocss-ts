@@ -9,8 +9,11 @@ import {
 // Api runtime implementation
 //
 
+export interface RuntimeType {}
+
+export const tw: RuntimeType = /* #__PURE__ */ createRuntime();
+
 // based on https://github.com/Mokshit06/typewind/blob/1526e6c086ca6607f0060ce8ede66474585efde4/packages/typewind/src/evaluate.ts
-// TODO: rename to createRuntime?
 export function createRuntime() {
   return new Proxy(
     {},

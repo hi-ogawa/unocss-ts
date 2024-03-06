@@ -2,17 +2,17 @@ import {
   filterColorPallete,
   presetFixAutocomplete,
   transformerTypescriptDsl,
-} from "@hiogawa/unocss-typescript-dsl";
+  tw,
+} from "@hiogawa/unocss-ts";
 import riIcons from "@iconify-json/ri/icons.json";
 import {
-  Preset,
+  type Preset,
   defineConfig,
   presetIcons,
   presetUno,
   transformerDirectives,
   transformerVariantGroup,
 } from "unocss";
-import { tw } from "./src/styles/tw";
 
 export default defineConfig({
   theme: {
