@@ -1,5 +1,5 @@
 import { tinyassert } from "@hiogawa/utils";
-import type { SourceCodeTransformer } from "@unocss/core";
+import type { SourceCodeTransformer } from "unocss";
 import type MagicString from "magic-string";
 import { API_NAME, PROP_TO_STRING } from "./common";
 import { escapeRegex, mapRegex } from "./regex-utils";

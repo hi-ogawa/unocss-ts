@@ -1,6 +1,6 @@
 import { tinyassert } from "@hiogawa/utils";
 import { loadConfig } from "@unocss/config";
-import { createGenerator } from "@unocss/core";
+import { createGenerator } from "unocss";
 import { z } from "zod"; // TODO: remove zod
 import { API_DEFINITION } from "./common";
 import { mapRegex } from "./regex-utils";
