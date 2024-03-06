@@ -33,7 +33,6 @@ type ApiToString = {
 
 type Api = ApiProperty & ApiMethod & ApiCustom & ApiToString;
 
-
 //
 // constants based on unocss config
 //
@@ -52,8 +51,7 @@ export type Theme_width =
   | `6xl`
   | `7xl`
   | `prose`
-  | `screen`
-;
+  | `screen`;
 
 export type Theme_height =
   | `auto`
@@ -69,8 +67,7 @@ export type Theme_height =
   | `6xl`
   | `7xl`
   | `prose`
-  | `screen`
-;
+  | `screen`;
 
 export type Theme_maxWidth =
   | `none`
@@ -86,8 +83,7 @@ export type Theme_maxWidth =
   | `6xl`
   | `7xl`
   | `prose`
-  | `screen`
-;
+  | `screen`;
 
 export type Theme_maxHeight =
   | `none`
@@ -103,8 +99,7 @@ export type Theme_maxHeight =
   | `6xl`
   | `7xl`
   | `prose`
-  | `screen`
-;
+  | `screen`;
 
 export type Theme_minWidth =
   | `none`
@@ -120,8 +115,7 @@ export type Theme_minWidth =
   | `6xl`
   | `7xl`
   | `prose`
-  | `screen`
-;
+  | `screen`;
 
 export type Theme_minHeight =
   | `none`
@@ -137,8 +131,7 @@ export type Theme_minHeight =
   | `6xl`
   | `7xl`
   | `prose`
-  | `screen`
-;
+  | `screen`;
 
 export type Theme_inlineSize =
   | `auto`
@@ -154,8 +147,7 @@ export type Theme_inlineSize =
   | `6xl`
   | `7xl`
   | `prose`
-  | `screen`
-;
+  | `screen`;
 
 export type Theme_blockSize =
   | `auto`
@@ -171,8 +163,7 @@ export type Theme_blockSize =
   | `6xl`
   | `7xl`
   | `prose`
-  | `screen`
-;
+  | `screen`;
 
 export type Theme_maxInlineSize =
   | `none`
@@ -188,8 +179,7 @@ export type Theme_maxInlineSize =
   | `6xl`
   | `7xl`
   | `prose`
-  | `screen`
-;
+  | `screen`;
 
 export type Theme_maxBlockSize =
   | `none`
@@ -205,8 +195,7 @@ export type Theme_maxBlockSize =
   | `6xl`
   | `7xl`
   | `prose`
-  | `screen`
-;
+  | `screen`;
 
 export type Theme_minInlineSize =
   | `none`
@@ -222,8 +211,7 @@ export type Theme_minInlineSize =
   | `6xl`
   | `7xl`
   | `prose`
-  | `screen`
-;
+  | `screen`;
 
 export type Theme_minBlockSize =
   | `none`
@@ -239,8 +227,7 @@ export type Theme_minBlockSize =
   | `6xl`
   | `7xl`
   | `prose`
-  | `screen`
-;
+  | `screen`;
 
 export type Theme_colors =
   | `inherit`
@@ -290,14 +277,9 @@ export type Theme_colors =
   | `red_900`
   | `red_950`
   | `red`
-  | `primary`
-;
+  | `primary`;
 
-export type Theme_fontFamily =
-  | `sans`
-  | `serif`
-  | `mono`
-;
+export type Theme_fontFamily = `sans` | `serif` | `mono`;
 
 export type Theme_fontSize =
   | `xs`
@@ -312,8 +294,7 @@ export type Theme_fontSize =
   | `6xl`
   | `7xl`
   | `8xl`
-  | `9xl`
-;
+  | `9xl`;
 
 export type Theme_fontWeight =
   | `thin`
@@ -324,24 +305,11 @@ export type Theme_fontWeight =
   | `semibold`
   | `bold`
   | `extrabold`
-  | `black`
-;
+  | `black`;
 
-export type Theme_breakpoints =
-  | `sm`
-  | `md`
-  | `lg`
-  | `xl`
-  | `2xl`
-;
+export type Theme_breakpoints = `sm` | `md` | `lg` | `xl` | `2xl`;
 
-export type Theme_verticalBreakpoints =
-  | `sm`
-  | `md`
-  | `lg`
-  | `xl`
-  | `2xl`
-;
+export type Theme_verticalBreakpoints = `sm` | `md` | `lg` | `xl` | `2xl`;
 
 export type Theme_borderRadius =
   | `DEFAULT`
@@ -352,8 +320,7 @@ export type Theme_borderRadius =
   | `xl`
   | `2xl`
   | `3xl`
-  | `full`
-;
+  | `full`;
 
 export type Theme_lineHeight =
   | `none`
@@ -361,8 +328,7 @@ export type Theme_lineHeight =
   | `snug`
   | `normal`
   | `relaxed`
-  | `loose`
-;
+  | `loose`;
 
 export type Theme_letterSpacing =
   | `tighter`
@@ -370,8 +336,7 @@ export type Theme_letterSpacing =
   | `normal`
   | `wide`
   | `wider`
-  | `widest`
-;
+  | `widest`;
 
 export type Theme_wordSpacing =
   | `tighter`
@@ -379,8 +344,7 @@ export type Theme_wordSpacing =
   | `normal`
   | `wide`
   | `wider`
-  | `widest`
-;
+  | `widest`;
 
 export type Theme_boxShadow =
   | `DEFAULT`
@@ -390,8 +354,7 @@ export type Theme_boxShadow =
   | `lg`
   | `xl`
   | `2xl`
-  | `inner`
-;
+  | `inner`;
 
 export type Theme_textIndent =
   | `DEFAULT`
@@ -401,25 +364,11 @@ export type Theme_textIndent =
   | `lg`
   | `xl`
   | `2xl`
-  | `3xl`
-;
+  | `3xl`;
 
-export type Theme_textShadow =
-  | `DEFAULT`
-  | `none`
-  | `sm`
-  | `md`
-  | `lg`
-  | `xl`
-;
+export type Theme_textShadow = `DEFAULT` | `none` | `sm` | `md` | `lg` | `xl`;
 
-export type Theme_textStrokeWidth =
-  | `DEFAULT`
-  | `none`
-  | `sm`
-  | `md`
-  | `lg`
-;
+export type Theme_textStrokeWidth = `DEFAULT` | `none` | `sm` | `md` | `lg`;
 
 export type Theme_blur =
   | `0`
@@ -429,8 +378,7 @@ export type Theme_blur =
   | `lg`
   | `xl`
   | `2xl`
-  | `3xl`
-;
+  | `3xl`;
 
 export type Theme_dropShadow =
   | `DEFAULT`
@@ -439,21 +387,11 @@ export type Theme_dropShadow =
   | `lg`
   | `xl`
   | `2xl`
-  | `none`
-;
+  | `none`;
 
-export type Theme_easing =
-  | `DEFAULT`
-  | `linear`
-  | `in`
-  | `out`
-  | `in_out`
-;
+export type Theme_easing = `DEFAULT` | `linear` | `in` | `out` | `in_out`;
 
-export type Theme_lineWidth =
-  | `DEFAULT`
-  | `none`
-;
+export type Theme_lineWidth = `DEFAULT` | `none`;
 
 export type Theme_spacing =
   | `DEFAULT`
@@ -469,8 +407,7 @@ export type Theme_spacing =
   | `6xl`
   | `7xl`
   | `8xl`
-  | `9xl`
-;
+  | `9xl`;
 
 export type Theme_duration =
   | `75`
@@ -482,13 +419,9 @@ export type Theme_duration =
   | `700`
   | `1000`
   | `DEFAULT`
-  | `none`
-;
+  | `none`;
 
-export type Theme_ringWidth =
-  | `DEFAULT`
-  | `none`
-;
+export type Theme_ringWidth = `DEFAULT` | `none`;
 
 export type Theme_preflightBase =
   | `__un_rotate`
@@ -540,8 +473,7 @@ export type Theme_preflightBase =
   | `__un_backdrop_invert`
   | `__un_backdrop_opacity`
   | `__un_backdrop_saturate`
-  | `__un_backdrop_sepia`
-;
+  | `__un_backdrop_sepia`;
 
 export type Theme_containers =
   | `xs`
@@ -555,12 +487,9 @@ export type Theme_containers =
   | `5xl`
   | `6xl`
   | `7xl`
-  | `prose`
-;
+  | `prose`;
 
-export type Theme_zIndex =
-  | `auto`
-;
+export type Theme_zIndex = `auto`;
 
 export type Theme_media =
   | `portrait`
@@ -579,8 +508,7 @@ export type Theme_media =
   | `stylus`
   | `pointer`
   | `mouse`
-  | `hd_color`
-;
+  | `hd_color`;
 
 export type Theme_aria =
   | `busy`
@@ -592,8 +520,7 @@ export type Theme_aria =
   | `readonly`
   | `required`
   | `selected`
-  | `current_page`
-;
+  | `current_page`;
 
 export type Theme_animation_keyframes =
   | `pulse`
@@ -696,8 +623,7 @@ export type Theme_animation_keyframes =
   | `back_out_up`
   | `back_out_down`
   | `back_out_right`
-  | `back_out_left`
-;
+  | `back_out_left`;
 
 export type Theme_animation_durations =
   | `pulse`
@@ -706,8 +632,7 @@ export type Theme_animation_durations =
   | `bounce_out`
   | `flip_out_x`
   | `flip_out_y`
-  | `hinge`
-;
+  | `hinge`;
 
 export type Theme_animation_timingFns =
   | `pulse`
@@ -718,8 +643,7 @@ export type Theme_animation_timingFns =
   | `light_speed_in_left`
   | `light_speed_in_right`
   | `light_speed_out_left`
-  | `light_speed_out_right`
-;
+  | `light_speed_out_right`;
 
 export type Theme_animation_properties =
   | `bounce_alt`
@@ -744,8 +668,7 @@ export type Theme_animation_properties =
   | `zoom_out_down`
   | `zoom_out_left`
   | `zoom_out_right`
-  | `zoom_out_up`
-;
+  | `zoom_out_up`;
 
 export type Theme_animation_counts =
   | `spin`
@@ -753,12 +676,9 @@ export type Theme_animation_counts =
   | `pulse`
   | `pulse_alt`
   | `bounce`
-  | `bounce_alt`
-;
+  | `bounce_alt`;
 
-export type Theme_supports =
-  | `grid`
-;
+export type Theme_supports = `grid`;
 
 export type Autocomplete_num =
   | `0`
@@ -772,8 +692,7 @@ export type Autocomplete_num =
   | `10`
   | `12`
   | `24`
-  | `36`
-;
+  | `36`;
 
 export type Autocomplete_percent =
   | `0`
@@ -786,8 +705,7 @@ export type Autocomplete_percent =
   | `70`
   | `80`
   | `90`
-  | `100`
-;
+  | `100`;
 
 export type Autocomplete_percentage =
   | `10%`
@@ -799,33 +717,23 @@ export type Autocomplete_percentage =
   | `70%`
   | `80%`
   | `90%`
-  | `100%`
-;
+  | `100%`;
 
-export type Autocomplete_directions =
-  | `x`
-  | `y`
-  | `t`
-  | `b`
-  | `l`
-  | `r`
-;
+export type Autocomplete_directions = `x` | `y` | `t` | `b` | `l` | `r`;
 
 export type Autocomplete_position =
   | `relative`
   | `absolute`
   | `fixed`
   | `sticky`
-  | `static`
-;
+  | `static`;
 
 export type Autocomplete_globalKeyword =
   | `inherit`
   | `initial`
   | `revert`
   | `revert-layer`
-  | `unset`
-;
+  | `unset`;
 
 export type RuleStatic =
   | `sr_only`
@@ -1648,8 +1556,7 @@ export type RuleStatic =
   | `h_lvh`
   | `max_h_dvh`
   | `max_h_svh`
-  | `max_h_lvh`
-;
+  | `max_h_lvh`;
 
 export type RuleDynamic =
   | `i_ri_zzz_line`
@@ -4767,8 +4674,7 @@ export type RuleDynamic =
   | `${"position" | "pos"}_${"top" | "left" | "right" | "bottom"}_${Theme_spacing}`
   | `${"position" | "pos"}_${Autocomplete_position}`
   | `${"position" | "pos"}_${Autocomplete_globalKeyword}`
-  | `${Autocomplete_position}`
-;
+  | `${Autocomplete_position}`;
 
 export type Variant =
   | `print`
@@ -4795,10 +4701,6 @@ export type Variant =
   | `important`
   | `aria_${Theme_aria}`
   | `media_${Theme_media}`
-  | `aria_${Theme_aria}`
-;
+  | `aria_${Theme_aria}`;
 
-export type Shortcut =
-  | `btn`
-  | `textprefix_shortcut`
-;
+export type Shortcut = `btn` | `textprefix_shortcut`;
