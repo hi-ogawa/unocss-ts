@@ -1,6 +1,6 @@
 import fs from "node:fs";
 import { tinyassert } from "@hiogawa/utils";
-import { resolveModule } from "local-pkg";
+import { resolveModule } from "local-pkg"; // TODO: remove local-pkg
 import type { DynamicRule } from "unocss";
 import { dummyRule } from "./dummy";
 

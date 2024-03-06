@@ -33,23 +33,21 @@
   "dependencies": {
     "cac": "^6.7.14",
     "consola": "^3.2.3",
-    "zod": "^3.22.4"
+    "zod": "^3.22.4",
+    "unocss": "^0.58.5"
   },
   "devDependencies": {
     "@hiogawa/tiny-cli": "0.0.4-pre.1",
-    "@types/node": "^20.11.24",
-    "@typescript-eslint/eslint-plugin": "^7.1.1",
-    "@typescript-eslint/parser": "^7.1.1",
     "@unocss/config": "^0.58.5",
     "@unocss/core": "^0.58.5",
     "local-pkg": "^0.5.0",
-    "magic-string": "^0.30.8",
-    "unocss": "^0.58.5"
+    "magic-string": "^0.30.8"
   },
   "peerDependencies": {
     "@iconify/utils": "*",
     "@unocss/config": "*",
     "@unocss/core": "*",
+    "unocss": "*",
     "local-pkg": "*",
     "magic-string": "*"
   }
