@@ -1,6 +1,6 @@
 import {
   filterColorPallete,
-  presetAutocomplete,
+  presetFixAutocomplete,
   transformerTypescriptDsl,
 } from "@hiogawa/unocss-typescript-dsl";
 import riIcons from "@iconify-json/ri/icons.json";
@@ -38,7 +38,7 @@ export default defineConfig({
         display: "inline-block",
       },
     }),
-    presetAutocomplete({
+    presetFixAutocomplete({
       rules: ["border"],
       variants: ["aria-$aria"],
       icons: [riIcons],

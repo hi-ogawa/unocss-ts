@@ -6,13 +6,13 @@ import type { DynamicRule, Preset, Variant } from "unocss";
 /**
  * @example
  * import riIcons from "@iconify-json/ri/icons.json";
- * presetAutocomplete({
+ * presetFixAutocomplete({
  *   rules: ["some-missing-rule"],
  *   variants: ["some-missing-$variant"],
  *   icons: [riIcons]
  * })
  */
-export function presetAutocomplete(options?: {
+export function presetFixAutocomplete(options?: {
   rules?: string[];
   variants?: string[];
   icons?: unknown[];
