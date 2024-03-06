@@ -5,10 +5,7 @@ import {
   PROP_TO_STRING,
 } from "./common";
 
-//
-// Api runtime implementation
-//
-
+// interface merging to fill types
 export interface RuntimeType {}
 
 export const tw: RuntimeType = /* #__PURE__ */ createRuntime();

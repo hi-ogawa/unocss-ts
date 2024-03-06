@@ -8,12 +8,10 @@ export const PROP_TO_STRING = "$";
 // Api definition
 //
 
-const packageName = "@hiogawa/unocss-ts";
+export const API_DEFINITION = /* ts */ `\
+import "@hiogawa/unocss-ts";
 
-export const API_DEFINITION = `\
-import "${packageName}";
-
-declare module "${packageName}" {
+declare module "@hiogawa/unocss-ts" {
   interface RuntimeType extends Api {}
 }
 
