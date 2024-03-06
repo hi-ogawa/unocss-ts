@@ -1,8 +1,8 @@
 import fs from "node:fs";
 import { join } from "node:path";
 import process from "node:process";
-import { cac } from "cac";
-import consola from "consola";
+import { cac } from "cac"; // TODO: remove cac
+import consola from "consola"; // TODO: remove consola
 import { z } from "zod";
 import { Z_GENERATE_API_OPTIONS, generateApi } from "./generate-api";
 

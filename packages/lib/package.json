@@ -2,21 +2,17 @@
   "name": "@hiogawa/unocss-typescript-dsl",
   "version": "2.0.0-pre.8",
   "type": "module",
+  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs",
-      "types": "./dist/index.d.ts"
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
     },
     "./dist/runtime": {
-      "import": "./dist/runtime.js",
-      "require": "./dist/runtime.cjs",
-      "types": "./dist/runtime.d.ts"
+      "types": "./dist/runtime.d.ts",
+      "default": "./dist/runtime.js"
     }
   },
-  "main": "./dist/index.js",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
   "bin": {
     "unocss-typescript-dsl": "./bin/cli.mjs",
     "unocss-typescript-dsl-pre": "./bin/cli-v2.js"
@@ -28,29 +24,23 @@
     "dev": "tsup --watch",
     "build": "tsup",
     "test": "vitest",
+    "prepack": "tsup --clean",
     "release": "pnpm publish --no-git-checks --access public"
   },
   "dependencies": {
+    "@unocss/config": "^0.58.5",
     "cac": "^6.7.14",
     "consola": "^3.2.3",
+    "local-pkg": "^0.5.0",
+    "unocss": "^0.58.5",
     "zod": "^3.22.4"
   },
   "devDependencies": {
     "@hiogawa/tiny-cli": "0.0.4-pre.1",
-    "@types/node": "^20.11.24",
-    "@typescript-eslint/eslint-plugin": "^7.1.1",
-    "@typescript-eslint/parser": "^7.1.1",
-    "@unocss/config": "^0.58.5",
-    "@unocss/core": "^0.58.5",
-    "local-pkg": "^0.5.0",
-    "magic-string": "^0.30.8",
-    "unocss": "^0.58.5"
+    "magic-string": "^0.30.8"
   },
   "peerDependencies": {
-    "@iconify/utils": "*",
     "@unocss/config": "*",
-    "@unocss/core": "*",
-    "local-pkg": "*",
-    "magic-string": "*"
+    "unocss": "*"
   }
 }

@@ -1,9 +1,8 @@
-import { tinyassert } from "@hiogawa/utils";
+import { mapRegExp, tinyassert } from "@hiogawa/utils";
 import { loadConfig } from "@unocss/config";
-import { createGenerator } from "@unocss/core";
-import { z } from "zod";
+import { createGenerator } from "unocss";
+import { z } from "zod"; // TODO: remove zod
 import { API_DEFINITION } from "./common";
-import { mapRegex } from "./regex-utils";
 
 export const Z_GENERATE_API_OPTIONS = z.object({
   cwd: z.string().optional(),
@@ -222,7 +221,7 @@ const REDUNDANCIES = [
 // (w|h)-$width => `${ "w" | "h" }-${Theme_width}`
 function resolveAutocomplete(template: string): string {
   let result = "";
-  mapRegex(
+  mapRegExp(
     template,
     /<(\w+)>/g,
     (match) => {
@@ -241,7 +240,7 @@ function resolveAutocomplete(template: string): string {
       result += "${" + type + "}";
     },
     (other) => {
-      mapRegex(
+      mapRegExp(
         other,
         /\((.*?)\)/g,
         (match) => {
@@ -255,7 +254,7 @@ function resolveAutocomplete(template: string): string {
           result += "${" + type + "}";
         },
         (other) => {
-          mapRegex(
+          mapRegExp(
             other,
             /\$([\w\.\|]+)/g,
             (match) => {
