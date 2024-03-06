@@ -1,4 +1,4 @@
-import vm from "node:vm";
+import vm from "node:vm"; // TODO: dynamic `node:vm` import or just use eval
 import type { SourceCodeTransformer } from "@unocss/core";
 import type MagicString from "magic-string";
 import { API_NAME, PROP_TO_STRING } from "./common";
@@ -16,6 +16,7 @@ export function transformerTypescriptDsl(): SourceCodeTransformer {
 }
 
 export function transformMagicString(code: MagicString) {
+  // TODO: improve magic-string update
   const output = transform(code.toString());
   code.overwrite(0, code.length(), output);
 }
@@ -50,6 +51,7 @@ __result = ${expression};
   return `"${context.__result}"`;
 }
 
+// TODO: strip literal before regex?
 // match example
 //   tw.xxx.yyy(tw.abc).zzz.$
 //   ~~~                   ~~
