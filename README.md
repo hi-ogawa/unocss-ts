@@ -1,8 +1,5 @@
 # unocss typescript DSL
 
-TODO: rename package to `@hiogawa/unocss-ts`?
-TODO: stackblitz demo
-
 Adapting the idea of [typewind](https://github.com/Mokshit06/typewind) to [unocss](https://github.com/unocss/unocss).
 
 Notable differences are:
