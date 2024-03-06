@@ -1,20 +1,13 @@
 import { mapRegExp, tinyassert } from "@hiogawa/utils";
 import { loadConfig } from "@unocss/config";
 import { createGenerator } from "unocss";
-import { z } from "zod"; // TODO: remove zod
 import { API_DEFINITION } from "./common";
 
-export const Z_GENERATE_API_OPTIONS = z.object({
-  cwd: z.string().optional(),
-  configFile: z.string().optional(),
-  skipNonTailwind: z.boolean().default(true),
-});
-
-type GenerateApiOptions = z.infer<typeof Z_GENERATE_API_OPTIONS>;
-
-export async function generateApi(
-  options: GenerateApiOptions,
-): Promise<string> {
+export async function generateApi(options: {
+  cwd?: string;
+  configFile?: string;
+  skipNonTailwind: boolean;
+}): Promise<string> {
   // initialize uno instance
   const config = await loadConfig(options.cwd, options.configFile);
   const uno = createGenerator(config.config);
