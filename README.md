@@ -14,12 +14,13 @@ The auto-generated typescript DSL is found at [`packages/example/src/styles/tw-a
 ```sh
 # development
 pnpm i
-pnpm test
+pnpm -r test
 
 # run example
-pnpm build
-pnpm example:generate  # re-generate tw-api.ts
-pnpm example:dev
+pnpm -r build
+pnpm -r build
+pnpm -C packages/example generate  # re-generate tw-types.d.ts
+pnpm -C packages/example dev
 ```
 
 <details>
