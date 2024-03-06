@@ -1,6 +1,6 @@
-# unocss typescript DSL
+# unocss-ts
 
-Adapting the idea of [typewind](https://github.com/Mokshit06/typewind) to [unocss](https://github.com/unocss/unocss).
+Adapting the idea of [Typewind](https://github.com/Mokshit06/typewind) to [UnoCSS](https://github.com/unocss/unocss).
 
 Notable differences are:
 
