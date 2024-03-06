@@ -4512,11 +4512,7 @@ export type RuleDynamic =
   | `i_ri_4k_fill`
   | `i_ri_24_hours_line`
   | `i_ri_24_hours_fill`
-  | `${"top" | "left" | "right" | "bottom"}_${Autocomplete_num}`
-  | `${"max_" | "min_" | ""}${"w" | "h"}_${Autocomplete_num}`
-  | `${"max_" | "min_" | ""}${"w" | "h"}_full`
   | `border`
-  | `bg_${Theme_colors}`
   | `fixed`
   | `relative`
   | `absolute`
@@ -4528,6 +4524,7 @@ export type RuleDynamic =
   | `${"max_" | "min_" | ""}${"w" | "h"}_full`
   | `transition`
   | `border`
+  | `bg_${Theme_colors}`
   | `textprefix_dynamic_rule_${Autocomplete_num}`
   | `textprefix_static_rule`
   | `placeholder_opacity`

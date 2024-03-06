@@ -2,6 +2,7 @@
   "name": "@hiogawa/unocss-typescript-dsl",
   "version": "2.0.0-pre.8",
   "type": "module",
+  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",

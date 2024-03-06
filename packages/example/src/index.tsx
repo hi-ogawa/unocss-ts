@@ -1,4 +1,6 @@
-import "./styles/index";
+import "virtual:uno.css";
+import "@unocss/reset/tailwind.css";
+
 import { tinyassert } from "@hiogawa/utils";
 import { createRoot } from "react-dom/client";
 import { App } from "./app";

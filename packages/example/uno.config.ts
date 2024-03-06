@@ -1,12 +1,10 @@
 import {
-  dummyPreset,
-  dummyPresetIconsRules,
-  dummyRule,
-  dummyVariant,
   filterColorPallete,
+  presetFixAutocomplete,
   transformerTypescriptDsl,
   tw,
 } from "@hiogawa/unocss-typescript-dsl";
+import riIcons from "@iconify-json/ri/icons.json";
 import {
   type Preset,
   defineConfig,
@@ -35,41 +33,41 @@ export default defineConfig({
   presets: [
     filterColorPallete(presetUno(), ["blue", "red"]),
     examplePresetWithPrefix(),
-    // not supported
     presetIcons({
       extraProperties: {
         display: "inline-block",
       },
     }),
-    dummyPreset(),
+    presetFixAutocomplete({
+      rules: ["border"],
+      variants: ["aria-$aria"],
+      icons: [riIcons],
+    }),
   ],
-  // requires transformerVariantGroup
   transformers: [
     transformerTypescriptDsl(),
     transformerDirectives(),
     transformerVariantGroup(),
   ],
-  // dummy rules/variants to workaround unsupported autocomplete by upstream
-  rules: [
-    dummyRule("bg-$colors"), // TODO: where did this go in latest unocss?
-    dummyRule("border"),
-    dummyRule("(max-|min-|)(w|h)-full"),
-    dummyRule("(max-|min-|)(w|h)-<num>"),
-    dummyRule("(top|left|right|bottom)-<num>"),
-    ...dummyPresetIconsRules(["ri"]),
-  ],
-  variants: [dummyVariant("aria-$aria")],
 });
 
 function examplePresetWithPrefix(): Preset {
   return {
     name: examplePresetWithPrefix.name,
     prefix: "textprefix-",
-    rules: [dummyRule("static-rule"), dummyRule("dynamic-rule-<num>")],
+    rules: [
+      [/a^/, () => "", { autocomplete: "static-rule" }],
+      [/a^/, () => "", { autocomplete: "dynamic-rule-<num>" }],
+    ],
     shortcuts: {
       shortcut: "xxx",
     },
     // variant cannot have "prefix"
-    variants: [dummyVariant("test-variant-<directions>")],
+    variants: [
+      {
+        match: () => undefined,
+        autocomplete: "test-variant-<directions>",
+      },
+    ],
   };
 }
