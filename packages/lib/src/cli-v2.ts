@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import { TinyCli, arg, tinyCliMain } from "@hiogawa/tiny-cli";
 import { version as packageVersion } from "../package.json";
-import { transform } from "./transform";
+import { transformString } from "./transform";
 
 const cli = new TinyCli({
   program: "unocss-typescript-dsl-pre",
@@ -30,7 +30,7 @@ cli.defineCommand(
 
 async function transformFile(file: string): Promise<boolean> {
   const input = await fs.promises.readFile(file, "utf-8");
-  const output = transform(input);
+  const output = transformString(input);
   if (input === output) {
     return false;
   }

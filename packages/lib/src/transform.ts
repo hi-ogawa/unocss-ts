@@ -1,4 +1,4 @@
-import vm from "node:vm";
+import { tinyassert } from "@hiogawa/utils";
 import type { SourceCodeTransformer } from "@unocss/core";
 import type MagicString from "magic-string";
 import { API_NAME, PROP_TO_STRING } from "./common";
@@ -16,11 +16,21 @@ export function transformerTypescriptDsl(): SourceCodeTransformer {
 }
 
 export function transformMagicString(code: MagicString) {
-  const output = transform(code.toString());
-  code.overwrite(0, code.length(), output);
+  mapRegex(
+    code.toString(),
+    createRegex(API_NAME, PROP_TO_STRING),
+    (match) => {
+      const { 0: expr, index } = match;
+      tinyassert(typeof index === "number");
+      code.remove(index, index + expr.length);
+      code.appendLeft(index, evaluate(API_NAME, expr));
+    },
+    (_other) => {},
+  );
+  return code;
 }
 
-export function transform(input: string): string {
+export function transformString(input: string): string {
   const regex = createRegex(API_NAME, PROP_TO_STRING);
   let output = "";
   mapRegex(
@@ -40,14 +50,8 @@ export function transform(input: string): string {
 //   "tw.flex.justify_center.items_center.$" => "flex justify-center items-center"
 function evaluate(apiName: string, expression: string): string {
   const api = createRuntime();
-  const context = { __result: "", __api: api };
-  const code = `\
-const ${apiName} = __api;
-__result = ${expression};
-`;
-  vm.createContext(context);
-  vm.runInContext(code, context);
-  return `"${context.__result}"`;
+  const result = (0, eval)(`(${apiName}) => ${expression}`)(api);
+  return `"${result}"`;
 }
 
 // match example
