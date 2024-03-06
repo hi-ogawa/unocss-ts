@@ -8,10 +8,12 @@ export const PROP_TO_STRING = "$";
 // Api definition
 //
 
-export const API_DEFINITION = `\
-import "@hiogawa/unocss-typescript-dsl";
+const packageName = "@hiogawa/unocss-ts";
 
-declare module "@hiogawa/unocss-typescript-dsl" {
+export const API_DEFINITION = `\
+import "${packageName}";
+
+declare module "${packageName}" {
   interface RuntimeType extends Api {}
 }
 

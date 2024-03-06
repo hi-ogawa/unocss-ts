@@ -5,7 +5,7 @@ import { generateApi } from "./generate-api";
 import { transformString } from "./transform";
 
 const cli = new TinyCli({
-  program: "unocss-typescript-dsl",
+  program: "unocss-ts",
   version: packageVersion,
 });
 

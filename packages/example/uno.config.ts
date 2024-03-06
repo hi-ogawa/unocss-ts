@@ -3,7 +3,7 @@ import {
   presetFixAutocomplete,
   transformerTypescriptDsl,
   tw,
-} from "@hiogawa/unocss-typescript-dsl";
+} from "@hiogawa/unocss-ts";
 import riIcons from "@iconify-json/ri/icons.json";
 import {
   type Preset,

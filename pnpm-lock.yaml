@@ -38,7 +38,7 @@ importers:
 
   packages/example:
     dependencies:
-      '@hiogawa/unocss-typescript-dsl':
+      '@hiogawa/unocss-ts':
         specifier: workspace:*
         version: link:../lib
       react:

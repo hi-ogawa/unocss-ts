@@ -2,9 +2,9 @@
 // AUTO-GENERATED
 //
 
-import "@hiogawa/unocss-typescript-dsl";
+import "@hiogawa/unocss-ts";
 
-declare module "@hiogawa/unocss-typescript-dsl" {
+declare module "@hiogawa/unocss-ts" {
   interface RuntimeType extends Api {}
 }
 

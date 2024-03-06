@@ -5,11 +5,11 @@
   "scripts": {
     "dev": "vite --no-clearScreen",
     "build": "vite build",
-    "generate": "unocss-typescript-dsl generate --outFile ./src/tw-types.d.ts",
-    "generate-test": "unocss-typescript-dsl generate | diff ./src/tw-types.d.ts -"
+    "generate": "unocss-ts generate --outFile ./src/tw-types.d.ts",
+    "generate-test": "unocss-ts generate | diff ./src/tw-types.d.ts -"
   },
   "dependencies": {
-    "@hiogawa/unocss-typescript-dsl": "workspace:*",
+    "@hiogawa/unocss-ts": "workspace:*",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

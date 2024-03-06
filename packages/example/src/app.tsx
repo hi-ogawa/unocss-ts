@@ -1,4 +1,4 @@
-import { tw } from "@hiogawa/unocss-typescript-dsl";
+import { tw } from "@hiogawa/unocss-ts";
 
 export function App() {
   return (
@@ -8,7 +8,7 @@ export function App() {
         <span className={tw.flex_1.$}></span>
         <a
           className={tw.i_ri_github_line.w_6.h_6.hover(tw.text_primary).$}
-          href="https://github.com/hi-ogawa/unocss-typescript-dsl"
+          href="https://github.com/hi-ogawa/unocss-ts"
         ></a>
       </header>
       <main className={tw.flex_1.flex.flex_col.items_center.px_2.$}>
