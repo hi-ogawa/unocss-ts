@@ -261,6 +261,7 @@ export type Theme_colors =
   | `blue_700`
   | `blue_800`
   | `blue_900`
+  | `blue_950`
   | `blue`
   | `red_1`
   | `red_2`
@@ -281,6 +282,7 @@ export type Theme_colors =
   | `red_700`
   | `red_800`
   | `red_900`
+  | `red_950`
   | `red`
   | `primary`
 ;
@@ -305,6 +307,18 @@ export type Theme_fontSize =
   | `7xl`
   | `8xl`
   | `9xl`
+;
+
+export type Theme_fontWeight =
+  | `thin`
+  | `extralight`
+  | `light`
+  | `normal`
+  | `medium`
+  | `semibold`
+  | `bold`
+  | `extrabold`
+  | `black`
 ;
 
 export type Theme_breakpoints =
@@ -538,6 +552,30 @@ export type Theme_containers =
   | `prose`
 ;
 
+export type Theme_zIndex =
+  | `auto`
+;
+
+export type Theme_media =
+  | `portrait`
+  | `landscape`
+  | `os_dark`
+  | `os_light`
+  | `motion_ok`
+  | `motion_not_ok`
+  | `high_contrast`
+  | `low_contrast`
+  | `opacity_ok`
+  | `opacity_not_ok`
+  | `use_data_ok`
+  | `use_data_not_ok`
+  | `touch`
+  | `stylus`
+  | `pointer`
+  | `mouse`
+  | `hd_color`
+;
+
 export type Theme_aria =
   | `busy`
   | `checked`
@@ -712,26 +750,6 @@ export type Theme_animation_counts =
   | `bounce_alt`
 ;
 
-export type Theme_media =
-  | `portrait`
-  | `landscape`
-  | `os_dark`
-  | `os_light`
-  | `motion_ok`
-  | `motion_not_ok`
-  | `high_contrast`
-  | `low_contrast`
-  | `opacity_ok`
-  | `opacity_not_ok`
-  | `useData_ok`
-  | `useData_not_ok`
-  | `touch`
-  | `stylus`
-  | `pointer`
-  | `mouse`
-  | `hd_color`
-;
-
 export type Theme_supports =
   | `grid`
 ;
@@ -838,6 +856,8 @@ export type RuleStatic =
   | `inline_grid`
   | `grid_rows_none`
   | `grid_cols_none`
+  | `grid_rows_subgrid`
+  | `grid_cols_subgrid`
   | `float_left`
   | `float_right`
   | `float_none`
@@ -991,11 +1011,13 @@ export type RuleStatic =
   | `list_outside`
   | `list_inside`
   | `list_none`
+  | `list_image_none`
   | `list_inherit`
   | `list_initial`
   | `list_revert`
   | `list_revert_layer`
   | `list_unset`
+  | `appearance_auto`
   | `appearance_none`
   | `break_before_auto`
   | `break_before_avoid`
@@ -1101,6 +1123,9 @@ export type RuleStatic =
   | `justify_between`
   | `justify_around`
   | `justify_evenly`
+  | `justify_stretch`
+  | `justify_left`
+  | `justify_right`
   | `justify_inherit`
   | `justify_initial`
   | `justify_revert`
@@ -1125,6 +1150,198 @@ export type RuleStatic =
   | `justify_self_revert`
   | `justify_self_revert_layer`
   | `justify_self_unset`
+  | `flex_justify_start`
+  | `grid_justify_start`
+  | `flex_justify_end`
+  | `grid_justify_end`
+  | `flex_justify_center`
+  | `grid_justify_center`
+  | `flex_justify_between`
+  | `grid_justify_between`
+  | `flex_justify_around`
+  | `grid_justify_around`
+  | `flex_justify_evenly`
+  | `grid_justify_evenly`
+  | `flex_justify_stretch`
+  | `grid_justify_stretch`
+  | `flex_justify_left`
+  | `grid_justify_left`
+  | `flex_justify_right`
+  | `grid_justify_right`
+  | `flex_justify_inherit`
+  | `grid_justify_inherit`
+  | `flex_justify_initial`
+  | `grid_justify_initial`
+  | `flex_justify_revert`
+  | `grid_justify_revert`
+  | `flex_justify_revert_layer`
+  | `grid_justify_revert_layer`
+  | `flex_justify_unset`
+  | `grid_justify_unset`
+  | `flex_justify_items_start`
+  | `grid_justify_items_start`
+  | `flex_justify_items_end`
+  | `grid_justify_items_end`
+  | `flex_justify_items_center`
+  | `grid_justify_items_center`
+  | `flex_justify_items_stretch`
+  | `grid_justify_items_stretch`
+  | `flex_justify_items_inherit`
+  | `grid_justify_items_inherit`
+  | `flex_justify_items_initial`
+  | `grid_justify_items_initial`
+  | `flex_justify_items_revert`
+  | `grid_justify_items_revert`
+  | `flex_justify_items_revert_layer`
+  | `grid_justify_items_revert_layer`
+  | `flex_justify_items_unset`
+  | `grid_justify_items_unset`
+  | `flex_justify_self_auto`
+  | `grid_justify_self_auto`
+  | `flex_justify_self_start`
+  | `grid_justify_self_start`
+  | `flex_justify_self_end`
+  | `grid_justify_self_end`
+  | `flex_justify_self_center`
+  | `grid_justify_self_center`
+  | `flex_justify_self_stretch`
+  | `grid_justify_self_stretch`
+  | `flex_justify_self_inherit`
+  | `grid_justify_self_inherit`
+  | `flex_justify_self_initial`
+  | `grid_justify_self_initial`
+  | `flex_justify_self_revert`
+  | `grid_justify_self_revert`
+  | `flex_justify_self_revert_layer`
+  | `grid_justify_self_revert_layer`
+  | `flex_justify_self_unset`
+  | `grid_justify_self_unset`
+  | `flex_content_center`
+  | `grid_content_center`
+  | `flex_content_start`
+  | `grid_content_start`
+  | `flex_content_end`
+  | `grid_content_end`
+  | `flex_content_between`
+  | `grid_content_between`
+  | `flex_content_around`
+  | `grid_content_around`
+  | `flex_content_evenly`
+  | `grid_content_evenly`
+  | `flex_content_inherit`
+  | `grid_content_inherit`
+  | `flex_content_initial`
+  | `grid_content_initial`
+  | `flex_content_revert`
+  | `grid_content_revert`
+  | `flex_content_revert_layer`
+  | `grid_content_revert_layer`
+  | `flex_content_unset`
+  | `grid_content_unset`
+  | `flex_items_start`
+  | `grid_items_start`
+  | `flex_items_end`
+  | `grid_items_end`
+  | `flex_items_center`
+  | `grid_items_center`
+  | `flex_items_baseline`
+  | `grid_items_baseline`
+  | `flex_items_stretch`
+  | `grid_items_stretch`
+  | `flex_items_inherit`
+  | `grid_items_inherit`
+  | `flex_items_initial`
+  | `grid_items_initial`
+  | `flex_items_revert`
+  | `grid_items_revert`
+  | `flex_items_revert_layer`
+  | `grid_items_revert_layer`
+  | `flex_items_unset`
+  | `grid_items_unset`
+  | `flex_self_auto`
+  | `grid_self_auto`
+  | `flex_self_start`
+  | `grid_self_start`
+  | `flex_self_end`
+  | `grid_self_end`
+  | `flex_self_center`
+  | `grid_self_center`
+  | `flex_self_stretch`
+  | `grid_self_stretch`
+  | `flex_self_baseline`
+  | `grid_self_baseline`
+  | `flex_self_inherit`
+  | `grid_self_inherit`
+  | `flex_self_initial`
+  | `grid_self_initial`
+  | `flex_self_revert`
+  | `grid_self_revert`
+  | `flex_self_revert_layer`
+  | `grid_self_revert_layer`
+  | `flex_self_unset`
+  | `grid_self_unset`
+  | `flex_place_content_center`
+  | `grid_place_content_center`
+  | `flex_place_content_start`
+  | `grid_place_content_start`
+  | `flex_place_content_end`
+  | `grid_place_content_end`
+  | `flex_place_content_between`
+  | `grid_place_content_between`
+  | `flex_place_content_around`
+  | `grid_place_content_around`
+  | `flex_place_content_evenly`
+  | `grid_place_content_evenly`
+  | `flex_place_content_stretch`
+  | `grid_place_content_stretch`
+  | `flex_place_content_inherit`
+  | `grid_place_content_inherit`
+  | `flex_place_content_initial`
+  | `grid_place_content_initial`
+  | `flex_place_content_revert`
+  | `grid_place_content_revert`
+  | `flex_place_content_revert_layer`
+  | `grid_place_content_revert_layer`
+  | `flex_place_content_unset`
+  | `grid_place_content_unset`
+  | `flex_place_items_start`
+  | `grid_place_items_start`
+  | `flex_place_items_end`
+  | `grid_place_items_end`
+  | `flex_place_items_center`
+  | `grid_place_items_center`
+  | `flex_place_items_stretch`
+  | `grid_place_items_stretch`
+  | `flex_place_items_inherit`
+  | `grid_place_items_inherit`
+  | `flex_place_items_initial`
+  | `grid_place_items_initial`
+  | `flex_place_items_revert`
+  | `grid_place_items_revert`
+  | `flex_place_items_revert_layer`
+  | `grid_place_items_revert_layer`
+  | `flex_place_items_unset`
+  | `grid_place_items_unset`
+  | `flex_place_self_auto`
+  | `grid_place_self_auto`
+  | `flex_place_self_start`
+  | `grid_place_self_start`
+  | `flex_place_self_end`
+  | `grid_place_self_end`
+  | `flex_place_self_center`
+  | `grid_place_self_center`
+  | `flex_place_self_stretch`
+  | `grid_place_self_stretch`
+  | `flex_place_self_inherit`
+  | `grid_place_self_inherit`
+  | `flex_place_self_initial`
+  | `grid_place_self_initial`
+  | `flex_place_self_revert`
+  | `grid_place_self_revert`
+  | `flex_place_self_revert_layer`
+  | `grid_place_self_revert_layer`
+  | `flex_place_self_unset`
+  | `grid_place_self_unset`
   | `divide_solid`
   | `divide_dashed`
   | `divide_dotted`
@@ -1172,12 +1389,14 @@ export type RuleStatic =
   | `scroll_revert_layer`
   | `scroll_unset`
   | `truncate`
+  | `text_truncate`
   | `text_ellipsis`
   | `text_clip`
   | `break_normal`
   | `break_words`
   | `break_all`
   | `break_keep`
+  | `break_anywhere`
   | `bg_none`
   | `box_decoration_slice`
   | `box_decoration_clone`
@@ -1241,11 +1460,10 @@ export type RuleStatic =
   | `text_justify`
   | `text_start`
   | `text_end`
-  | `text_inherit`
-  | `text_initial`
-  | `text_revert`
-  | `text_revert_layer`
-  | `text_unset`
+  | `text_wrap`
+  | `text_nowrap`
+  | `text_balance`
+  | `text_pretty`
   | `font_synthesis_weight`
   | `font_synthesis_style`
   | `font_synthesis_small_caps`
@@ -1416,6 +1634,15 @@ export type RuleStatic =
   | `content_visibility_unset`
   | `content_empty`
   | `content_none`
+  | `min_h_dvh`
+  | `min_h_svh`
+  | `min_h_lvh`
+  | `h_dvh`
+  | `h_svh`
+  | `h_lvh`
+  | `max_h_dvh`
+  | `max_h_svh`
+  | `max_h_lvh`
 ;
 
 export type RuleDynamic =
@@ -1429,13 +1656,21 @@ export type RuleDynamic =
   | `i_ri_zhihu_fill`
   | `i_ri_zcool_line`
   | `i_ri_zcool_fill`
+  | `i_ri_yuque_line`
+  | `i_ri_yuque_fill`
   | `i_ri_youtube_line`
   | `i_ri_youtube_fill`
+  | `i_ri_xtz_line`
+  | `i_ri_xtz_fill`
+  | `i_ri_xrp_line`
+  | `i_ri_xrp_fill`
   | `i_ri_xing_line`
   | `i_ri_xing_fill`
   | `i_ri_xbox_line`
   | `i_ri_xbox_fill`
   | `i_ri_wubi_input`
+  | `i_ri_wordpress_line`
+  | `i_ri_wordpress_fill`
   | `i_ri_women_line`
   | `i_ri_women_fill`
   | `i_ri_wireless_charging_line`
@@ -1456,16 +1691,24 @@ export type RuleDynamic =
   | `i_ri_wheelchair_fill`
   | `i_ri_whatsapp_line`
   | `i_ri_whatsapp_fill`
+  | `i_ri_weight_line`
+  | `i_ri_weight_fill`
   | `i_ri_weibo_line`
   | `i_ri_weibo_fill`
   | `i_ri_wechat_pay_line`
   | `i_ri_wechat_pay_fill`
   | `i_ri_wechat_line`
   | `i_ri_wechat_fill`
+  | `i_ri_wechat_channels_line`
+  | `i_ri_wechat_channels_fill`
   | `i_ri_wechat_2_line`
   | `i_ri_wechat_2_fill`
+  | `i_ri_webhook_line`
+  | `i_ri_webhook_fill`
   | `i_ri_webcam_line`
   | `i_ri_webcam_fill`
+  | `i_ri_water_percent_line`
+  | `i_ri_water_percent_fill`
   | `i_ri_water_flash_line`
   | `i_ri_water_flash_fill`
   | `i_ri_wallet_line`
@@ -1492,6 +1735,8 @@ export type RuleDynamic =
   | `i_ri_voiceprint_fill`
   | `i_ri_voice_recognition_line`
   | `i_ri_voice_recognition_fill`
+  | `i_ri_vk_line`
+  | `i_ri_vk_fill`
   | `i_ri_visa_line`
   | `i_ri_visa_fill`
   | `i_ri_virus_line`
@@ -1512,6 +1757,10 @@ export type RuleDynamic =
   | `i_ri_vidicon_2_fill`
   | `i_ri_video_upload_line`
   | `i_ri_video_upload_fill`
+  | `i_ri_video_on_line`
+  | `i_ri_video_on_fill`
+  | `i_ri_video_off_line`
+  | `i_ri_video_off_fill`
   | `i_ri_video_line`
   | `i_ri_video_fill`
   | `i_ri_video_download_line`
@@ -1520,6 +1769,8 @@ export type RuleDynamic =
   | `i_ri_video_chat_fill`
   | `i_ri_video_add_line`
   | `i_ri_video_add_fill`
+  | `i_ri_verified_badge_line`
+  | `i_ri_verified_badge_fill`
   | `i_ri_user_voice_line`
   | `i_ri_user_voice_fill`
   | `i_ri_user_unfollow_line`
@@ -1545,6 +1796,8 @@ export type RuleDynamic =
   | `i_ri_user_line`
   | `i_ri_user_heart_line`
   | `i_ri_user_heart_fill`
+  | `i_ri_user_forbid_line`
+  | `i_ri_user_forbid_fill`
   | `i_ri_user_follow_line`
   | `i_ri_user_follow_fill`
   | `i_ri_user_fill`
@@ -1572,6 +1825,8 @@ export type RuleDynamic =
   | `i_ri_upload_2_fill`
   | `i_ri_unsplash_line`
   | `i_ri_unsplash_fill`
+  | `i_ri_unpin_line`
+  | `i_ri_unpin_fill`
   | `i_ri_uninstall_line`
   | `i_ri_uninstall_fill`
   | `i_ri_underline`
@@ -1583,6 +1838,8 @@ export type RuleDynamic =
   | `i_ri_u_disk_fill`
   | `i_ri_typhoon_line`
   | `i_ri_typhoon_fill`
+  | `i_ri_twitter_x_line`
+  | `i_ri_twitter_x_fill`
   | `i_ri_twitter_line`
   | `i_ri_twitter_fill`
   | `i_ri_twitch_line`
@@ -1597,8 +1854,12 @@ export type RuleDynamic =
   | `i_ri_truck_fill`
   | `i_ri_trophy_line`
   | `i_ri_trophy_fill`
+  | `i_ri_triangle_line`
+  | `i_ri_triangle_fill`
   | `i_ri_trello_line`
   | `i_ri_trello_fill`
+  | `i_ri_tree_line`
+  | `i_ri_tree_fill`
   | `i_ri_treasure_map_line`
   | `i_ri_treasure_map_fill`
   | `i_ri_travesti_line`
@@ -1615,8 +1876,12 @@ export type RuleDynamic =
   | `i_ri_trademark_fill`
   | `i_ri_tornado_line`
   | `i_ri_tornado_fill`
+  | `i_ri_tooth_line`
+  | `i_ri_tooth_fill`
   | `i_ri_tools_line`
   | `i_ri_tools_fill`
+  | `i_ri_token_swap_line`
+  | `i_ri_token_swap_fill`
   | `i_ri_toggle_line`
   | `i_ri_toggle_fill`
   | `i_ri_todo_line`
@@ -1627,8 +1892,13 @@ export type RuleDynamic =
   | `i_ri_timer_fill`
   | `i_ri_timer_2_line`
   | `i_ri_timer_2_fill`
+  | `i_ri_timeline_view`
+  | `i_ri_time_zone_line`
+  | `i_ri_time_zone_fill`
   | `i_ri_time_line`
   | `i_ri_time_fill`
+  | `i_ri_tiktok_line`
+  | `i_ri_tiktok_fill`
   | `i_ri_ticket_line`
   | `i_ri_ticket_fill`
   | `i_ri_ticket_2_line`
@@ -1639,12 +1909,16 @@ export type RuleDynamic =
   | `i_ri_thumb_up_fill`
   | `i_ri_thumb_down_line`
   | `i_ri_thumb_down_fill`
+  | `i_ri_threads_line`
+  | `i_ri_threads_fill`
   | `i_ri_thermometer_line`
   | `i_ri_thermometer_fill`
   | `i_ri_text_wrap`
   | `i_ri_text_spacing`
+  | `i_ri_text_snippet`
   | `i_ri_text_direction_r`
   | `i_ri_text_direction_l`
+  | `i_ri_text_block`
   | `i_ri_text`
   | `i_ri_test_tube_line`
   | `i_ri_test_tube_fill`
@@ -1654,6 +1928,8 @@ export type RuleDynamic =
   | `i_ri_terminal_fill`
   | `i_ri_terminal_box_line`
   | `i_ri_terminal_box_fill`
+  | `i_ri_tent_line`
+  | `i_ri_tent_fill`
   | `i_ri_temp_hot_line`
   | `i_ri_temp_hot_fill`
   | `i_ri_temp_cold_line`
@@ -1674,12 +1950,16 @@ export type RuleDynamic =
   | `i_ri_taobao_fill`
   | `i_ri_takeaway_line`
   | `i_ri_takeaway_fill`
+  | `i_ri_tailwind_css_line`
+  | `i_ri_tailwind_css_fill`
   | `i_ri_tablet_line`
   | `i_ri_tablet_fill`
+  | `i_ri_table_view`
   | `i_ri_table_line`
   | `i_ri_table_fill`
   | `i_ri_table_alt_line`
   | `i_ri_table_alt_fill`
+  | `i_ri_table_3`
   | `i_ri_table_2`
   | `i_ri_t_shirt_line`
   | `i_ri_t_shirt_fill`
@@ -1699,6 +1979,12 @@ export type RuleDynamic =
   | `i_ri_swap_fill`
   | `i_ri_swap_box_line`
   | `i_ri_swap_box_fill`
+  | `i_ri_swap_3_line`
+  | `i_ri_swap_3_fill`
+  | `i_ri_swap_2_line`
+  | `i_ri_swap_2_fill`
+  | `i_ri_svelte_line`
+  | `i_ri_svelte_fill`
   | `i_ri_survey_line`
   | `i_ri_survey_fill`
   | `i_ri_surround_sound_line`
@@ -1707,6 +1993,8 @@ export type RuleDynamic =
   | `i_ri_surgical_mask_fill`
   | `i_ri_superscript_2`
   | `i_ri_superscript`
+  | `i_ri_supabase_line`
+  | `i_ri_supabase_fill`
   | `i_ri_sun_line`
   | `i_ri_sun_foggy_line`
   | `i_ri_sun_foggy_fill`
@@ -1738,6 +2026,8 @@ export type RuleDynamic =
   | `i_ri_stop_mini_line`
   | `i_ri_stop_mini_fill`
   | `i_ri_stop_line`
+  | `i_ri_stop_large_line`
+  | `i_ri_stop_large_fill`
   | `i_ri_stop_fill`
   | `i_ri_stop_circle_line`
   | `i_ri_stop_circle_fill`
@@ -1745,7 +2035,10 @@ export type RuleDynamic =
   | `i_ri_stock_fill`
   | `i_ri_sticky_note_line`
   | `i_ri_sticky_note_fill`
+  | `i_ri_sticky_note_add_line`
+  | `i_ri_sticky_note_add_fill`
   | `i_ri_sticky_note_2_line`
+  | `i_ri_sticky_note_2_fill_2`
   | `i_ri_sticky_note_2_fill`
   | `i_ri_stethoscope_line`
   | `i_ri_stethoscope_fill`
@@ -1767,16 +2060,22 @@ export type RuleDynamic =
   | `i_ri_star_fill`
   | `i_ri_stackshare_line`
   | `i_ri_stackshare_fill`
+  | `i_ri_stacked_view`
   | `i_ri_stack_overflow_line`
   | `i_ri_stack_overflow_fill`
   | `i_ri_stack_line`
   | `i_ri_stack_fill`
+  | `i_ri_square_root`
+  | `i_ri_square_line`
+  | `i_ri_square_fill`
   | `i_ri_spy_line`
   | `i_ri_spy_fill`
   | `i_ri_spotify_line`
   | `i_ri_spotify_fill`
   | `i_ri_split_cells_vertical`
   | `i_ri_split_cells_horizontal`
+  | `i_ri_speed_up_line`
+  | `i_ri_speed_up_fill`
   | `i_ri_speed_mini_line`
   | `i_ri_speed_mini_fill`
   | `i_ri_speed_line`
@@ -1789,6 +2088,12 @@ export type RuleDynamic =
   | `i_ri_speaker_3_fill`
   | `i_ri_speaker_2_line`
   | `i_ri_speaker_2_fill`
+  | `i_ri_speak_line`
+  | `i_ri_speak_fill`
+  | `i_ri_sparkling_line`
+  | `i_ri_sparkling_fill`
+  | `i_ri_sparkling_2_line`
+  | `i_ri_sparkling_2_fill`
   | `i_ri_spam_line`
   | `i_ri_spam_fill`
   | `i_ri_spam_3_line`
@@ -1802,14 +2107,25 @@ export type RuleDynamic =
   | `i_ri_soundcloud_fill`
   | `i_ri_sound_module_line`
   | `i_ri_sound_module_fill`
+  | `i_ri_sort_number_desc`
+  | `i_ri_sort_number_asc`
   | `i_ri_sort_desc`
   | `i_ri_sort_asc`
+  | `i_ri_sort_alphabet_desc`
+  | `i_ri_sort_alphabet_asc`
+  | `i_ri_sofa_line`
+  | `i_ri_sofa_fill`
   | `i_ri_snowy_line`
   | `i_ri_snowy_fill`
+  | `i_ri_snowflake_line`
+  | `i_ri_snowflake_fill`
   | `i_ri_snapchat_line`
   | `i_ri_snapchat_fill`
   | `i_ri_smartphone_line`
   | `i_ri_smartphone_fill`
+  | `i_ri_slow_down_line`
+  | `i_ri_slow_down_fill`
+  | `i_ri_slideshow_view`
   | `i_ri_slideshow_line`
   | `i_ri_slideshow_fill`
   | `i_ri_slideshow_4_line`
@@ -1820,6 +2136,8 @@ export type RuleDynamic =
   | `i_ri_slideshow_2_fill`
   | `i_ri_slice_line`
   | `i_ri_slice_fill`
+  | `i_ri_slash_commands_2`
+  | `i_ri_slash_commands`
   | `i_ri_slack_line`
   | `i_ri_slack_fill`
   | `i_ri_skype_line`
@@ -1828,14 +2146,23 @@ export type RuleDynamic =
   | `i_ri_skull_fill`
   | `i_ri_skull_2_line`
   | `i_ri_skull_2_fill`
+  | `i_ri_skip_up_line`
+  | `i_ri_skip_up_fill`
+  | `i_ri_skip_right_line`
+  | `i_ri_skip_right_fill`
+  | `i_ri_skip_left_line`
+  | `i_ri_skip_left_fill`
   | `i_ri_skip_forward_mini_line`
   | `i_ri_skip_forward_mini_fill`
   | `i_ri_skip_forward_line`
   | `i_ri_skip_forward_fill`
+  | `i_ri_skip_down_line`
+  | `i_ri_skip_down_fill`
   | `i_ri_skip_back_mini_line`
   | `i_ri_skip_back_mini_fill`
   | `i_ri_skip_back_line`
   | `i_ri_skip_back_fill`
+  | `i_ri_sketching`
   | `i_ri_sip_line`
   | `i_ri_sip_fill`
   | `i_ri_single_quotes_r`
@@ -1844,6 +2171,8 @@ export type RuleDynamic =
   | `i_ri_sim_card_fill`
   | `i_ri_sim_card_2_line`
   | `i_ri_sim_card_2_fill`
+  | `i_ri_signpost_line`
+  | `i_ri_signpost_fill`
   | `i_ri_signal_wifi_off_line`
   | `i_ri_signal_wifi_off_fill`
   | `i_ri_signal_wifi_line`
@@ -1858,6 +2187,10 @@ export type RuleDynamic =
   | `i_ri_signal_wifi_1_fill`
   | `i_ri_signal_tower_line`
   | `i_ri_signal_tower_fill`
+  | `i_ri_sidebar_unfold_line`
+  | `i_ri_sidebar_unfold_fill`
+  | `i_ri_sidebar_fold_line`
+  | `i_ri_sidebar_fold_fill`
   | `i_ri_side_bar_line`
   | `i_ri_side_bar_fill`
   | `i_ri_shut_down_line`
@@ -1876,6 +2209,8 @@ export type RuleDynamic =
   | `i_ri_shopping_basket_2_fill`
   | `i_ri_shopping_bag_line`
   | `i_ri_shopping_bag_fill`
+  | `i_ri_shopping_bag_4_line`
+  | `i_ri_shopping_bag_4_fill`
   | `i_ri_shopping_bag_3_line`
   | `i_ri_shopping_bag_3_fill`
   | `i_ri_shopping_bag_2_line`
@@ -1886,6 +2221,10 @@ export type RuleDynamic =
   | `i_ri_ship_fill`
   | `i_ri_ship_2_line`
   | `i_ri_ship_2_fill`
+  | `i_ri_shining_line`
+  | `i_ri_shining_fill`
+  | `i_ri_shining_2_line`
+  | `i_ri_shining_2_fill`
   | `i_ri_shield_user_line`
   | `i_ri_shield_user_fill`
   | `i_ri_shield_star_line`
@@ -1912,10 +2251,18 @@ export type RuleDynamic =
   | `i_ri_share_circle_fill`
   | `i_ri_share_box_line`
   | `i_ri_share_box_fill`
+  | `i_ri_share_2_line`
+  | `i_ri_share_2_fill`
+  | `i_ri_shapes_line`
+  | `i_ri_shapes_fill`
   | `i_ri_shape_line`
   | `i_ri_shape_fill`
   | `i_ri_shape_2_line`
   | `i_ri_shape_2_fill`
+  | `i_ri_shake_hands_line`
+  | `i_ri_shake_hands_fill`
+  | `i_ri_shadow_line`
+  | `i_ri_shadow_fill`
   | `i_ri_settings_line`
   | `i_ri_settings_fill`
   | `i_ri_settings_6_line`
@@ -1933,6 +2280,8 @@ export type RuleDynamic =
   | `i_ri_server_line`
   | `i_ri_server_fill`
   | `i_ri_separator`
+  | `i_ri_seo_line`
+  | `i_ri_seo_fill`
   | `i_ri_sensor_line`
   | `i_ri_sensor_fill`
   | `i_ri_send_to_back`
@@ -1955,6 +2304,8 @@ export type RuleDynamic =
   | `i_ri_sd_card_mini_fill`
   | `i_ri_sd_card_line`
   | `i_ri_sd_card_fill`
+  | `i_ri_scroll_to_bottom_line`
+  | `i_ri_scroll_to_bottom_fill`
   | `i_ri_screenshot_line`
   | `i_ri_screenshot_fill`
   | `i_ri_screenshot_2_line`
@@ -1965,6 +2316,8 @@ export type RuleDynamic =
   | `i_ri_scissors_cut_fill`
   | `i_ri_scissors_2_line`
   | `i_ri_scissors_2_fill`
+  | `i_ri_school_line`
+  | `i_ri_school_fill`
   | `i_ri_scan_line`
   | `i_ri_scan_fill`
   | `i_ri_scan_2_line`
@@ -2010,6 +2363,10 @@ export type RuleDynamic =
   | `i_ri_rocket_2_fill`
   | `i_ri_robot_line`
   | `i_ri_robot_fill`
+  | `i_ri_robot_3_line`
+  | `i_ri_robot_3_fill`
+  | `i_ri_robot_2_line`
+  | `i_ri_robot_2_fill`
   | `i_ri_roadster_line`
   | `i_ri_roadster_fill`
   | `i_ri_road_map_line`
@@ -2018,6 +2375,12 @@ export type RuleDynamic =
   | `i_ri_riding_fill`
   | `i_ri_rhythm_line`
   | `i_ri_rhythm_fill`
+  | `i_ri_rfid_line`
+  | `i_ri_rfid_fill`
+  | `i_ri_rewind_start_mini_line`
+  | `i_ri_rewind_start_mini_fill`
+  | `i_ri_rewind_start_line`
+  | `i_ri_rewind_start_fill`
   | `i_ri_rewind_mini_line`
   | `i_ri_rewind_mini_fill`
   | `i_ri_rewind_line`
@@ -2036,6 +2399,14 @@ export type RuleDynamic =
   | `i_ri_reply_fill`
   | `i_ri_reply_all_line`
   | `i_ri_reply_all_fill`
+  | `i_ri_replay_5_line`
+  | `i_ri_replay_5_fill`
+  | `i_ri_replay_30_line`
+  | `i_ri_replay_30_fill`
+  | `i_ri_replay_15_line`
+  | `i_ri_replay_15_fill`
+  | `i_ri_replay_10_line`
+  | `i_ri_replay_10_fill`
   | `i_ri_repeat_one_line`
   | `i_ri_repeat_one_fill`
   | `i_ri_repeat_line`
@@ -2048,6 +2419,8 @@ export type RuleDynamic =
   | `i_ri_remote_control_2_fill`
   | `i_ri_remixicon_line`
   | `i_ri_remixicon_fill`
+  | `i_ri_remix_run_line`
+  | `i_ri_remix_run_fill`
   | `i_ri_registered_line`
   | `i_ri_registered_fill`
   | `i_ri_refund_line`
@@ -2062,12 +2435,20 @@ export type RuleDynamic =
   | `i_ri_red_packet_fill`
   | `i_ri_recycle_line`
   | `i_ri_recycle_fill`
+  | `i_ri_rectangle_line`
+  | `i_ri_rectangle_fill`
   | `i_ri_record_mail_line`
   | `i_ri_record_mail_fill`
   | `i_ri_record_circle_line`
   | `i_ri_record_circle_fill`
+  | `i_ri_receipt_line`
+  | `i_ri_receipt_fill`
   | `i_ri_reactjs_line`
   | `i_ri_reactjs_fill`
+  | `i_ri_ram_line`
+  | `i_ri_ram_fill`
+  | `i_ri_ram_2_line`
+  | `i_ri_ram_2_fill`
   | `i_ri_rainy_line`
   | `i_ri_rainy_fill`
   | `i_ri_rainbow_line`
@@ -2080,6 +2461,7 @@ export type RuleDynamic =
   | `i_ri_radio_2_fill`
   | `i_ri_radar_line`
   | `i_ri_radar_fill`
+  | `i_ri_quote_text`
   | `i_ri_quill_pen_line`
   | `i_ri_quill_pen_fill`
   | `i_ri_questionnaire_line`
@@ -2097,6 +2479,10 @@ export type RuleDynamic =
   | `i_ri_qr_code_fill`
   | `i_ri_qq_line`
   | `i_ri_qq_fill`
+  | `i_ri_puzzle_line`
+  | `i_ri_puzzle_fill`
+  | `i_ri_puzzle_2_line`
+  | `i_ri_puzzle_2_fill`
   | `i_ri_pushpin_line`
   | `i_ri_pushpin_fill`
   | `i_ri_pushpin_2_line`
@@ -2109,6 +2495,26 @@ export type RuleDynamic =
   | `i_ri_projector_fill`
   | `i_ri_projector_2_line`
   | `i_ri_projector_2_fill`
+  | `i_ri_prohibited_line`
+  | `i_ri_prohibited_fill`
+  | `i_ri_prohibited_2_line`
+  | `i_ri_prohibited_2_fill`
+  | `i_ri_progress_8_line`
+  | `i_ri_progress_8_fill`
+  | `i_ri_progress_7_line`
+  | `i_ri_progress_7_fill`
+  | `i_ri_progress_6_line`
+  | `i_ri_progress_6_fill`
+  | `i_ri_progress_5_line`
+  | `i_ri_progress_5_fill`
+  | `i_ri_progress_4_line`
+  | `i_ri_progress_4_fill`
+  | `i_ri_progress_3_line`
+  | `i_ri_progress_3_fill`
+  | `i_ri_progress_2_line`
+  | `i_ri_progress_2_fill`
+  | `i_ri_progress_1_line`
+  | `i_ri_progress_1_fill`
   | `i_ri_profile_line`
   | `i_ri_profile_fill`
   | `i_ri_product_hunt_line`
@@ -2123,8 +2529,12 @@ export type RuleDynamic =
   | `i_ri_price_tag_3_fill`
   | `i_ri_price_tag_2_line`
   | `i_ri_price_tag_2_fill`
+  | `i_ri_presentation_line`
+  | `i_ri_presentation_fill`
   | `i_ri_police_car_line`
   | `i_ri_police_car_fill`
+  | `i_ri_police_badge_line`
+  | `i_ri_police_badge_fill`
   | `i_ri_polaroid_line`
   | `i_ri_polaroid_fill`
   | `i_ri_polaroid_2_line`
@@ -2135,6 +2545,12 @@ export type RuleDynamic =
   | `i_ri_plug_2_fill`
   | `i_ri_playstation_line`
   | `i_ri_playstation_fill`
+  | `i_ri_play_reverse_mini_line`
+  | `i_ri_play_reverse_mini_fill`
+  | `i_ri_play_reverse_line`
+  | `i_ri_play_reverse_large_line`
+  | `i_ri_play_reverse_large_fill`
+  | `i_ri_play_reverse_fill`
   | `i_ri_play_mini_line`
   | `i_ri_play_mini_fill`
   | `i_ri_play_list_line`
@@ -2144,11 +2560,15 @@ export type RuleDynamic =
   | `i_ri_play_list_2_line`
   | `i_ri_play_list_2_fill`
   | `i_ri_play_line`
+  | `i_ri_play_large_line`
+  | `i_ri_play_large_fill`
   | `i_ri_play_fill`
   | `i_ri_play_circle_line`
   | `i_ri_play_circle_fill`
   | `i_ri_plant_line`
   | `i_ri_plant_fill`
+  | `i_ri_planet_line`
+  | `i_ri_planet_fill`
   | `i_ri_plane_line`
   | `i_ri_plane_fill`
   | `i_ri_pixelfed_line`
@@ -2182,6 +2602,8 @@ export type RuleDynamic =
   | `i_ri_phone_camera_fill`
   | `i_ri_percent_line`
   | `i_ri_percent_fill`
+  | `i_ri_pentagon_line`
+  | `i_ri_pentagon_fill`
   | `i_ri_pencil_ruler_line`
   | `i_ri_pencil_ruler_fill`
   | `i_ri_pencil_ruler_2_line`
@@ -2195,6 +2617,8 @@ export type RuleDynamic =
   | `i_ri_pause_mini_line`
   | `i_ri_pause_mini_fill`
   | `i_ri_pause_line`
+  | `i_ri_pause_large_line`
+  | `i_ri_pause_large_fill`
   | `i_ri_pause_fill`
   | `i_ri_pause_circle_line`
   | `i_ri_pause_circle_fill`
@@ -2202,6 +2626,12 @@ export type RuleDynamic =
   | `i_ri_patreon_fill`
   | `i_ri_passport_line`
   | `i_ri_passport_fill`
+  | `i_ri_pass_valid_line`
+  | `i_ri_pass_valid_fill`
+  | `i_ri_pass_pending_line`
+  | `i_ri_pass_pending_fill`
+  | `i_ri_pass_expired_line`
+  | `i_ri_pass_expired_fill`
   | `i_ri_parking_line`
   | `i_ri_parking_fill`
   | `i_ri_parking_box_line`
@@ -2222,6 +2652,9 @@ export type RuleDynamic =
   | `i_ri_pages_line`
   | `i_ri_pages_fill`
   | `i_ri_page_separator`
+  | `i_ri_p2p_line`
+  | `i_ri_p2p_fill`
+  | `i_ri_overline`
   | `i_ri_outlet_line`
   | `i_ri_outlet_fill`
   | `i_ri_outlet_2_line`
@@ -2231,6 +2664,10 @@ export type RuleDynamic =
   | `i_ri_order_play_fill`
   | `i_ri_opera_line`
   | `i_ri_opera_fill`
+  | `i_ri_openbase_line`
+  | `i_ri_openbase_fill`
+  | `i_ri_openai_line`
+  | `i_ri_openai_fill`
   | `i_ri_open_source_line`
   | `i_ri_open_source_fill`
   | `i_ri_open_arm_line`
@@ -2238,6 +2675,8 @@ export type RuleDynamic =
   | `i_ri_omega`
   | `i_ri_oil_line`
   | `i_ri_oil_fill`
+  | `i_ri_octagon_line`
+  | `i_ri_octagon_fill`
   | `i_ri_nurse_line`
   | `i_ri_nurse_fill`
   | `i_ri_numbers_line`
@@ -2254,6 +2693,8 @@ export type RuleDynamic =
   | `i_ri_number_0`
   | `i_ri_npmjs_line`
   | `i_ri_npmjs_fill`
+  | `i_ri_notion_line`
+  | `i_ri_notion_fill`
   | `i_ri_notification_off_line`
   | `i_ri_notification_off_fill`
   | `i_ri_notification_line`
@@ -2266,9 +2707,17 @@ export type RuleDynamic =
   | `i_ri_notification_3_fill`
   | `i_ri_notification_2_line`
   | `i_ri_notification_2_fill`
+  | `i_ri_nodejs_line`
+  | `i_ri_nodejs_fill`
   | `i_ri_node_tree`
+  | `i_ri_nft_line`
+  | `i_ri_nft_fill`
+  | `i_ri_nextjs_line`
+  | `i_ri_nextjs_fill`
   | `i_ri_newspaper_line`
   | `i_ri_newspaper_fill`
+  | `i_ri_news_line`
+  | `i_ri_news_fill`
   | `i_ri_netflix_line`
   | `i_ri_netflix_fill`
   | `i_ri_netease_cloud_music_line`
@@ -2301,6 +2750,8 @@ export type RuleDynamic =
   | `i_ri_moon_cloudy_fill`
   | `i_ri_moon_clear_line`
   | `i_ri_moon_clear_fill`
+  | `i_ri_money_rupee_circle_line`
+  | `i_ri_money_rupee_circle_fill`
   | `i_ri_money_pound_circle_line`
   | `i_ri_money_pound_circle_fill`
   | `i_ri_money_pound_box_line`
@@ -2317,11 +2768,15 @@ export type RuleDynamic =
   | `i_ri_money_cny_circle_fill`
   | `i_ri_money_cny_box_line`
   | `i_ri_money_cny_box_fill`
+  | `i_ri_mobile_download_line`
+  | `i_ri_mobile_download_fill`
   | `i_ri_mist_line`
   | `i_ri_mist_fill`
   | `i_ri_mini_program_line`
   | `i_ri_mini_program_fill`
   | `i_ri_mind_map`
+  | `i_ri_microsoft_loop_line`
+  | `i_ri_microsoft_loop_fill`
   | `i_ri_microsoft_line`
   | `i_ri_microsoft_fill`
   | `i_ri_microscope_line`
@@ -2336,6 +2791,8 @@ export type RuleDynamic =
   | `i_ri_mic_2_fill`
   | `i_ri_meteor_line`
   | `i_ri_meteor_fill`
+  | `i_ri_meta_line`
+  | `i_ri_meta_fill`
   | `i_ri_messenger_line`
   | `i_ri_messenger_fill`
   | `i_ri_message_line`
@@ -2348,9 +2805,26 @@ export type RuleDynamic =
   | `i_ri_merge_cells_horizontal`
   | `i_ri_menu_unfold_line`
   | `i_ri_menu_unfold_fill`
+  | `i_ri_menu_unfold_4_line_2`
+  | `i_ri_menu_unfold_4_line`
+  | `i_ri_menu_unfold_4_fill`
+  | `i_ri_menu_unfold_3_line_2`
+  | `i_ri_menu_unfold_3_line`
+  | `i_ri_menu_unfold_3_fill`
+  | `i_ri_menu_unfold_2_line`
+  | `i_ri_menu_unfold_2_fill`
+  | `i_ri_menu_search_line`
+  | `i_ri_menu_search_fill`
   | `i_ri_menu_line`
   | `i_ri_menu_fold_line`
   | `i_ri_menu_fold_fill`
+  | `i_ri_menu_fold_4_line`
+  | `i_ri_menu_fold_4_fill`
+  | `i_ri_menu_fold_3_line_2`
+  | `i_ri_menu_fold_3_line`
+  | `i_ri_menu_fold_3_fill`
+  | `i_ri_menu_fold_2_line`
+  | `i_ri_menu_fold_2_fill`
   | `i_ri_menu_fill`
   | `i_ri_menu_add_line`
   | `i_ri_menu_add_fill`
@@ -2366,6 +2840,10 @@ export type RuleDynamic =
   | `i_ri_mental_health_fill`
   | `i_ri_men_line`
   | `i_ri_men_fill`
+  | `i_ri_memories_line`
+  | `i_ri_memories_fill`
+  | `i_ri_megaphone_line`
+  | `i_ri_megaphone_fill`
   | `i_ri_medium_line`
   | `i_ri_medium_fill`
   | `i_ri_medicine_bottle_line`
@@ -2444,6 +2922,10 @@ export type RuleDynamic =
   | `i_ri_luggage_deposit_fill`
   | `i_ri_luggage_cart_line`
   | `i_ri_luggage_cart_fill`
+  | `i_ri_loop_right_line`
+  | `i_ri_loop_right_fill`
+  | `i_ri_loop_left_line`
+  | `i_ri_loop_left_fill`
   | `i_ri_logout_circle_r_line`
   | `i_ri_logout_circle_r_fill`
   | `i_ri_logout_circle_line`
@@ -2458,6 +2940,8 @@ export type RuleDynamic =
   | `i_ri_login_box_fill`
   | `i_ri_lock_unlock_line`
   | `i_ri_lock_unlock_fill`
+  | `i_ri_lock_star_line`
+  | `i_ri_lock_star_fill`
   | `i_ri_lock_password_line`
   | `i_ri_lock_password_fill`
   | `i_ri_lock_line`
@@ -2476,10 +2960,15 @@ export type RuleDynamic =
   | `i_ri_loader_2_fill`
   | `i_ri_live_line`
   | `i_ri_live_fill`
+  | `i_ri_list_view`
   | `i_ri_list_unordered`
   | `i_ri_list_settings_line`
   | `i_ri_list_settings_fill`
+  | `i_ri_list_radio`
+  | `i_ri_list_ordered_2`
   | `i_ri_list_ordered`
+  | `i_ri_list_indefinite`
+  | `i_ri_list_check_3`
   | `i_ri_list_check_2`
   | `i_ri_list_check`
   | `i_ri_links_line`
@@ -2505,6 +2994,8 @@ export type RuleDynamic =
   | `i_ri_lifebuoy_fill`
   | `i_ri_leaf_line`
   | `i_ri_leaf_fill`
+  | `i_ri_layout_vertical_line`
+  | `i_ri_layout_vertical_fill`
   | `i_ri_layout_top_line`
   | `i_ri_layout_top_fill`
   | `i_ri_layout_top_2_line`
@@ -2522,8 +3013,12 @@ export type RuleDynamic =
   | `i_ri_layout_left_fill`
   | `i_ri_layout_left_2_line`
   | `i_ri_layout_left_2_fill`
+  | `i_ri_layout_horizontal_line`
+  | `i_ri_layout_horizontal_fill`
   | `i_ri_layout_grid_line`
   | `i_ri_layout_grid_fill`
+  | `i_ri_layout_grid_2_line`
+  | `i_ri_layout_grid_2_fill`
   | `i_ri_layout_fill`
   | `i_ri_layout_column_line`
   | `i_ri_layout_column_fill`
@@ -2547,6 +3042,8 @@ export type RuleDynamic =
   | `i_ri_knife_fill`
   | `i_ri_knife_blood_line`
   | `i_ri_knife_blood_fill`
+  | `i_ri_kick_line`
+  | `i_ri_kick_fill`
   | `i_ri_keynote_line`
   | `i_ri_keynote_fill`
   | `i_ri_keyboard_line`
@@ -2557,11 +3054,19 @@ export type RuleDynamic =
   | `i_ri_key_fill`
   | `i_ri_key_2_line`
   | `i_ri_key_2_fill`
+  | `i_ri_kanban_view_2`
+  | `i_ri_kanban_view`
   | `i_ri_kakao_talk_line`
   | `i_ri_kakao_talk_fill`
+  | `i_ri_javascript_line`
+  | `i_ri_javascript_fill`
+  | `i_ri_java_line`
+  | `i_ri_java_fill`
   | `i_ri_italic`
   | `i_ri_invision_line`
   | `i_ri_invision_fill`
+  | `i_ri_instance_line`
+  | `i_ri_instance_fill`
   | `i_ri_install_line`
   | `i_ri_install_fill`
   | `i_ri_instagram_line`
@@ -2572,13 +3077,21 @@ export type RuleDynamic =
   | `i_ri_insert_column_left`
   | `i_ri_input_method_line`
   | `i_ri_input_method_fill`
+  | `i_ri_input_field`
   | `i_ri_input_cursor_move`
   | `i_ri_ink_bottle_line`
   | `i_ri_ink_bottle_fill`
   | `i_ri_infrared_thermometer_line`
   | `i_ri_infrared_thermometer_fill`
+  | `i_ri_information_off_line`
+  | `i_ri_information_off_fill`
   | `i_ri_information_line`
   | `i_ri_information_fill`
+  | `i_ri_information_2_line`
+  | `i_ri_information_2_fill`
+  | `i_ri_info_i`
+  | `i_ri_infinity_line`
+  | `i_ri_infinity_fill`
   | `i_ri_indeterminate_circle_line`
   | `i_ri_indeterminate_circle_fill`
   | `i_ri_indent_increase`
@@ -2591,20 +3104,32 @@ export type RuleDynamic =
   | `i_ri_inbox_fill`
   | `i_ri_inbox_archive_line`
   | `i_ri_inbox_archive_fill`
+  | `i_ri_inbox_2_line`
+  | `i_ri_inbox_2_fill`
+  | `i_ri_import_line`
+  | `i_ri_import_fill`
   | `i_ri_image_line`
   | `i_ri_image_fill`
   | `i_ri_image_edit_line`
   | `i_ri_image_edit_fill`
+  | `i_ri_image_circle_line`
+  | `i_ri_image_circle_fill`
   | `i_ri_image_add_line`
   | `i_ri_image_add_fill`
   | `i_ri_image_2_line`
   | `i_ri_image_2_fill`
   | `i_ri_ie_line`
   | `i_ri_ie_fill`
+  | `i_ri_id_card_line`
+  | `i_ri_id_card_fill`
   | `i_ri_html5_line`
   | `i_ri_html5_fill`
   | `i_ri_hq_line`
   | `i_ri_hq_fill`
+  | `i_ri_hourglass_line`
+  | `i_ri_hourglass_fill`
+  | `i_ri_hourglass_2_line`
+  | `i_ri_hourglass_2_fill`
   | `i_ri_hotspot_line`
   | `i_ri_hotspot_fill`
   | `i_ri_hotel_line`
@@ -2623,6 +3148,8 @@ export type RuleDynamic =
   | `i_ri_home_smile_fill`
   | `i_ri_home_smile_2_line`
   | `i_ri_home_smile_2_fill`
+  | `i_ri_home_office_line`
+  | `i_ri_home_office_fill`
   | `i_ri_home_line`
   | `i_ri_home_heart_line`
   | `i_ri_home_heart_fill`
@@ -2645,6 +3172,8 @@ export type RuleDynamic =
   | `i_ri_home_2_fill`
   | `i_ri_history_line`
   | `i_ri_history_fill`
+  | `i_ri_hexagon_line`
+  | `i_ri_hexagon_fill`
   | `i_ri_heavy_showers_line`
   | `i_ri_heavy_showers_fill`
   | `i_ri_hearts_line`
@@ -2655,6 +3184,8 @@ export type RuleDynamic =
   | `i_ri_heart_fill`
   | `i_ri_heart_add_line`
   | `i_ri_heart_add_fill`
+  | `i_ri_heart_add_2_line`
+  | `i_ri_heart_add_2_fill`
   | `i_ri_heart_3_line`
   | `i_ri_heart_3_fill`
   | `i_ri_heart_2_line`
@@ -2663,6 +3194,7 @@ export type RuleDynamic =
   | `i_ri_health_book_fill`
   | `i_ri_headphone_line`
   | `i_ri_headphone_fill`
+  | `i_ri_heading_2`
   | `i_ri_heading`
   | `i_ri_hd_line`
   | `i_ri_hd_fill`
@@ -2673,7 +3205,10 @@ export type RuleDynamic =
   | `i_ri_hashtag`
   | `i_ri_hard_drive_line`
   | `i_ri_hard_drive_fill`
+  | `i_ri_hard_drive_3_line`
+  | `i_ri_hard_drive_3_fill`
   | `i_ri_hard_drive_2_line`
+  | `i_ri_hard_drive_2_fill_2`
   | `i_ri_hard_drive_2_fill`
   | `i_ri_handbag_line`
   | `i_ri_handbag_fill`
@@ -2683,6 +3218,7 @@ export type RuleDynamic =
   | `i_ri_hand_heart_fill`
   | `i_ri_hand_coin_line`
   | `i_ri_hand_coin_fill`
+  | `i_ri_hand`
   | `i_ri_hammer_line`
   | `i_ri_hammer_fill`
   | `i_ri_hail_line`
@@ -2697,10 +3233,14 @@ export type RuleDynamic =
   | `i_ri_guide_fill`
   | `i_ri_group_line`
   | `i_ri_group_fill`
+  | `i_ri_group_3_line`
+  | `i_ri_group_3_fill`
   | `i_ri_group_2_line`
   | `i_ri_group_2_fill`
   | `i_ri_grid_line`
   | `i_ri_grid_fill`
+  | `i_ri_graduation_cap_line`
+  | `i_ri_graduation_cap_fill`
   | `i_ri_gradienter_line`
   | `i_ri_gradienter_fill`
   | `i_ri_gps_line`
@@ -2711,12 +3251,22 @@ export type RuleDynamic =
   | `i_ri_google_play_fill`
   | `i_ri_google_line`
   | `i_ri_google_fill`
+  | `i_ri_golf_ball_line`
+  | `i_ri_golf_ball_fill`
+  | `i_ri_goggles_line`
+  | `i_ri_goggles_fill`
   | `i_ri_goblet_line`
   | `i_ri_goblet_fill`
+  | `i_ri_goblet_2_line`
+  | `i_ri_goblet_2_fill`
   | `i_ri_globe_line`
   | `i_ri_globe_fill`
   | `i_ri_global_line`
   | `i_ri_global_fill`
+  | `i_ri_glasses_line`
+  | `i_ri_glasses_fill`
+  | `i_ri_glasses_2_line`
+  | `i_ri_glasses_2_fill`
   | `i_ri_gitlab_line`
   | `i_ri_gitlab_fill`
   | `i_ri_github_line`
@@ -2729,10 +3279,16 @@ export type RuleDynamic =
   | `i_ri_git_repository_commits_fill`
   | `i_ri_git_pull_request_line`
   | `i_ri_git_pull_request_fill`
+  | `i_ri_git_pr_draft_line`
+  | `i_ri_git_pr_draft_fill`
   | `i_ri_git_merge_line`
   | `i_ri_git_merge_fill`
+  | `i_ri_git_fork_line`
+  | `i_ri_git_fork_fill`
   | `i_ri_git_commit_line`
   | `i_ri_git_commit_fill`
+  | `i_ri_git_close_pull_request_line`
+  | `i_ri_git_close_pull_request_fill`
   | `i_ri_git_branch_line`
   | `i_ri_git_branch_fill`
   | `i_ri_gift_line`
@@ -2755,6 +3311,8 @@ export type RuleDynamic =
   | `i_ri_gamepad_fill`
   | `i_ri_game_line`
   | `i_ri_game_fill`
+  | `i_ri_gallery_view_2`
+  | `i_ri_gallery_view`
   | `i_ri_gallery_upload_line`
   | `i_ri_gallery_upload_fill`
   | `i_ri_gallery_line`
@@ -2766,12 +3324,29 @@ export type RuleDynamic =
   | `i_ri_functions`
   | `i_ri_function_line`
   | `i_ri_function_fill`
+  | `i_ri_function_add_line`
+  | `i_ri_function_add_fill`
   | `i_ri_fullscreen_line`
   | `i_ri_fullscreen_fill`
   | `i_ri_fullscreen_exit_line`
   | `i_ri_fullscreen_exit_fill`
+  | `i_ri_friendica_line`
+  | `i_ri_friendica_fill`
   | `i_ri_fridge_line`
   | `i_ri_fridge_fill`
+  | `i_ri_forward_end_mini_line`
+  | `i_ri_forward_end_mini_fill`
+  | `i_ri_forward_end_line`
+  | `i_ri_forward_end_fill`
+  | `i_ri_forward_5_line`
+  | `i_ri_forward_5_fill`
+  | `i_ri_forward_30_line`
+  | `i_ri_forward_30_fill`
+  | `i_ri_forward_15_line`
+  | `i_ri_forward_15_fill`
+  | `i_ri_forward_10_line`
+  | `i_ri_forward_10_fill`
+  | `i_ri_formula`
   | `i_ri_format_clear`
   | `i_ri_forbid_line`
   | `i_ri_forbid_fill`
@@ -2783,6 +3358,10 @@ export type RuleDynamic =
   | `i_ri_football_fill`
   | `i_ri_font_size_2`
   | `i_ri_font_size`
+  | `i_ri_font_sans_serif`
+  | `i_ri_font_sans`
+  | `i_ri_font_mono`
+  | `i_ri_font_family`
   | `i_ri_font_color`
   | `i_ri_folders_line`
   | `i_ri_folders_fill`
@@ -2790,6 +3369,8 @@ export type RuleDynamic =
   | `i_ri_folder_zip_fill`
   | `i_ri_folder_warning_line`
   | `i_ri_folder_warning_fill`
+  | `i_ri_folder_video_line`
+  | `i_ri_folder_video_fill`
   | `i_ri_folder_user_line`
   | `i_ri_folder_user_fill`
   | `i_ri_folder_upload_line`
@@ -2821,6 +3402,8 @@ export type RuleDynamic =
   | `i_ri_folder_keyhole_fill`
   | `i_ri_folder_info_line`
   | `i_ri_folder_info_fill`
+  | `i_ri_folder_image_line`
+  | `i_ri_folder_image_fill`
   | `i_ri_folder_history_line`
   | `i_ri_folder_history_fill`
   | `i_ri_folder_forbid_line`
@@ -2828,12 +3411,20 @@ export type RuleDynamic =
   | `i_ri_folder_fill`
   | `i_ri_folder_download_line`
   | `i_ri_folder_download_fill`
+  | `i_ri_folder_cloud_line`
+  | `i_ri_folder_cloud_fill`
+  | `i_ri_folder_close_line`
+  | `i_ri_folder_close_fill`
+  | `i_ri_folder_check_line`
+  | `i_ri_folder_check_fill`
   | `i_ri_folder_chart_line`
   | `i_ri_folder_chart_fill`
   | `i_ri_folder_chart_2_line`
   | `i_ri_folder_chart_2_fill`
   | `i_ri_folder_add_line`
   | `i_ri_folder_add_fill`
+  | `i_ri_folder_6_line`
+  | `i_ri_folder_6_fill`
   | `i_ri_folder_5_line`
   | `i_ri_folder_5_fill`
   | `i_ri_folder_4_line`
@@ -2844,6 +3435,7 @@ export type RuleDynamic =
   | `i_ri_folder_2_fill`
   | `i_ri_foggy_line`
   | `i_ri_foggy_fill`
+  | `i_ri_focus_mode`
   | `i_ri_focus_line`
   | `i_ri_focus_fill`
   | `i_ri_focus_3_line`
@@ -2852,13 +3444,25 @@ export type RuleDynamic =
   | `i_ri_focus_2_fill`
   | `i_ri_flutter_line`
   | `i_ri_flutter_fill`
+  | `i_ri_flower_line`
+  | `i_ri_flower_fill`
   | `i_ri_flow_chart`
   | `i_ri_flood_line`
   | `i_ri_flood_fill`
+  | `i_ri_flip_vertical_line`
+  | `i_ri_flip_vertical_fill`
+  | `i_ri_flip_vertical_2_line`
+  | `i_ri_flip_vertical_2_fill`
+  | `i_ri_flip_horizontal_line`
+  | `i_ri_flip_horizontal_fill`
+  | `i_ri_flip_horizontal_2_line`
+  | `i_ri_flip_horizontal_2_fill`
   | `i_ri_flight_takeoff_line`
   | `i_ri_flight_takeoff_fill`
   | `i_ri_flight_land_line`
   | `i_ri_flight_land_fill`
+  | `i_ri_flickr_line`
+  | `i_ri_flickr_fill`
   | `i_ri_flask_line`
   | `i_ri_flask_fill`
   | `i_ri_flashlight_line`
@@ -2871,6 +3475,8 @@ export type RuleDynamic =
   | `i_ri_first_aid_kit_fill`
   | `i_ri_firefox_line`
   | `i_ri_firefox_fill`
+  | `i_ri_firebase_line`
+  | `i_ri_firebase_fill`
   | `i_ri_fire_line`
   | `i_ri_fire_fill`
   | `i_ri_fingerprint_line`
@@ -2899,6 +3505,8 @@ export type RuleDynamic =
   | `i_ri_file_word_2_fill`
   | `i_ri_file_warning_line`
   | `i_ri_file_warning_fill`
+  | `i_ri_file_video_line`
+  | `i_ri_file_video_fill`
   | `i_ri_file_user_line`
   | `i_ri_file_user_fill`
   | `i_ri_file_upload_line`
@@ -2927,14 +3535,16 @@ export type RuleDynamic =
   | `i_ri_file_ppt_2_fill`
   | `i_ri_file_pdf_line`
   | `i_ri_file_pdf_fill`
+  | `i_ri_file_pdf_2_line`
+  | `i_ri_file_pdf_2_fill`
   | `i_ri_file_paper_line`
   | `i_ri_file_paper_fill`
   | `i_ri_file_paper_2_line`
   | `i_ri_file_paper_2_fill`
   | `i_ri_file_music_line`
   | `i_ri_file_music_fill`
-  | `i_ri_file_mark_line`
-  | `i_ri_file_mark_fill`
+  | `i_ri_file_marked_line`
+  | `i_ri_file_marked_fill`
   | `i_ri_file_lock_line`
   | `i_ri_file_lock_fill`
   | `i_ri_file_list_line`
@@ -2946,6 +3556,8 @@ export type RuleDynamic =
   | `i_ri_file_line`
   | `i_ri_file_info_line`
   | `i_ri_file_info_fill`
+  | `i_ri_file_image_line`
+  | `i_ri_file_image_fill`
   | `i_ri_file_hwp_line`
   | `i_ri_file_hwp_fill`
   | `i_ri_file_history_line`
@@ -2973,6 +3585,10 @@ export type RuleDynamic =
   | `i_ri_file_code_fill`
   | `i_ri_file_cloud_line`
   | `i_ri_file_cloud_fill`
+  | `i_ri_file_close_line`
+  | `i_ri_file_close_fill`
+  | `i_ri_file_check_line`
+  | `i_ri_file_check_fill`
   | `i_ri_file_chart_line`
   | `i_ri_file_chart_fill`
   | `i_ri_file_chart_2_line`
@@ -2983,6 +3599,7 @@ export type RuleDynamic =
   | `i_ri_file_4_fill`
   | `i_ri_file_3_line`
   | `i_ri_file_3_fill`
+  | `i_ri_file_2_line_2`
   | `i_ri_file_2_line`
   | `i_ri_file_2_fill`
   | `i_ri_feedback_line`
@@ -3005,6 +3622,24 @@ export type RuleDynamic =
   | `i_ri_eye_2_fill`
   | `i_ri_external_link_line`
   | `i_ri_external_link_fill`
+  | `i_ri_export_line`
+  | `i_ri_export_fill`
+  | `i_ri_expand_width_line`
+  | `i_ri_expand_width_fill`
+  | `i_ri_expand_up_down_line`
+  | `i_ri_expand_up_down_fill`
+  | `i_ri_expand_right_line`
+  | `i_ri_expand_right_fill`
+  | `i_ri_expand_left_right_line`
+  | `i_ri_expand_left_right_fill`
+  | `i_ri_expand_left_line`
+  | `i_ri_expand_left_fill`
+  | `i_ri_expand_height_line`
+  | `i_ri_expand_height_fill`
+  | `i_ri_expand_diagonal_line`
+  | `i_ri_expand_diagonal_fill`
+  | `i_ri_expand_diagonal_2_line`
+  | `i_ri_expand_diagonal_2_fill`
   | `i_ri_exchange_line`
   | `i_ri_exchange_funds_line`
   | `i_ri_exchange_funds_fill`
@@ -3015,14 +3650,24 @@ export type RuleDynamic =
   | `i_ri_exchange_cny_fill`
   | `i_ri_exchange_box_line`
   | `i_ri_exchange_box_fill`
+  | `i_ri_exchange_2_line`
+  | `i_ri_exchange_2_fill`
   | `i_ri_evernote_line`
   | `i_ri_evernote_fill`
+  | `i_ri_eth_line`
+  | `i_ri_eth_fill`
   | `i_ri_error_warning_line`
   | `i_ri_error_warning_fill`
   | `i_ri_eraser_line`
   | `i_ri_eraser_fill`
   | `i_ri_equalizer_line`
   | `i_ri_equalizer_fill`
+  | `i_ri_equalizer_3_line`
+  | `i_ri_equalizer_3_fill`
+  | `i_ri_equalizer_2_line`
+  | `i_ri_equalizer_2_fill`
+  | `i_ri_equal_line`
+  | `i_ri_equal_fill`
   | `i_ri_english_input`
   | `i_ri_emphasis_cn`
   | `i_ri_emphasis`
@@ -3042,6 +3687,8 @@ export type RuleDynamic =
   | `i_ri_emotion_fill`
   | `i_ri_emotion_2_line`
   | `i_ri_emotion_2_fill`
+  | `i_ri_emoji_sticker_line`
+  | `i_ri_emoji_sticker_fill`
   | `i_ri_eject_line`
   | `i_ri_eject_fill`
   | `i_ri_edit_line`
@@ -3052,6 +3699,8 @@ export type RuleDynamic =
   | `i_ri_edit_box_fill`
   | `i_ri_edit_2_line`
   | `i_ri_edit_2_fill`
+  | `i_ri_edge_new_line`
+  | `i_ri_edge_new_fill`
   | `i_ri_edge_line`
   | `i_ri_edge_fill`
   | `i_ri_earthquake_line`
@@ -3070,6 +3719,7 @@ export type RuleDynamic =
   | `i_ri_dual_sim_2_fill`
   | `i_ri_dual_sim_1_line`
   | `i_ri_dual_sim_1_fill`
+  | `i_ri_dropdown_list`
   | `i_ri_dropbox_line`
   | `i_ri_dropbox_fill`
   | `i_ri_drop_line`
@@ -3078,8 +3728,13 @@ export type RuleDynamic =
   | `i_ri_drizzle_fill`
   | `i_ri_drive_line`
   | `i_ri_drive_fill`
+  | `i_ri_drinks_line`
+  | `i_ri_drinks_fill`
+  | `i_ri_drinks_2_line`
+  | `i_ri_drinks_2_fill`
   | `i_ri_dribbble_line`
   | `i_ri_dribbble_fill`
+  | `i_ri_draggable`
   | `i_ri_drag_move_line`
   | `i_ri_drag_move_fill`
   | `i_ri_drag_move_2_line`
@@ -3122,6 +3777,8 @@ export type RuleDynamic =
   | `i_ri_dislike_fill`
   | `i_ri_discuss_line`
   | `i_ri_discuss_fill`
+  | `i_ri_discount_percent_line`
+  | `i_ri_discount_percent_fill`
   | `i_ri_discord_line`
   | `i_ri_discord_fill`
   | `i_ri_disc_line`
@@ -3130,6 +3787,20 @@ export type RuleDynamic =
   | `i_ri_direction_fill`
   | `i_ri_dingding_line`
   | `i_ri_dingding_fill`
+  | `i_ri_dice_line`
+  | `i_ri_dice_fill`
+  | `i_ri_dice_6_line`
+  | `i_ri_dice_6_fill`
+  | `i_ri_dice_5_line`
+  | `i_ri_dice_5_fill`
+  | `i_ri_dice_4_line`
+  | `i_ri_dice_4_fill`
+  | `i_ri_dice_3_line`
+  | `i_ri_dice_3_fill`
+  | `i_ri_dice_2_line`
+  | `i_ri_dice_2_fill`
+  | `i_ri_dice_1_line`
+  | `i_ri_dice_1_fill`
   | `i_ri_device_recover_line`
   | `i_ri_device_recover_fill`
   | `i_ri_device_line`
@@ -3159,6 +3830,8 @@ export type RuleDynamic =
   | `i_ri_database_2_line`
   | `i_ri_database_2_fill`
   | `i_ri_dashboard_line`
+  | `i_ri_dashboard_horizontal_line`
+  | `i_ri_dashboard_horizontal_fill`
   | `i_ri_dashboard_fill`
   | `i_ri_dashboard_3_line`
   | `i_ri_dashboard_3_fill`
@@ -3176,6 +3849,12 @@ export type RuleDynamic =
   | `i_ri_cup_fill`
   | `i_ri_css3_line`
   | `i_ri_css3_fill`
+  | `i_ri_crosshair_line`
+  | `i_ri_crosshair_fill`
+  | `i_ri_crosshair_2_line`
+  | `i_ri_crosshair_2_fill`
+  | `i_ri_cross_line`
+  | `i_ri_cross_fill`
   | `i_ri_crop_line`
   | `i_ri_crop_fill`
   | `i_ri_crop_2_line`
@@ -3206,6 +3885,26 @@ export type RuleDynamic =
   | `i_ri_coupon_3_fill`
   | `i_ri_coupon_2_line`
   | `i_ri_coupon_2_fill`
+  | `i_ri_corner_up_right_line`
+  | `i_ri_corner_up_right_fill`
+  | `i_ri_corner_up_right_double_line`
+  | `i_ri_corner_up_right_double_fill`
+  | `i_ri_corner_up_left_line`
+  | `i_ri_corner_up_left_fill`
+  | `i_ri_corner_up_left_double_line`
+  | `i_ri_corner_up_left_double_fill`
+  | `i_ri_corner_right_up_line`
+  | `i_ri_corner_right_up_fill`
+  | `i_ri_corner_right_down_line`
+  | `i_ri_corner_right_down_fill`
+  | `i_ri_corner_left_up_line`
+  | `i_ri_corner_left_up_fill`
+  | `i_ri_corner_left_down_line`
+  | `i_ri_corner_left_down_fill`
+  | `i_ri_corner_down_right_line`
+  | `i_ri_corner_down_right_fill`
+  | `i_ri_corner_down_left_line`
+  | `i_ri_corner_down_left_fill`
   | `i_ri_coreos_line`
   | `i_ri_coreos_fill`
   | `i_ri_copyright_line`
@@ -3216,6 +3915,8 @@ export type RuleDynamic =
   | `i_ri_copper_diamond_fill`
   | `i_ri_copper_coin_line`
   | `i_ri_copper_coin_fill`
+  | `i_ri_copilot_line`
+  | `i_ri_copilot_fill`
   | `i_ri_contrast_line`
   | `i_ri_contrast_fill`
   | `i_ri_contrast_drop_line`
@@ -3224,12 +3925,24 @@ export type RuleDynamic =
   | `i_ri_contrast_drop_2_fill`
   | `i_ri_contrast_2_line`
   | `i_ri_contrast_2_fill`
+  | `i_ri_contract_up_down_line`
+  | `i_ri_contract_up_down_fill`
+  | `i_ri_contract_right_line`
+  | `i_ri_contract_right_fill`
+  | `i_ri_contract_line`
+  | `i_ri_contract_left_right_line`
+  | `i_ri_contract_left_right_fill`
+  | `i_ri_contract_left_line`
+  | `i_ri_contract_left_fill`
+  | `i_ri_contract_fill`
   | `i_ri_contacts_line`
   | `i_ri_contacts_fill`
   | `i_ri_contacts_book_upload_line`
   | `i_ri_contacts_book_upload_fill`
   | `i_ri_contacts_book_line`
   | `i_ri_contacts_book_fill`
+  | `i_ri_contacts_book_3_line`
+  | `i_ri_contacts_book_3_fill`
   | `i_ri_contacts_book_2_line`
   | `i_ri_contacts_book_2_fill`
   | `i_ri_computer_line`
@@ -3252,6 +3965,12 @@ export type RuleDynamic =
   | `i_ri_community_fill`
   | `i_ri_command_line`
   | `i_ri_command_fill`
+  | `i_ri_color_filter_line`
+  | `i_ri_color_filter_fill`
+  | `i_ri_collapse_diagonal_line`
+  | `i_ri_collapse_diagonal_fill`
+  | `i_ri_collapse_diagonal_2_line`
+  | `i_ri_collapse_diagonal_2_fill`
   | `i_ri_collage_line`
   | `i_ri_collage_fill`
   | `i_ri_coins_line`
@@ -3269,6 +3988,7 @@ export type RuleDynamic =
   | `i_ri_code_fill`
   | `i_ri_code_box_line`
   | `i_ri_code_box_fill`
+  | `i_ri_code_block`
   | `i_ri_cloudy_line`
   | `i_ri_cloudy_fill`
   | `i_ri_cloudy_2_line`
@@ -3282,6 +4002,8 @@ export type RuleDynamic =
   | `i_ri_closed_captioning_line`
   | `i_ri_closed_captioning_fill`
   | `i_ri_close_line`
+  | `i_ri_close_large_line`
+  | `i_ri_close_large_fill`
   | `i_ri_close_fill`
   | `i_ri_close_circle_line`
   | `i_ri_close_circle_fill`
@@ -3293,6 +4015,8 @@ export type RuleDynamic =
   | `i_ri_clipboard_fill`
   | `i_ri_clapperboard_line`
   | `i_ri_clapperboard_fill`
+  | `i_ri_circle_line`
+  | `i_ri_circle_fill`
   | `i_ri_chrome_line`
   | `i_ri_chrome_fill`
   | `i_ri_china_railway_line`
@@ -3319,6 +4043,8 @@ export type RuleDynamic =
   | `i_ri_chat_voice_fill`
   | `i_ri_chat_upload_line`
   | `i_ri_chat_upload_fill`
+  | `i_ri_chat_thread_line`
+  | `i_ri_chat_thread_fill`
   | `i_ri_chat_smile_line`
   | `i_ri_chat_smile_fill`
   | `i_ri_chat_smile_3_line`
@@ -3358,6 +4084,7 @@ export type RuleDynamic =
   | `i_ri_chat_2_line`
   | `i_ri_chat_2_fill`
   | `i_ri_chat_1_line`
+  | `i_ri_chat_1_fill_2`
   | `i_ri_chat_1_fill`
   | `i_ri_charging_pile_line`
   | `i_ri_charging_pile_fill`
@@ -3373,6 +4100,9 @@ export type RuleDynamic =
   | `i_ri_cellphone_fill`
   | `i_ri_cast_line`
   | `i_ri_cast_fill`
+  | `i_ri_cash_line`
+  | `i_ri_cash_fill`
+  | `i_ri_carousel_view`
   | `i_ri_caravan_line`
   | `i_ri_caravan_fill`
   | `i_ri_car_washing_line`
@@ -3381,6 +4111,8 @@ export type RuleDynamic =
   | `i_ri_car_fill`
   | `i_ri_capsule_line`
   | `i_ri_capsule_fill`
+  | `i_ri_candle_line`
+  | `i_ri_candle_fill`
   | `i_ri_camera_switch_line`
   | `i_ri_camera_switch_fill`
   | `i_ri_camera_off_line`
@@ -3393,12 +4125,17 @@ export type RuleDynamic =
   | `i_ri_camera_3_fill`
   | `i_ri_camera_2_line`
   | `i_ri_camera_2_fill`
+  | `i_ri_calendar_view`
   | `i_ri_calendar_todo_line`
   | `i_ri_calendar_todo_fill`
+  | `i_ri_calendar_schedule_line`
+  | `i_ri_calendar_schedule_fill`
   | `i_ri_calendar_line`
   | `i_ri_calendar_fill`
   | `i_ri_calendar_event_line`
   | `i_ri_calendar_event_fill`
+  | `i_ri_calendar_close_line`
+  | `i_ri_calendar_close_fill`
   | `i_ri_calendar_check_line`
   | `i_ri_calendar_check_fill`
   | `i_ri_calendar_2_line`
@@ -3433,6 +4170,8 @@ export type RuleDynamic =
   | `i_ri_bug_2_fill`
   | `i_ri_bubble_chart_line`
   | `i_ri_bubble_chart_fill`
+  | `i_ri_btc_line`
+  | `i_ri_btc_fill`
   | `i_ri_brush_line`
   | `i_ri_brush_fill`
   | `i_ri_brush_4_line`
@@ -3455,12 +4194,26 @@ export type RuleDynamic =
   | `i_ri_briefcase_3_fill`
   | `i_ri_briefcase_2_line`
   | `i_ri_briefcase_2_fill`
+  | `i_ri_bread_line`
+  | `i_ri_bread_fill`
+  | `i_ri_brain_line`
+  | `i_ri_brain_fill`
   | `i_ri_brackets_line`
   | `i_ri_brackets_fill`
   | `i_ri_braces_line`
   | `i_ri_braces_fill`
   | `i_ri_boxing_line`
   | `i_ri_boxing_fill`
+  | `i_ri_box_3_line`
+  | `i_ri_box_3_fill`
+  | `i_ri_box_2_line`
+  | `i_ri_box_2_fill`
+  | `i_ri_box_1_line`
+  | `i_ri_box_1_fill`
+  | `i_ri_bowl_line`
+  | `i_ri_bowl_fill`
+  | `i_ri_bootstrap_line`
+  | `i_ri_bootstrap_fill`
   | `i_ri_bookmark_line`
   | `i_ri_bookmark_fill`
   | `i_ri_bookmark_3_line`
@@ -3473,8 +4226,8 @@ export type RuleDynamic =
   | `i_ri_book_read_fill`
   | `i_ri_book_open_line`
   | `i_ri_book_open_fill`
-  | `i_ri_book_mark_line`
-  | `i_ri_book_mark_fill`
+  | `i_ri_book_marked_line`
+  | `i_ri_book_marked_fill`
   | `i_ri_book_line`
   | `i_ri_book_fill`
   | `i_ri_book_3_line`
@@ -3484,12 +4237,20 @@ export type RuleDynamic =
   | `i_ri_bold`
   | `i_ri_body_scan_line`
   | `i_ri_body_scan_fill`
+  | `i_ri_bnb_line`
+  | `i_ri_bnb_fill`
   | `i_ri_blur_off_line`
   | `i_ri_blur_off_fill`
   | `i_ri_bluetooth_line`
   | `i_ri_bluetooth_fill`
   | `i_ri_bluetooth_connect_line`
   | `i_ri_bluetooth_connect_fill`
+  | `i_ri_bluesky_line`
+  | `i_ri_bluesky_fill`
+  | `i_ri_blogger_line`
+  | `i_ri_blogger_fill`
+  | `i_ri_blender_line`
+  | `i_ri_blender_fill`
   | `i_ri_blaze_line`
   | `i_ri_blaze_fill`
   | `i_ri_bit_coin_line`
@@ -3506,6 +4267,8 @@ export type RuleDynamic =
   | `i_ri_bell_fill`
   | `i_ri_behance_line`
   | `i_ri_behance_fill`
+  | `i_ri_beer_line`
+  | `i_ri_beer_fill`
   | `i_ri_bear_smile_line`
   | `i_ri_bear_smile_fill`
   | `i_ri_battery_share_line`
@@ -3513,6 +4276,7 @@ export type RuleDynamic =
   | `i_ri_battery_saver_line`
   | `i_ri_battery_saver_fill`
   | `i_ri_battery_low_line`
+  | `i_ri_battery_low_fill_2`
   | `i_ri_battery_low_fill`
   | `i_ri_battery_line`
   | `i_ri_battery_fill`
@@ -3528,6 +4292,8 @@ export type RuleDynamic =
   | `i_ri_base_station_fill`
   | `i_ri_barricade_line`
   | `i_ri_barricade_fill`
+  | `i_ri_bard_line`
+  | `i_ri_bard_fill`
   | `i_ri_barcode_line`
   | `i_ri_barcode_fill`
   | `i_ri_barcode_box_line`
@@ -3570,14 +4336,24 @@ export type RuleDynamic =
   | `i_ri_artboard_fill`
   | `i_ri_artboard_2_line`
   | `i_ri_artboard_2_fill`
+  | `i_ri_arrow_up_wide_line`
+  | `i_ri_arrow_up_wide_fill`
   | `i_ri_arrow_up_s_line`
   | `i_ri_arrow_up_s_fill`
   | `i_ri_arrow_up_line`
   | `i_ri_arrow_up_fill`
   | `i_ri_arrow_up_down_line`
   | `i_ri_arrow_up_down_fill`
+  | `i_ri_arrow_up_double_line`
+  | `i_ri_arrow_up_double_fill`
   | `i_ri_arrow_up_circle_line`
   | `i_ri_arrow_up_circle_fill`
+  | `i_ri_arrow_turn_forward_line`
+  | `i_ri_arrow_turn_forward_fill`
+  | `i_ri_arrow_turn_back_line`
+  | `i_ri_arrow_turn_back_fill`
+  | `i_ri_arrow_right_wide_line`
+  | `i_ri_arrow_right_wide_fill`
   | `i_ri_arrow_right_up_line`
   | `i_ri_arrow_right_up_fill`
   | `i_ri_arrow_right_s_line`
@@ -3586,8 +4362,12 @@ export type RuleDynamic =
   | `i_ri_arrow_right_fill`
   | `i_ri_arrow_right_down_line`
   | `i_ri_arrow_right_down_fill`
+  | `i_ri_arrow_right_double_line`
+  | `i_ri_arrow_right_double_fill`
   | `i_ri_arrow_right_circle_line`
   | `i_ri_arrow_right_circle_fill`
+  | `i_ri_arrow_left_wide_line`
+  | `i_ri_arrow_left_wide_fill`
   | `i_ri_arrow_left_up_line`
   | `i_ri_arrow_left_up_fill`
   | `i_ri_arrow_left_s_line`
@@ -3598,6 +4378,8 @@ export type RuleDynamic =
   | `i_ri_arrow_left_fill`
   | `i_ri_arrow_left_down_line`
   | `i_ri_arrow_left_down_fill`
+  | `i_ri_arrow_left_double_line`
+  | `i_ri_arrow_left_double_fill`
   | `i_ri_arrow_left_circle_line`
   | `i_ri_arrow_left_circle_fill`
   | `i_ri_arrow_go_forward_line`
@@ -3612,20 +4394,33 @@ export type RuleDynamic =
   | `i_ri_arrow_drop_left_fill`
   | `i_ri_arrow_drop_down_line`
   | `i_ri_arrow_drop_down_fill`
+  | `i_ri_arrow_down_wide_line`
+  | `i_ri_arrow_down_wide_fill`
   | `i_ri_arrow_down_s_line`
   | `i_ri_arrow_down_s_fill`
   | `i_ri_arrow_down_line`
   | `i_ri_arrow_down_fill`
+  | `i_ri_arrow_down_double_line`
+  | `i_ri_arrow_down_double_fill`
   | `i_ri_arrow_down_circle_line`
+  | `i_ri_arrow_down_circle_fill_2`
   | `i_ri_arrow_down_circle_fill`
+  | `i_ri_armchair_line`
+  | `i_ri_armchair_fill`
+  | `i_ri_archive_stack_line`
+  | `i_ri_archive_stack_fill`
   | `i_ri_archive_line`
   | `i_ri_archive_fill`
   | `i_ri_archive_drawer_line`
   | `i_ri_archive_drawer_fill`
+  | `i_ri_archive_2_line`
+  | `i_ri_archive_2_fill`
   | `i_ri_apps_line`
   | `i_ri_apps_fill`
   | `i_ri_apps_2_line`
   | `i_ri_apps_2_fill`
+  | `i_ri_apps_2_add_line`
+  | `i_ri_apps_2_add_fill`
   | `i_ri_apple_line`
   | `i_ri_apple_fill`
   | `i_ri_app_store_line`
@@ -3653,10 +4448,24 @@ export type RuleDynamic =
   | `i_ri_align_right`
   | `i_ri_align_left`
   | `i_ri_align_justify`
+  | `i_ri_align_item_vertical_center_line`
+  | `i_ri_align_item_vertical_center_fill`
+  | `i_ri_align_item_top_line`
+  | `i_ri_align_item_top_fill`
+  | `i_ri_align_item_right_line`
+  | `i_ri_align_item_right_fill`
+  | `i_ri_align_item_left_line`
+  | `i_ri_align_item_left_fill`
+  | `i_ri_align_item_horizontal_center_line`
+  | `i_ri_align_item_horizontal_center_fill`
+  | `i_ri_align_item_bottom_line`
+  | `i_ri_align_item_bottom_fill`
   | `i_ri_align_center`
   | `i_ri_align_bottom`
   | `i_ri_aliens_line`
   | `i_ri_aliens_fill`
+  | `i_ri_alibaba_cloud_line`
+  | `i_ri_alibaba_cloud_fill`
   | `i_ri_alert_line`
   | `i_ri_alert_fill`
   | `i_ri_album_line`
@@ -3667,11 +4476,18 @@ export type RuleDynamic =
   | `i_ri_alarm_fill`
   | `i_ri_airplay_line`
   | `i_ri_airplay_fill`
+  | `i_ri_ai_generate`
+  | `i_ri_aed_line`
+  | `i_ri_aed_fill`
+  | `i_ri_aed_electrodes_line`
+  | `i_ri_aed_electrodes_fill`
   | `i_ri_advertisement_line`
   | `i_ri_advertisement_fill`
   | `i_ri_admin_line`
   | `i_ri_admin_fill`
   | `i_ri_add_line`
+  | `i_ri_add_large_line`
+  | `i_ri_add_large_fill`
   | `i_ri_add_fill`
   | `i_ri_add_circle_line`
   | `i_ri_add_circle_fill`
@@ -3694,6 +4510,7 @@ export type RuleDynamic =
   | `${"max_" | "min_" | ""}${"w" | "h"}_${Autocomplete_num}`
   | `${"max_" | "min_" | ""}${"w" | "h"}_full`
   | `border`
+  | `bg_${Theme_colors}`
   | `fixed`
   | `relative`
   | `absolute`
@@ -3752,6 +4569,7 @@ export type RuleDynamic =
   | `brightness_${Autocomplete_percent}`
   | `${"backdrop" | "filter"}_blur_${Theme_blur}`
   | `blur_${Theme_blur}`
+  | `filter_blur`
   | `ring_offset_opacity_${Autocomplete_percent}`
   | `ring_offset_${Theme_colors}`
   | `ring_opacity_${Autocomplete_percent}`
@@ -3783,9 +4601,6 @@ export type RuleDynamic =
   | `${"underline" | "decoration"}_${"auto" | "from_font"}`
   | `${"underline" | "decoration"}_${Autocomplete_num}`
   | `decoration_${"underline" | "overline" | "line_through"}`
-  | `text_opacity_${Autocomplete_percent}`
-  | `text_${Theme_colors}`
-  | `text_${Theme_colors}`
   | `stacked_fractions`
   | `diagonal_fractions`
   | `tabular_nums`
@@ -3794,14 +4609,20 @@ export type RuleDynamic =
   | `lining_nums`
   | `slashed_zero`
   | `ordinal`
+  | `font_${Theme_fontFamily}`
   | `word_spacing_${Theme_wordSpacing}`
   | `tracking_${Theme_letterSpacing}`
-  | `${"leading" | "lh"}_${Theme_lineHeight}`
-  | `${"font" | "fw"}_${"100" | "200" | "300" | "400" | "500" | "600" | "700" | "800" | "900" | "thin" | "extralight" | "light" | "normal" | "medium" | "semibold" | "bold" | "extrabold" | "black"}`
+  | `${"leading" | "lh" | "line_height"}_${Theme_lineHeight}`
+  | `${"font" | "fw"}_${"100" | "200" | "300" | "400" | "500" | "600" | "700" | "800" | "900"}`
+  | `${"font" | "fw"}_${Theme_fontWeight}`
+  | `text_opacity_${Autocomplete_percent}`
+  | `text_${"inherit" | "initial" | "revert" | "revert_layer" | "unset"}`
+  | `${"color" | "c"}_${Theme_colors}`
+  | `text_${Theme_colors}`
   | `text_size_${Theme_fontSize}`
   | `text_${Theme_fontSize}`
-  | `font_${Theme_fontFamily}`
   | `${"vertical" | "align" | "v"}_${"mid" | "base" | "btm" | "baseline" | "top" | "start" | "middle" | "bottom" | "end" | "text_top" | "text_bottom" | "sub" | "super" | "inherit" | "initial" | "revert" | "revert_layer" | "unset"}`
+  | `${"vertical" | "align" | "v"}_${Autocomplete_percentage}`
   | `indent_${Theme_textIndent}`
   | `${"m" | "p"}_${"bs" | "be" | "is" | "ie"}_${Autocomplete_num}`
   | `${"m" | "p"}_${"block" | "inline"}_${Autocomplete_num}`
@@ -3831,7 +4652,6 @@ export type RuleDynamic =
   | `bg_gradient_${"from" | "to" | "via"}_opacity`
   | `bg_gradient_${"from" | "to" | "via"}_opacity_${Autocomplete_percent}`
   | `bg_opacity_${Autocomplete_percent}`
-  | `bg_${Theme_colors}`
   | `border_style`
   | `border_${"solid" | "dashed" | "dotted" | "double" | "hidden" | "none" | "groove" | "ridge" | "inset" | "outset" | "inherit" | "initial" | "revert" | "revert_layer" | "unset"}`
   | `border_${Autocomplete_directions}_style`
@@ -3860,6 +4680,8 @@ export type RuleDynamic =
   | `space_${"x" | "y" | "block" | "inline"}`
   | `space_${"x" | "y" | "block" | "inline"}_reverse`
   | `space_${"x" | "y" | "block" | "inline"}_${Theme_spacing}`
+  | `gap_${"col" | "row"}_${Theme_spacing}`
+  | `gap_${"col" | "row"}_${Autocomplete_num}`
   | `gap_${"x" | "y"}_${Theme_spacing}`
   | `gap_${"x" | "y"}_${Autocomplete_num}`
   | `gap_${Theme_spacing}`
@@ -3885,7 +4707,8 @@ export type RuleDynamic =
   | `animate_${"fill" | "mode" | "fill_mode"}`
   | `animate_${"fill" | "mode" | "fill_mode"}_${"none" | "forwards" | "backwards" | "both" | "inherit" | "initial" | "revert" | "revert_layer" | "unset"}`
   | `animate_${"none" | "forwards" | "backwards" | "both" | "inherit" | "initial" | "revert" | "revert_layer" | "unset"}`
-  | `animate_delay_${Theme_easing}`
+  | `animate_ease`
+  | `animate_ease_${Theme_easing}`
   | `animate_delay`
   | `animate_delay_${Theme_duration}`
   | `animate_duration`
@@ -3895,7 +4718,10 @@ export type RuleDynamic =
   | `keyframes_${Theme_animation_keyframes}`
   | `transform_${"translate" | "rotate" | "scale"}_${Autocomplete_percent}`
   | `transform_${"translate" | "rotate" | "scale"}_${"x" | "y" | "z"}_${Autocomplete_percent}`
+  | `${"translate" | "rotate" | "scale"}_${Autocomplete_percent}`
+  | `${"translate" | "rotate" | "scale"}_${"x" | "y" | "z"}_${Autocomplete_percent}`
   | `transform_skew_${"x" | "y"}_${Autocomplete_percent}`
+  | `skew_${"x" | "y"}_${Autocomplete_percent}`
   | `transform_origin_${"top" | "top_center" | "top_left" | "top_right" | "bottom" | "bottom_center" | "bottom_left" | "bottom_right" | "left" | "left_center" | "left_top" | "left_bottom" | "right" | "right_center" | "right_top" | "right_bottom" | "center" | "center_top" | "center_bottom" | "center_left" | "center_right" | "center_center" | "t" | "tc" | "tl" | "tr" | "b" | "bc" | "bl" | "br" | "l" | "lc" | "lt" | "lb" | "r" | "rc" | "rt" | "rb" | "c" | "ct" | "cb" | "cl" | "cr" | "cc"}`
   | `origin_${"top" | "top_center" | "top_left" | "top_right" | "bottom" | "bottom_center" | "bottom_left" | "bottom_right" | "left" | "left_center" | "left_top" | "left_bottom" | "right" | "right_center" | "right_top" | "right_bottom" | "center" | "center_top" | "center_bottom" | "center_left" | "center_right" | "center_center" | "t" | "tc" | "tl" | "tr" | "b" | "bc" | "bl" | "br" | "l" | "lc" | "lt" | "lb" | "r" | "rc" | "rt" | "rb" | "c" | "ct" | "cb" | "cl" | "cr" | "cc"}`
   | `border_spacing_${"x" | "y"}`
@@ -3918,6 +4744,8 @@ export type RuleDynamic =
   | `${"block" | "inline"}_${Theme_width}`
   | `${"max" | "min"}_${"w" | "h" | "block" | "inline"}`
   | `${"max" | "min"}_${"w" | "h" | "block" | "inline"}_${Theme_width}`
+  | `${"w" | "h"}_full`
+  | `${"max" | "min"}_${"w" | "h"}_full`
   | `aspect_${"square" | "video" | "ratio"}`
   | `aspect_ratio_${"square" | "video"}`
   | `grid_${"rows" | "cols"}_${Autocomplete_num}`
@@ -3934,13 +4762,16 @@ export type RuleDynamic =
   | `${"position" | "pos"}_inset_${"block" | "inline"}_${Theme_spacing}`
   | `${"position" | "pos"}_inset_${"bs" | "be" | "is" | "ie"}_${Theme_spacing}`
   | `${"position" | "pos"}_${"top" | "left" | "right" | "bottom"}_${Theme_spacing}`
+  | `${"position" | "pos"}_${Autocomplete_position}`
+  | `${"position" | "pos"}_${Autocomplete_globalKeyword}`
+  | `${Autocomplete_position}`
 ;
 
 export type Variant =
   | `print`
-  | `${"at_" | "lt_" | ""}${Theme_breakpoints}`
-  | `${"first_letter" | "first_line" | "any_link" | "link" | "visited" | "target" | "open" | "hover" | "active" | "focus_visible" | "focus_within" | "focus" | "autofill" | "enabled" | "disabled" | "read_only" | "read_write" | "placeholder_shown" | "default" | "checked" | "indeterminate" | "valid" | "invalid" | "in_range" | "out_of_range" | "required" | "optional" | "root" | "empty" | "even_of_type" | "even" | "odd_of_type" | "odd" | "first_of_type" | "first" | "last_of_type" | "last" | "only_child" | "only_of_type" | "placeholder" | "before" | "after" | "selection" | "marker" | "file" | "backdrop"}`
-  | `${"not" | "is" | "where" | "has"}_${"any_link" | "link" | "visited" | "target" | "open" | "hover" | "active" | "focus_visible" | "focus_within" | "focus" | "autofill" | "enabled" | "disabled" | "read_only" | "read_write" | "placeholder_shown" | "default" | "checked" | "indeterminate" | "valid" | "invalid" | "in_range" | "out_of_range" | "required" | "optional" | "root" | "empty" | "even_of_type" | "even" | "odd_of_type" | "odd" | "first_of_type" | "first" | "last_of_type" | "last" | "only_child" | "only_of_type" | ""}`
+  | `${"at_" | "lt_" | "max_" | ""}${Theme_breakpoints}`
+  | `${"placeholder_shown" | "backdrop_element" | "indeterminate" | "focus_visible" | "first_of_type" | "first_letter" | "user_invalid" | "out_of_range" | "focus_within" | "even_of_type" | "last_of_type" | "only_of_type" | "odd_of_type" | "placeholder" | "first_line" | "user_valid" | "read_write" | "only_child" | "read_only" | "selection" | "any_link" | "autofill" | "optional" | "required" | "in_range" | "disabled" | "visited" | "default" | "checked" | "invalid" | "enabled" | "target" | "active" | "before" | "marker" | "valid" | "empty" | "hover" | "focus" | "first" | "after" | "link" | "open" | "root" | "even" | "last" | "file" | "odd" | "backdrop"}`
+  | `${"not" | "is" | "where" | "has"}_${"placeholder_shown" | "indeterminate" | "focus_visible" | "first_of_type" | "user_invalid" | "out_of_range" | "focus_within" | "even_of_type" | "last_of_type" | "only_of_type" | "odd_of_type" | "user_valid" | "read_write" | "only_child" | "read_only" | "any_link" | "autofill" | "optional" | "required" | "in_range" | "disabled" | "visited" | "default" | "checked" | "invalid" | "enabled" | "target" | "active" | "valid" | "empty" | "hover" | "focus" | "first" | "link" | "open" | "root" | "even" | "last" | "odd" | ""}`
   | `dark`
   | `light`
   | `rtl`
