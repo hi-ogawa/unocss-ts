@@ -5,23 +5,25 @@ import type { DynamicRule, Preset, Variant } from "unocss";
 
 /**
  * @example
+ * import riIcons from "@iconify-json/ri/icons.json";
  * presetAutocomplete({
  *   rules: ["some-missing-rule"],
  *   variants: ["some-missing-$variant"],
- *   icons: [await import("@iconify-json/ri/icons.json")]
+ *   icons: [riIcons]
  * })
  */
 export function presetAutocomplete(options?: {
   rules?: string[];
   variants?: string[];
-  icons?: any[];
+  icons?: unknown[];
 }): Preset {
   const rules = [...DEFAULT_RULES, ...(options?.rules ?? [])];
   const variants = [...DEFAULT_VARIANTS, ...(options?.variants ?? [])];
 
   for (const json of options?.icons ?? []) {
-    for (const icon of Object.keys(json.icons)) {
-      rules.push(`i-${json.prefix}-${icon}`);
+    const { prefix, icons } = json as any;
+    for (const icon of Object.keys(icons)) {
+      rules.push(`i-${prefix}-${icon}`);
     }
   }
 

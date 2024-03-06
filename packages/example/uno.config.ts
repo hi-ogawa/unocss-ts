@@ -3,6 +3,7 @@ import {
   presetAutocomplete,
   transformerTypescriptDsl,
 } from "@hiogawa/unocss-typescript-dsl";
+import riIcons from "@iconify-json/ri/icons.json";
 import {
   Preset,
   defineConfig,
@@ -40,7 +41,7 @@ export default defineConfig({
     presetAutocomplete({
       rules: ["border"],
       variants: ["aria-$aria"],
-      icons: [await import("@iconify-json/ri/icons.json")],
+      icons: [riIcons],
     }),
   ],
   transformers: [
