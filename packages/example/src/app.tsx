@@ -1,4 +1,4 @@
-import { tw } from "./styles/tw";
+import { tw } from "@hiogawa/unocss-typescript-dsl";
 
 export function App() {
   return (

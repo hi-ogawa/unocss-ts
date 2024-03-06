@@ -9,6 +9,12 @@ export const PROP_TO_STRING = "$";
 //
 
 export const API_DEFINITION = `\
+import "@hiogawa/unocss-typescript-dsl";
+
+declare module "@hiogawa/unocss-typescript-dsl" {
+  interface RuntimeType extends Api {}
+}
+
 type Property = RuleStatic | RuleDynamic | Shortcut;
 type Method = Variant;
 
@@ -32,5 +38,5 @@ type ApiToString = {
   $: string;
 };
 
-export type Api = ApiProperty & ApiMethod & ApiCustom & ApiToString;
+type Api = ApiProperty & ApiMethod & ApiCustom & ApiToString;
 `;

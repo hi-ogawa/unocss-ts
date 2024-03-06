@@ -46,20 +46,20 @@ async function runCliGenerate(rawArgs: unknown) {
     if (!fs.existsSync(args.outDir)) {
       await fs.promises.mkdir(args.outDir, { recursive: true });
     }
-    await fs.promises.writeFile(join(args.outDir, "types.ts"), output);
-    await fs.promises.writeFile(
-      join(args.outDir, "index.ts"),
-      RUNTIME_FILE_OUTPUT,
-    );
+    await fs.promises.writeFile(join(args.outDir, "types.d.ts"), output);
+    // await fs.promises.writeFile(
+    //   join(args.outDir, "index.ts"),
+    //   RUNTIME_FILE_OUTPUT,
+    // );
   }
 }
 
-const RUNTIME_FILE_OUTPUT = `\
-import { createRuntime } from "@hiogawa/unocss-typescript-dsl/dist/runtime";
-import type { Api } from "./types";
+// const RUNTIME_FILE_OUTPUT = `\
+// import { createRuntime } from "@hiogawa/unocss-typescript-dsl/dist/runtime";
+// import type { Api } from "./types";
 
-export const tw = createRuntime() as Api;
-`;
+// export const tw = createRuntime() as Api;
+// `;
 
 async function main() {
   try {

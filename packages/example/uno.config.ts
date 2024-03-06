@@ -5,16 +5,16 @@ import {
   dummyVariant,
   filterColorPallete,
   transformerTypescriptDsl,
+  tw,
 } from "@hiogawa/unocss-typescript-dsl";
 import {
-  Preset,
+  type Preset,
   defineConfig,
   presetIcons,
   presetUno,
   transformerDirectives,
   transformerVariantGroup,
 } from "unocss";
-import { tw } from "./src/styles/tw";
 
 export default defineConfig({
   theme: {
