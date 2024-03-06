@@ -1,8 +1,7 @@
-import { tinyassert } from "@hiogawa/utils";
-import type { SourceCodeTransformer } from "unocss";
+import { escapeRegExp, mapRegExp, tinyassert } from "@hiogawa/utils";
 import type MagicString from "magic-string";
+import type { SourceCodeTransformer } from "unocss";
 import { API_NAME, PROP_TO_STRING } from "./common";
-import { escapeRegex, mapRegex } from "./regex-utils";
 import { createRuntime } from "./runtime";
 
 export function transformerTypescriptDsl(): SourceCodeTransformer {
@@ -16,7 +15,7 @@ export function transformerTypescriptDsl(): SourceCodeTransformer {
 }
 
 export function transformMagicString(code: MagicString) {
-  mapRegex(
+  mapRegExp(
     code.toString(),
     createRegex(API_NAME, PROP_TO_STRING),
     (match) => {
@@ -33,7 +32,7 @@ export function transformMagicString(code: MagicString) {
 export function transformString(input: string): string {
   const regex = createRegex(API_NAME, PROP_TO_STRING);
   let output = "";
-  mapRegex(
+  mapRegExp(
     input,
     regex,
     (match) => {
@@ -59,8 +58,8 @@ function evaluate(apiName: string, expression: string): string {
 //   ~~~                   ~~
 //   apiName               toStringProperty
 export function createRegex(apiName: string, toStringProperty: string): RegExp {
-  const start = escapeRegex(apiName);
-  const end = escapeRegex(toStringProperty);
+  const start = escapeRegExp(apiName);
+  const end = escapeRegExp(toStringProperty);
   const source = String.raw`(?<!\w)${start}\s*\..*?(?:\.)?\s*${end}(?!\w)`;
   //                        ~~~~~~~                                          negative ahead for word boundary
   //                               ~~~~~~~~~~~~~                             start with "tw."
