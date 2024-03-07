@@ -7,10 +7,10 @@ describe("generateApi", () => {
     const output = await generateApi({
       skipNonTailwind: true,
     });
-    const match = output.match(/export type Theme_colors =(.*?);/ms);
+    const match = output.match(/type Theme_colors =(.*?);/ms);
     tinyassert(match);
     expect(match[0]).toMatchInlineSnapshot(`
-      "export type Theme_colors =
+      "type Theme_colors =
         | \`inherit\`
         | \`current\`
         | \`transparent\`
