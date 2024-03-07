@@ -1,42 +1,47 @@
-// TODO: configurable
+// TODO: configurable?
 export const API_NAME = "tw";
 export const PROP_CUSTOM_RULE = "_";
 export const PROP_CUSTOM_VARIANT = "_v";
 export const PROP_TO_STRING = "$";
 
-//
-// Api definition
-//
-
-export const API_DEFINITION = /* ts */ `\
+export const TYPE_DEF_INTRO = /* ts */ `\
 import "@hiogawa/unocss-ts";
 
 declare module "@hiogawa/unocss-ts" {
-  interface RuntimeType extends Api {}
+  interface RuntimeType extends Tw {}
 }
 
 type Property = RuleStatic | RuleDynamic | Shortcut;
 type Method = Variant;
 
-type ApiProperty = {
-  [key in Property]: Api;
+type TwProperty = {
+  [key in Property]: Tw;
 };
 
-type ApiMethod = {
-  [key in Method]: (inner: Api) => Api;
+type TwMethod = {
+  [key in Method]: (tw: Tw) => Tw;
 };
 
-// escape hatch to allow arbitrary values which are not supported by auto-generation
-type ApiCustom = {
-  _: (raw: string) => Api; // for rule
-  _v: (raw: string, inner: Api) => Api; // for variant
+interface TwCustom {
+  /**
+   * arbitrary rule
+   * @example tw._("bg-[#123]")
+   */
+  _: (arbitrary: string) => Tw;
+  /**
+   * arbitrary variant
+   * @example tw._v("aria-selected", tw.text_blue)
+   */
+  _v: (arbitrary: string, tw: Tw) => Tw;
 };
 
-// force special property to dump the resulting class string,
-// which allows transform to be implemented trivially via regex
-type ApiToString = {
+interface TwToString {
+  /**
+   * terminal to convert runtime into string
+   * @example tw.text_blue.$
+   */
   $: string;
 };
 
-type Api = ApiProperty & ApiMethod & ApiCustom & ApiToString;
+interface Tw extends TwProperty, TwMethod, TwCustom, TwToString {}
 `;
