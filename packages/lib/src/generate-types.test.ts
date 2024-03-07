@@ -1,10 +1,10 @@
 import { tinyassert } from "@hiogawa/utils";
 import { describe, expect, it } from "vitest";
-import { generateApi } from "./generate-api";
+import { generateTypes } from "./generate-types";
 
 describe("generateApi", () => {
   it("basic", async () => {
-    const output = await generateApi({
+    const output = await generateTypes({
       skipNonTailwind: true,
     });
     const match = output.match(/type Theme_colors =(.*?);/ms);

@@ -3,8 +3,7 @@ import { loadConfig } from "@unocss/config";
 import { createGenerator } from "unocss";
 import { TYPE_DEF_INTRO } from "./common";
 
-// TOOD: rename to generateTypes
-export async function generateApi(options: {
+export async function generateTypes(options: {
   cwd?: string;
   configFile?: string;
   skipNonTailwind: boolean;
