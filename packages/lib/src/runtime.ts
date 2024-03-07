@@ -5,13 +5,10 @@ import {
   PROP_TO_STRING,
 } from "./common";
 
-//
-// Api runtime implementation
-//
+// interface merging to fill types
+export interface TwExport {}
 
-export interface RuntimeType {}
-
-export const tw: RuntimeType = /* #__PURE__ */ createRuntime();
+export const tw: TwExport = /* #__PURE__ */ createRuntime();
 
 // based on https://github.com/Mokshit06/typewind/blob/1526e6c086ca6607f0060ce8ede66474585efde4/packages/typewind/src/evaluate.ts
 export function createRuntime() {

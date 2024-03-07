@@ -1,4 +1,4 @@
-export { tw, type RuntimeType } from "./runtime";
+export { tw, type TwExport } from "./runtime";
 
 // TODO: export these from a different entry? (maybe ./config ?)
 export { transformerTypescriptDsl } from "./transform";

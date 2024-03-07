@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import { TinyCli, arg, tinyCliMain } from "@hiogawa/tiny-cli";
 import { version as packageVersion } from "../package.json";
-import { generateApi } from "./generate-api";
+import { generateTypes } from "./generate-types";
 import { transformString } from "./transform";
 
 const cli = new TinyCli({
@@ -18,7 +18,7 @@ cli.defineCommand(
     },
   },
   async ({ args }) => {
-    let output = await generateApi({
+    let output = await generateTypes({
       cwd: process.cwd(),
       configFile: args.configFile,
       skipNonTailwind: true,

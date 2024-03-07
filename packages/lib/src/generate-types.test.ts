@@ -1,16 +1,16 @@
 import { tinyassert } from "@hiogawa/utils";
 import { describe, expect, it } from "vitest";
-import { generateApi } from "./generate-api";
+import { generateTypes } from "./generate-types";
 
 describe("generateApi", () => {
   it("basic", async () => {
-    const output = await generateApi({
+    const output = await generateTypes({
       skipNonTailwind: true,
     });
-    const match = output.match(/export type Theme_colors =(.*?);/ms);
+    const match = output.match(/type Theme_colors =(.*?);/ms);
     tinyassert(match);
     expect(match[0]).toMatchInlineSnapshot(`
-      "export type Theme_colors =
+      "type Theme_colors =
         | \`inherit\`
         | \`current\`
         | \`transparent\`

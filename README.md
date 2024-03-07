@@ -6,7 +6,7 @@ inspired by [Typewind](https://github.com/Mokshit06/typewind) for
 
 ## example
 
-[Try it on Stackblitz](https://stackblitz.com/edit/github-rpengj?file=src%2Fapp.tsx)
+[Try it on Stackblitz](https://stackblitz.com/edit/github-3mbkgp?file=src%2Fapp.tsx)
 
 <!--
 
@@ -56,6 +56,8 @@ export function App() {
 <!-- %template-output-end:example% -->
 
 ![image](https://user-images.githubusercontent.com/4232207/215325254-6012680e-4f3a-4b11-834b-bf8c7eb055eb.png)
+
+![310725686-31de0ede-c890-4257-a771-e7ea80d08dd2](https://github.com/hi-ogawa/unocss-ts/assets/4232207/086fe3a3-9514-48eb-8632-212e9e279792)
 
 ## development
 
