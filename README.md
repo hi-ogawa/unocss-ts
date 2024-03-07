@@ -6,7 +6,7 @@ inspired by [Typewind](https://github.com/Mokshit06/typewind) for
 
 ## example
 
-[Try it on Stackblitz](https://stackblitz.com/edit/github-rpengj?file=src%2Fapp.tsx)
+[Try it on Stackblitz](https://stackblitz.com/edit/github-3mbkgp?file=src%2Fapp.tsx)
 
 <!--
 
