@@ -3,7 +3,7 @@
 import "@hiogawa/unocss-ts";
 
 declare module "@hiogawa/unocss-ts" {
-  interface RuntimeType extends Tw {}
+  interface TwExport extends Tw {}
 }
 
 type Property = RuleStatic | RuleDynamic | Shortcut;
